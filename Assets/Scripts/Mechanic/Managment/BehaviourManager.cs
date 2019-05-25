@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -20,6 +21,11 @@ namespace Mechanic.Managment
             _cahedRootName = gameObject.transform.root.gameObject.name;
         }
 
+        internal void ActivateDfaultBehavior()
+        {
+            ActivateBehavior(_defaultBehavior);
+        }
+
         public void ActivateBehavior(string name)
         {
             foreach (var item in _behaviours)
@@ -38,7 +44,7 @@ namespace Mechanic.Managment
 
         private void Start()
         {
-            ActivateBehavior(_defaultBehavior);
+            ActivateDfaultBehavior();
         }
 
         private void Reset()

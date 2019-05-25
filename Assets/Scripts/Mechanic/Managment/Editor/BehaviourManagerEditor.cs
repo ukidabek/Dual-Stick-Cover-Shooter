@@ -58,24 +58,28 @@ namespace Mechanic.Managment
             if (index >= 0)
             {
                 var newIndex = EditorGUILayout.Popup("Default behavior: ", index, behaviorNames.ToArray());
+                if (string.IsNullOrEmpty(defaultBehavior.GetValue(behaviourManager) as string))
+                    defaultBehavior.SetValue(behaviourManager, behaviorNames[newIndex]);
+
                 if (newIndex != index)
                 {
                     defaultBehavior.SetValue(behaviourManager, behaviorNames[newIndex]);
                     index = newIndex;
                 }
-                EditorGUILayout.BeginHorizontal();
-                {
-                    GUILayout.Label("Name: ");
-                    newBehaviorName = GUILayout.TextField(newBehaviorName);
-                    if (GUILayout.Button("Add", GUILayout.Height(15)) && !string.IsNullOrEmpty(newBehaviorName))
-                    {
-                        AddBehaviour(newBehaviorName);
-                        newBehaviorName = string.Empty;
-                    }
-                }
-                EditorGUILayout.EndHorizontal();
-                GUILayout.Space(10);
             }
+
+            EditorGUILayout.BeginHorizontal();
+            {
+                GUILayout.Label("Name: ");
+                newBehaviorName = GUILayout.TextField(newBehaviorName);
+                if (GUILayout.Button("Add", GUILayout.Height(15)) && !string.IsNullOrEmpty(newBehaviorName))
+                {
+                    AddBehaviour(newBehaviorName);
+                    newBehaviorName = string.Empty;
+                }
+            }
+            EditorGUILayout.EndHorizontal();
+            GUILayout.Space(10);
 
             for (int i = 0; i < _behaviours.Count; i++)
             {
@@ -83,14 +87,24 @@ namespace Mechanic.Managment
                 if (item.Name != behaviorNames[i])
                     GetBehaviorNames();
 
-                GUI.enabled = Application.isPlaying;
-                Color old = GUI.color;
-                if (item.Enabled)
-                    GUI.color = Color.red;
-                if (GUILayout.Button(item.Name))
-                    behaviourManager.ActivateBehavior(item.Name);
+                EditorGUILayout.BeginHorizontal();
+                {
+                    GUI.enabled = Application.isPlaying;
+                    Color old = GUI.color;
+                    if (item.Enabled)
+                        GUI.color = Color.red;
+                    if (GUILayout.Button(item.Name))
+                        behaviourManager.ActivateBehavior(item.Name);
+                    GUI.enabled = !Application.isPlaying;
+                    if (GUILayout.Button("Delete", GUILayout.Width(50)))
+                    {
+                        DestroyImmediate(_behaviours[i].gameObject);
+                        _behaviours.RemoveAt(i--);
+                    }
+                    GUI.color = old;
+                }
+                EditorGUILayout.EndHorizontal();
 
-                GUI.color = old;
             }
         }
     }
