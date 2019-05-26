@@ -26,5 +26,11 @@ namespace Mechanic.Managment
         }
 
         [SerializeField] private List<BaseMechanic> baseMechanics = new List<BaseMechanic>();
+
+        private void Awake()
+        {
+            foreach (var item in baseMechanics)
+                item.SetOwner(this);
+        }
     }
 }

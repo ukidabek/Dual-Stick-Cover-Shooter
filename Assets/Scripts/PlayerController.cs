@@ -20,6 +20,11 @@ namespace Player
         bool Activate { get; set; }
     }
 
+    public interface IFire
+    {
+        void Fire();
+    }
+
     public class PlayerController : MonoBehaviour
     {
         private static List<PlayerController> players = new List<PlayerController>(); 
@@ -29,6 +34,7 @@ namespace Player
         private IMove[] _movementHandlers = null;
         private IAim[] _aimHandlers = null;
         private IAimToggle[] _aimToggles = null;
+        private IFire[] _fires = null;
 
         private string _defaultName = string.Empty; 
 
@@ -46,6 +52,7 @@ namespace Player
             _movementHandlers = gameObject.GetComponentsInChildren<IMove>();
             _aimHandlers = gameObject.GetComponentsInChildren<IAim>();
             _aimToggles = gameObject.GetComponentsInChildren<IAimToggle>();
+            _fires = gameObject.GetComponentsInChildren<IFire>();
         }
 
         public void Move(Vector3 input)
@@ -64,6 +71,12 @@ namespace Player
         {
             for (int i = 0; i < _aimToggles.Length; i++)
                 _aimToggles[i].Activate = activate;
+        }
+
+        public void Fire()
+        {
+            for (int i = 0; i < _fires.Length; i++)
+                _fires[i].Fire();
         }
 
         private void OnDrawGizmos()
