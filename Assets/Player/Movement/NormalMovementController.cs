@@ -1,5 +1,6 @@
 using UnityEngine;
 using Mechanic.BaseClasses;
+using Player;
 
 public class NormalMovementController : BaseMechanic, IMove
 {

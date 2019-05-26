@@ -1,4 +1,5 @@
 using Mechanic.BaseClasses;
+using Player;
 using UnityEngine;
 
 public class AimAnimationController : BaseMechanic, IMove
