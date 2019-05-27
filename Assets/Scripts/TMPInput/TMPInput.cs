@@ -34,8 +34,9 @@ public class TMPInput : MonoBehaviour
             if (newValue == 0 && currentValue > 0f)
                 onUp.Invoke();
             currentValue = newValue;
-
         }
+
+        public float Value { get { return Input.GetAxis(_anim); } }
     }
 
     public Vector3InputCallback movementCallback = new Vector3InputCallback();
@@ -52,17 +53,22 @@ public class TMPInput : MonoBehaviour
     [SerializeField] private Trigger _aim = new Trigger("Fire1");
     [SerializeField] private Trigger _fire = new Trigger("Fire2");
 
+    public Vector3InputCallback triggersCallback = new Vector3InputCallback();
+    [SerializeField]private Vector3 _triggersInput = Vector3.zero;
+
     void Update()
     {
         _movementInput.x = Input.GetAxis(_horizontal);
         _movementInput.z = Input.GetAxis(_vertical);
         _lookInput.x = Input.GetAxis(_lookHorizontal);
         _lookInput.z = Input.GetAxis(_lookVertical);
-
+        _triggersInput.x = _aim.Value;
+        _triggersInput.z = _fire.Value;
         _aim.Validate();
         _fire.Validate();
         
         movementCallback.Invoke(_movementInput);
         lookCallback.Invoke(_lookInput);
+        triggersCallback.Invoke(_triggersInput);
     }
 }

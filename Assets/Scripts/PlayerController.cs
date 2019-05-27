@@ -27,7 +27,7 @@ namespace Player
 
     public class PlayerController : MonoBehaviour
     {
-        private static List<PlayerController> players = new List<PlayerController>(); 
+        private static List<PlayerController> players = new List<PlayerController>();
         public static ReadOnlyCollection<PlayerController> Players = null;
         public static event Action PlayerListUpdated = null;
 
@@ -36,12 +36,14 @@ namespace Player
         private IAimToggle[] _aimToggles = null;
         private IFire[] _fires = null;
 
-        private string _defaultName = string.Empty; 
+        private string _defaultName = string.Empty;
+        [SerializeField] private int _playerID = 0;
 
         private void OnEnable()
         {
             if (Players == null) Players = new ReadOnlyCollection<PlayerController>(players);
             players.Add(this);
+            _playerID = players.Count;
             transform.root.name = string.Format("{0} {1}", _defaultName, players.Count.ToString());
             PlayerListUpdated?.Invoke();
         }
