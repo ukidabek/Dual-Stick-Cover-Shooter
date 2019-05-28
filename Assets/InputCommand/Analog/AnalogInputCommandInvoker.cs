@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class MovementCommandInvoker : CommandInvoker, IPlayerIDSetter
+public class AnalogInputCommandInvoker : CommandInvoker, IPlayerIDSetter
 {
     public int PlayerID { get; set; }
 
@@ -14,7 +14,7 @@ public class MovementCommandInvoker : CommandInvoker, IPlayerIDSetter
         {
             for (int i = 0; i < _analogInputStatuses.Count; i++)
                 if (_analogInputStatuses[i].IsDirty)
-                    return new MovementCommand(PlayerID, _analogInputStatuses);
+                    return new AnalogInputCommand(PlayerID, _analogInputStatuses);
 
             return null;
         }

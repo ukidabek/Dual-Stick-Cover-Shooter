@@ -5,12 +5,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
-public class MovementCommand : Command
+public class AnalogInputCommand : Command
 {
     private byte _playerID = 0;
     private ushort[] _inputs = null;
 
-    public MovementCommand(int playerID, List<AnalogInputStatus> movement)
+    public AnalogInputCommand(int playerID, List<AnalogInputStatus> movement)
     {
         _playerID = (byte)playerID;
 
