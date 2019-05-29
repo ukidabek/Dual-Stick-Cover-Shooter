@@ -39,6 +39,22 @@ public class TMPInput : MonoBehaviour
         public float Value { get { return Input.GetAxis(_anim); } }
     }
 
+    [Serializable]
+    private class ButtonHandler
+    {
+        [SerializeField] private KeyCode key = KeyCode.None;
+        public UnityEvent onKeyDown = new UnityEvent();
+        public UnityEvent onKeyUp = new UnityEvent();
+
+        public void Validate()
+        {
+            if (Input.GetKeyDown(key))
+                onKeyDown.Invoke();
+            if (Input.GetKeyUp(key))
+                onKeyUp.Invoke();
+        }
+    }
+
     public Vector3InputCallback movementCallback = new Vector3InputCallback();
     [SerializeField] private Vector3 _movementInput = Vector3.zero;
 
@@ -54,7 +70,9 @@ public class TMPInput : MonoBehaviour
     [SerializeField] private Trigger _fire = new Trigger("Fire2");
 
     public Vector3InputCallback triggersCallback = new Vector3InputCallback();
-    [SerializeField]private Vector3 _triggersInput = Vector3.zero;
+    [SerializeField] private Vector3 _triggersInput = Vector3.zero;
+
+    [SerializeField] private ButtonHandler _use = new ButtonHandler();
 
     void Update()
     {
@@ -66,7 +84,8 @@ public class TMPInput : MonoBehaviour
         _triggersInput.z = _fire.Value;
         _aim.Validate();
         _fire.Validate();
-        
+        _use.Validate();
+
         movementCallback.Invoke(_movementInput);
         lookCallback.Invoke(_lookInput);
         triggersCallback.Invoke(_triggersInput);

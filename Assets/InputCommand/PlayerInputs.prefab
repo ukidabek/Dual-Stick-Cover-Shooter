@@ -74,6 +74,7 @@ Transform:
   m_Children:
   - {fileID: 1223994003257929449}
   - {fileID: 1223994002913313212}
+  - {fileID: 5885721139638853895}
   m_Father: {fileID: 3338990930812312856}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -92,6 +93,7 @@ MonoBehaviour:
   _buttonStates:
   - {fileID: 1223994003257929448}
   - {fileID: 1223994002913313213}
+  - {fileID: 2816741510741558546}
   inputs: 0
   oldInputs: 0
 --- !u!1 &1223994003257929450
@@ -239,7 +241,7 @@ GameObject:
   - component: {fileID: 1223994004051988118}
   - component: {fileID: 1223994004051988119}
   m_Layer: 0
-  m_Name: MovementCommandInvoker
+  m_Name: AnalogInputCommandInvoker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -276,6 +278,50 @@ MonoBehaviour:
   _analogInputStatuses:
   - {fileID: 1223994003960381089}
   - {fileID: 1223994003827183134}
+--- !u!1 &5585794712131737730
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5885721139638853895}
+  - component: {fileID: 2816741510741558546}
+  m_Layer: 0
+  m_Name: Use
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5885721139638853895
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5585794712131737730}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1223994003230122901}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2816741510741558546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5585794712131737730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2d7605df87e5be4ba68ff2071179dcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _status: 0
 --- !u!1 &8436887167946888004
 GameObject:
   m_ObjectHideFlags: 0

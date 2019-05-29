@@ -14,6 +14,15 @@ public class ButtonsCommandInvoker : CommandInvoker, IPlayerIDSetter
 
     protected override Command Command => new ButtonsCommand(PlayerID, (byte)_buttonStates.Count, inputs);
 
+#if UNITY_EDITOR
+    private string _defaultName = string.Empty;
+
+    private void Awake()
+    {
+        _defaultName = gameObject.name;
+    }
+#endif
+
     private void Update()
     {
         inputs = 0;
@@ -27,5 +36,9 @@ public class ButtonsCommandInvoker : CommandInvoker, IPlayerIDSetter
             Invoke();
             oldInputs = inputs;
         }
+
+#if UNITY_EDITOR
+        gameObject.name = string.Format("{0} {1}", _defaultName, Convert.ToString(inputs,2).PadLeft(16,'0'));
+#endif
     }
 }
