@@ -11,6 +11,10 @@ public class AimAnimationController : BaseMechanic, IMove
 
     [SerializeField] private Vector3 _localizedInput = Vector3.zero;
 
+    private void OnEnable()
+    {
+        _animator.SetBool("Aim", true);
+    }
     private void Update()
     {
         _localizedInput = _transform.InverseTransformDirection(_input).normalized;
@@ -20,6 +24,7 @@ public class AimAnimationController : BaseMechanic, IMove
 
     private void OnDisable()
     {
+        _animator.SetBool("Aim", false);
         _animator.SetFloat("Horizontal", 0);
     }
 }
