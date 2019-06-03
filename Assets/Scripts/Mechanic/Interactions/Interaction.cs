@@ -17,6 +17,8 @@ public class Interaction : MonoBehaviour
 
     private GameObject user = null;
 
+    [SerializeField] private bool _isInteractionShown = false;
+
     public void Use(GameObject user)
     {
         OnUseCallback.Invoke(this.user = user);
@@ -31,15 +33,21 @@ public class Interaction : MonoBehaviour
 
     public void Show()
     {
-        OnInteractionStatusChange.Invoke(true);
-        OnInteractionShow.Invoke();
-        Debug.LogFormat("Interaction {0} show.", gameObject.name);
+        if(!_isInteractionShown)
+        {
+            OnInteractionStatusChange.Invoke(_isInteractionShown = true);
+            OnInteractionShow.Invoke();
+            Debug.LogFormat("Interaction {0} show.", gameObject.name);
+        }
     }
 
     public void Hide()
     {
-        OnInteractionStatusChange.Invoke(false);
-        OnInteractionHide.Invoke();
-        Debug.LogFormat("Interaction {0} hide.", gameObject.name);
+        if(_isInteractionShown)
+        {
+            OnInteractionStatusChange.Invoke(_isInteractionShown = false);
+            OnInteractionHide.Invoke();
+            Debug.LogFormat("Interaction {0} hide.", gameObject.name);
+        }
     }
 }

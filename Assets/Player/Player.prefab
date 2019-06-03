@@ -458,6 +458,9 @@ MonoBehaviour:
   _animator: {fileID: 1170431684018105972}
   _input: {x: 0, y: 0, z: 0}
   _localizedInput: {x: 0, y: 0, z: 0}
+  _aimParametraName: Aim
+  _verticalParametraName: Vertical
+  _horizontalParametraName: Horizontal
 --- !u!1 &1254943372189570875
 GameObject:
   m_ObjectHideFlags: 0
@@ -503,7 +506,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _input: {x: 0, y: 0, z: 0}
   _rigidbody: {fileID: 1254943372370487612}
-  _speed: 1
+  _speed: 0.5
   rotationSnap:
     _instantRotationSnap: 0
     _rotationSnapSpeed: 10
@@ -1272,15 +1275,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4461509016300196, guid: 4de534fd36773e04db77497c7cb89e55, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.35
+      value: 0.20506881
       objectReference: {fileID: 0}
     - target: {fileID: 4461509016300196, guid: 4de534fd36773e04db77497c7cb89e55, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.35
+      value: 0.20506881
       objectReference: {fileID: 0}
     - target: {fileID: 4461509016300196, guid: 4de534fd36773e04db77497c7cb89e55, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.35
+      value: 0.20506881
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4de534fd36773e04db77497c7cb89e55, type: 3}

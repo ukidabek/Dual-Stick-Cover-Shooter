@@ -11,20 +11,26 @@ public class AimAnimationController : BaseMechanic, IMove
 
     [SerializeField] private Vector3 _localizedInput = Vector3.zero;
 
+    [Space]
+    [SerializeField] private string _aimParametraName = "Aim";
+    [SerializeField] private string _verticalParametraName = "Vertical";
+    [SerializeField] private string _horizontalParametraName = "Horizontal";
+
     private void OnEnable()
     {
-        _animator.SetBool("Aim", true);
+        _animator.SetBool(_aimParametraName, true);
     }
+
     private void Update()
     {
         _localizedInput = _transform.InverseTransformDirection(_input).normalized;
-        _animator.SetFloat("Horizontal", _localizedInput.x);
-        _animator.SetFloat("Vertical", _localizedInput.z);
+        _animator.SetFloat(_horizontalParametraName, _localizedInput.x);
+        _animator.SetFloat(_verticalParametraName, _localizedInput.z);
     }
 
     private void OnDisable()
     {
-        _animator.SetBool("Aim", false);
-        _animator.SetFloat("Horizontal", 0);
+        _animator.SetBool(_aimParametraName, false);
+        _animator.SetFloat(_horizontalParametraName, 0);
     }
 }
