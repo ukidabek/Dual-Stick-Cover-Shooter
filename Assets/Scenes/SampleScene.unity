@@ -761,12 +761,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2d7605df87e5be4ba68ff2071179dcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!135 &1717968744 stripped
-SphereCollider:
-  m_CorrespondingSourceObject: {fileID: 2047743766, guid: bca2b930005ecff4491ea15b5e606ddd,
-    type: 3}
-  m_PrefabInstance: {fileID: 1254943373583174457}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2020847377 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1223994003827183134, guid: 25b9fbd44d1c1684db08308b20d2349d,
@@ -959,14 +953,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2047743767, guid: bca2b930005ecff4491ea15b5e606ddd, type: 3}
-      propertyPath: _sphereCollider
-      value: 
-      objectReference: {fileID: 1717968744}
-    - target: {fileID: 2047743767, guid: bca2b930005ecff4491ea15b5e606ddd, type: 3}
-      propertyPath: _interactionShowAngle
-      value: 60
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bca2b930005ecff4491ea15b5e606ddd, type: 3}

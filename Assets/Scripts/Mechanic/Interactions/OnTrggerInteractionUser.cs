@@ -9,8 +9,8 @@ public class OnTrggerInteractionUser : MonoBehaviour
     [SerializeField] private Interaction _interaction = null;
     private List<Interaction> interactions = new List<Interaction>();
 
-    //[SerializeField] private 
-    [SerializeField, Range(0f, 360f)] private float _interactionShowAngle = 40f;
+    [SerializeField] private bool _useAngle = false;  
+    [SerializeField, HideInInspector] private float _interactionShowAngle = 40f;
 
     private Vector3 _targetDirection = Vector3.zero;
     private float _angle = 0;
@@ -59,12 +59,15 @@ public class OnTrggerInteractionUser : MonoBehaviour
 
             if (closestInteraction != _interaction)
             {
-                //_interaction?.Hide();
+                if(!_useAngle)
+                {
+                    _interaction?.Hide();
+                    closestInteraction.Show();
+                }
                 _interaction = closestInteraction;
-                //_interaction.Show();
             }
 
-            if (_interaction != null)
+            if (_useAngle && _interaction != null)
             {
                 _targetDirection = _interaction.transform.position - transform.root.transform.position;
                 _angle = Vector3.Angle(_targetDirection, transform.root.transform.forward);
@@ -84,17 +87,17 @@ public class OnTrggerInteractionUser : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-#if UNITY_EDITOR
-        Quaternion rotation = Quaternion.AngleAxis(_interactionShowAngle, Vector3.up);
-        Vector3 localPosition = rotation * (Vector3.zero + Vector3.forward * _sphereCollider.radius);
-        Vector3 position = transform.root.TransformPoint(localPosition);
-        Debug.DrawLine(transform.root.transform.position, position, Color.green);
+        if(_useAngle)
+        {
+            Quaternion rotation = Quaternion.AngleAxis(_interactionShowAngle, Vector3.up);
+            Vector3 localPosition = rotation * (Vector3.zero + Vector3.forward * _sphereCollider.radius);
+            Vector3 position = transform.root.TransformPoint(localPosition);
+            Debug.DrawLine(transform.root.transform.position, position, Color.green);
          
-        rotation = Quaternion.AngleAxis(-_interactionShowAngle, Vector3.up);
-        localPosition = rotation * (Vector3.zero + Vector3.forward * _sphereCollider.radius);
-        position = transform.root.TransformPoint(localPosition);
-        Debug.DrawLine(transform.root.transform.position, position, Color.green);
-
-#endif
+            rotation = Quaternion.AngleAxis(-_interactionShowAngle, Vector3.up);
+            localPosition = rotation * (Vector3.zero + Vector3.forward * _sphereCollider.radius);
+            position = transform.root.TransformPoint(localPosition);
+            Debug.DrawLine(transform.root.transform.position, position, Color.green);
+        }
     }
 }

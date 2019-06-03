@@ -618,7 +618,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abab23e27975a9845959ea926454568c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _sphereCollider: {fileID: 2047743766}
   _interaction: {fileID: 0}
+  _useAngle: 0
+  _interactionShowAngle: 60
 --- !u!1 &1254943372600697466
 GameObject:
   m_ObjectHideFlags: 0
