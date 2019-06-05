@@ -5,8 +5,43 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    [Serializable] public class Mode
+    [Serializable]
+    public class Mode
     {
+        [Serializable]
+        public class Type
+        {
+            [SerializeField] private string _name = string.Empty;
+
+            public static bool operator ==(Type a, Type b)
+            {
+                return a._name == b._name;
+            }
+
+            public static bool operator !=(Type a, Type b)
+            {
+                return a._name != b._name;
+            }
+
+            public override bool Equals(object obj)
+            {
+                return (obj as Type) == this;
+            }
+
+            public override int GetHashCode()
+            {
+                return _name.GetHashCode();
+            }
+
+            public static implicit operator string(Type type)
+            {
+                return type._name;
+            }
+        }
+
+        [SerializeField] private Type type = new Type();
+        public Type Type1 { get => type; }
+
         [Serializable]
         public class WeaponLogicModule
         {
@@ -35,6 +70,7 @@ public class Weapon : MonoBehaviour
         [SerializeField] private WeaponLogicModule _onUse = new WeaponLogicModule();
         [SerializeField] private WeaponLogicModule _onEndUse = new WeaponLogicModule();
 
+
         public void BeginUse()
         {
             _onBeginUse.Perform();
@@ -51,20 +87,21 @@ public class Weapon : MonoBehaviour
         }
     }
 
+    [SerializeField] private int _currentModeIndex = 0;
     [SerializeField] private Mode[] _modes = new Mode[1];
 
     public void BeginUse()
     {
-        _modes[0].BeginUse();
+        _modes[_currentModeIndex].BeginUse();
     }
 
     public void Use()
     {
-        _modes[0].Use();
+        _modes[_currentModeIndex].Use();
     }
 
     public void EndUse()
     {
-        _modes[0].EndUse();
+        _modes[_currentModeIndex].EndUse();
     }
 }
