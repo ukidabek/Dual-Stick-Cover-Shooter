@@ -47,7 +47,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _weaponValidators:
   - {fileID: 4399775552573847624}
-  _weaponActions: []
+  _weaponActions:
+  - {fileID: 5634622191001628029}
 --- !u!114 &4399775552573847624
 MonoBehaviour:
   m_ObjectHideFlags: 0

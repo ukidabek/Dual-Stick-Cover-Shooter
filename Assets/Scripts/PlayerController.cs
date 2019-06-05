@@ -22,7 +22,7 @@ namespace Player
 
     public interface IFire
     {
-        void Fire();
+        bool Activate { get; set; }
     }
 
     public class PlayerController : MonoBehaviour
@@ -35,6 +35,7 @@ namespace Player
         private IAim[] _aimHandlers = null;
         private IAimToggle[] _aimToggles = null;
         private IFire[] _fires = null;
+        private IUse[] _uses = null;
 
         private string _defaultName = string.Empty;
         [SerializeField] private int _playerID = 0;
@@ -51,10 +52,12 @@ namespace Player
         private void Awake()
         {
             _defaultName = transform.root.name;
+            var gameObject = transform.root;
             _movementHandlers = gameObject.GetComponentsInChildren<IMove>();
             _aimHandlers = gameObject.GetComponentsInChildren<IAim>();
             _aimToggles = gameObject.GetComponentsInChildren<IAimToggle>();
             _fires = gameObject.GetComponentsInChildren<IFire>();
+            _uses = gameObject.GetComponentsInChildren<IUse>();
         }
 
         public void Move(Vector3 input)
@@ -75,10 +78,16 @@ namespace Player
                 _aimToggles[i].Activate = activate;
         }
 
-        public void Fire()
+        public void Fire(bool activate)
         {
             for (int i = 0; i < _fires.Length; i++)
-                _fires[i].Fire();
+                _fires[i].Activate = activate;
+        }
+
+        public void Use()
+        {
+            for (int i = 0; i < _uses.Length; i++)
+                _uses[i].Use();
         }
 
         private void OnDrawGizmos()

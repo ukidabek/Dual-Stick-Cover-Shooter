@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(SphereCollider))]
-public class OnTrggerInteractionUser : MonoBehaviour
+public class OnTrggerInteractionUser : MonoBehaviour, IUse
 {
     [SerializeField] private SphereCollider _sphereCollider = null;
     [SerializeField] private Interaction _interaction = null;

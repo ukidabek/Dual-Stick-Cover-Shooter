@@ -47,15 +47,31 @@ MonoBehaviour:
   _oldStatus: 0
   OnDown:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1501103585846617320}
+        m_MethodName: Fire
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   OnHold:
     m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnUp:
+    m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1501103585846617320}
         m_MethodName: Fire
-        m_Mode: 1
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -64,11 +80,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  OnUp:
-    m_PersistentCalls:
-      m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &518287488
@@ -520,10 +531,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1254943372370487610}
   - component: {fileID: 1254943372370487612}
-  - component: {fileID: 1254943372370487613}
   - component: {fileID: 1501103585846617320}
-  - component: {fileID: 2047743766}
-  - component: {fileID: 2047743767}
+  - component: {fileID: 723176197}
+  - component: {fileID: 3228682967498072176}
+  - component: {fileID: 723176198}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -566,20 +577,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!136 &1254943372370487613
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1254943372370487611}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.13
-  m_Height: 0.4
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.2, z: 0}
 --- !u!114 &1501103585846617320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -593,7 +590,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerID: 0
---- !u!135 &2047743766
+--- !u!114 &723176197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254943372370487611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abab23e27975a9845959ea926454568c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sphereCollider: {fileID: 723176198}
+  _interaction: {fileID: 0}
+  _useAngle: 0
+  _interactionShowAngle: 60
+--- !u!136 &3228682967498072176
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254943372370487611}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.13
+  m_Height: 0.4
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.2, z: 0}
+--- !u!135 &723176198
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -606,22 +633,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2047743767
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1254943372370487611}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: abab23e27975a9845959ea926454568c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _sphereCollider: {fileID: 2047743766}
-  _interaction: {fileID: 0}
-  _useAngle: 0
-  _interactionShowAngle: 60
 --- !u!1 &1254943372600697466
 GameObject:
   m_ObjectHideFlags: 0
@@ -1071,6 +1082,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _weapon: {fileID: 9104923399647360825}
+  _activate: 0
 --- !u!1 &4604588572522020203
 GameObject:
   m_ObjectHideFlags: 0
@@ -1119,7 +1131,7 @@ MonoBehaviour:
   OnDown:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2047743767}
+      - m_Target: {fileID: 0}
         m_MethodName: Use
         m_Mode: 1
         m_Arguments:
@@ -1232,6 +1244,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SciFiWarriorPBR
       objectReference: {fileID: 0}
+    - target: {fileID: 1088446404920904, guid: 4de534fd36773e04db77497c7cb89e55, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4461509016300196, guid: 4de534fd36773e04db77497c7cb89e55, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1288,17 +1304,29 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.20506881
       objectReference: {fileID: 0}
+    - target: {fileID: 4494991074691304, guid: 4de534fd36773e04db77497c7cb89e55, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 4494991074691304, guid: 4de534fd36773e04db77497c7cb89e55, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.451
+      objectReference: {fileID: 0}
+    - target: {fileID: 4494991074691304, guid: 4de534fd36773e04db77497c7cb89e55, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.37
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4de534fd36773e04db77497c7cb89e55, type: 3}
---- !u!4 &1253599253845706744 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4461509016300196, guid: 4de534fd36773e04db77497c7cb89e55,
-    type: 3}
-  m_PrefabInstance: {fileID: 1254943372519353692}
-  m_PrefabAsset: {fileID: 0}
 --- !u!95 &1170431684018105972 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 95773181460988712, guid: 4de534fd36773e04db77497c7cb89e55,
+    type: 3}
+  m_PrefabInstance: {fileID: 1254943372519353692}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1253599253845706744 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4461509016300196, guid: 4de534fd36773e04db77497c7cb89e55,
     type: 3}
   m_PrefabInstance: {fileID: 1254943372519353692}
   m_PrefabAsset: {fileID: 0}
@@ -1369,30 +1397,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5137480980438416978, guid: e8eb0e6ced04f874488f6d53e97535cc,
-        type: 3}
-      propertyPath: _weaponActions.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5137480980438416978, guid: e8eb0e6ced04f874488f6d53e97535cc,
-        type: 3}
-      propertyPath: _weaponActions.Array.data[0]
-      value: 
-      objectReference: {fileID: 8584673616135414806}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8eb0e6ced04f874488f6d53e97535cc, type: 3}
---- !u!114 &8584673616135414806 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5634622191001628029, guid: e8eb0e6ced04f874488f6d53e97535cc,
+--- !u!4 &62392101620470508 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4165118708536368007, guid: e8eb0e6ced04f874488f6d53e97535cc,
     type: 3}
   m_PrefabInstance: {fileID: 4112015350948956523}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a10cc8a5aa8f2d4f9790f1f4d4fe408, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &9104923399647360825 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5137480980438416978, guid: e8eb0e6ced04f874488f6d53e97535cc,
@@ -1405,9 +1417,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12a80944fa16f264f94c7ac678940649, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &62392101620470508 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4165118708536368007, guid: e8eb0e6ced04f874488f6d53e97535cc,
-    type: 3}
-  m_PrefabInstance: {fileID: 4112015350948956523}
-  m_PrefabAsset: {fileID: 0}
