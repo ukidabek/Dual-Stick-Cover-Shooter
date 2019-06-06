@@ -25,3 +25,4 @@ UnityVS
 /.vs/MagicFPS/v14/*.suo
 /*.userprefs
 /.gradle
+/obj
