@@ -19,6 +19,8 @@ public class TMPInput : MonoBehaviour
         public UnityEvent onHold = new UnityEvent();
         public UnityEvent onUp = new UnityEvent();
 
+        [SerializeField] private bool _reactOnNegative = false;
+
         public Trigger(string anim)
         {
             _anim = anim;
@@ -27,6 +29,13 @@ public class TMPInput : MonoBehaviour
         public void Validate()
         {
             newValue = Input.GetAxisRaw(_anim);
+
+            if (_reactOnNegative)
+                if (newValue > 0) return;
+            else 
+                if (newValue < 0) return;
+
+            newValue = Mathf.Abs(newValue);
             if (newValue > 0f && currentValue == 0f)
                 onDown.Invoke();
             if (newValue > 0f && currentValue > 0f)
@@ -69,6 +78,9 @@ public class TMPInput : MonoBehaviour
     [SerializeField] private Trigger _aim = new Trigger("Fire1");
     [SerializeField] private Trigger _fire = new Trigger("Fire2");
 
+    [SerializeField] private Trigger _previus = new Trigger("Fire2");
+    [SerializeField] private Trigger _next = new Trigger("Fire1");
+
     public Vector3InputCallback triggersCallback = new Vector3InputCallback();
     [SerializeField] private Vector3 _triggersInput = Vector3.zero;
 
@@ -82,8 +94,11 @@ public class TMPInput : MonoBehaviour
         _lookInput.z = Input.GetAxis(_lookVertical);
         _triggersInput.x = _aim.Value;
         _triggersInput.z = _fire.Value;
+
         _aim.Validate();
         _fire.Validate();
+        _previus.Validate();
+        _next.Validate();
         _use.Validate();
 
         movementCallback.Invoke(_movementInput);

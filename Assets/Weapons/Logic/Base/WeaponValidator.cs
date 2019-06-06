@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 
-public abstract class WeaponValidator: MonoBehaviour
+namespace Weapons
 {
-    public abstract bool Validate();
+    public abstract class WeaponValidator : MonoBehaviour
+    {
+        public abstract bool Validate();
+    }
 }

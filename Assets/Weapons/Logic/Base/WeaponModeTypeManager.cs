@@ -4,7 +4,8 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "WeaponModeTypeManager", menuName = "Weapon/ModeTypeManager")]
-public class WeaponModeTypeManager : SingletonTypeManager<WeaponModeTypeManager>
+namespace Weapons
 {
+    [CreateAssetMenu(fileName = "WeaponModeTypeManager", menuName = "Weapon/ModeTypeManager")]
+    public class WeaponModeTypeManager : SingletonTypeManager<WeaponModeTypeManager> { }
 }

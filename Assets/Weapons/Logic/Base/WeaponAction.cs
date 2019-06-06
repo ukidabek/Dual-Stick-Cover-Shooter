@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 
-public abstract class WeaponAction : MonoBehaviour
+namespace Weapons
 {
-    public abstract bool Perform();
+    public abstract class WeaponAction : MonoBehaviour
+    {
+        public abstract bool Perform();
+    }
 }

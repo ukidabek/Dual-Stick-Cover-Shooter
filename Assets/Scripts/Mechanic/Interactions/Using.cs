@@ -1,7 +1,7 @@
 using UnityEngine;
 using Mechanic.BaseClasses;
 
-public class Using : MechanicWithSettings<UsingSettings>
+public class Using : MechanicWithSettings<UsingSettings>, IUse
 {
     private GameObject _rootObject = null;
     [SerializeField] private Interaction interaction = null;
