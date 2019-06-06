@@ -9,35 +9,7 @@ public class Weapon : MonoBehaviour
     public class Mode
     {
         [Serializable]
-        public class Type
-        {
-            [SerializeField] private string _name = string.Empty;
-
-            public static bool operator ==(Type a, Type b)
-            {
-                return a._name == b._name;
-            }
-
-            public static bool operator !=(Type a, Type b)
-            {
-                return a._name != b._name;
-            }
-
-            public override bool Equals(object obj)
-            {
-                return (obj as Type) == this;
-            }
-
-            public override int GetHashCode()
-            {
-                return _name.GetHashCode();
-            }
-
-            public static implicit operator string(Type type)
-            {
-                return type._name;
-            }
-        }
+        public class Type : BaseGameLogic.Singleton.Type { }
 
         [SerializeField] private Type type = new Type();
         public Type Type1 { get => type; }
@@ -89,7 +61,7 @@ public class Weapon : MonoBehaviour
 
     [SerializeField] private int _currentModeIndex = 0;
     [SerializeField] private Mode[] _modes = new Mode[1];
-
+   
     public void BeginUse()
     {
         _modes[_currentModeIndex].BeginUse();

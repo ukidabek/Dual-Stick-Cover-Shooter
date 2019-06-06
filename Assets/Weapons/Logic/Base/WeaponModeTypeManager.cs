@@ -5,13 +5,6 @@ using System.Collections.ObjectModel;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "WeaponModeTypeManager", menuName = "Weapon/ModeTypeManager")]
-public class WeaponModeTypeManager : SingletonScriptableObject<WeaponModeTypeManager>
+public class WeaponModeTypeManager : SingletonTypeManager<WeaponModeTypeManager>
 {
-    protected override void Initialize()
-    {
-        TypesNames = new ReadOnlyCollection<string>(_typesNames);
-    }
-
-    [SerializeField] private List<string> _typesNames = new List<string>();
-    public ReadOnlyCollection<string> TypesNames { get; private set; }
 }

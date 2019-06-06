@@ -45,8 +45,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12a80944fa16f264f94c7ac678940649, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _currentModeIndex: 0
   _modes:
-  - _onBeginUse:
+  - type:
+      _name: Single
+    _onBeginUse:
       _weaponValidators: []
       _weaponActions: []
     _onUse:
