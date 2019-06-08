@@ -7,7 +7,7 @@ public class SimpleMovement : MonoBehaviour
 {
     [SerializeField] private float _speed = 5f;
 
-    private void Awake()
+    private void OnEnable()
     {
         GetComponent<Rigidbody>().velocity = transform.forward * _speed;    
     }

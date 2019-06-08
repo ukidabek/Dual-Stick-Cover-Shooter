@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace BaseGameLogic.Utilities
+namespace Utilities
 {
     public class Pool<T> where T : Component
     {
@@ -35,7 +35,7 @@ namespace BaseGameLogic.Utilities
             T instance = null;
             for (int i = 0; i < List.Count; i++)
             {
-                if (!instance.gameObject.activeSelf)
+                if (!List[i].gameObject.activeSelf)
                 {
                     instance = List[i];
                     List.RemoveAt(i);
