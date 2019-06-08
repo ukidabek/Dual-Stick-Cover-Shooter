@@ -16,6 +16,11 @@ namespace Weapons
         public OnModeSwitchCallback OnModeSwitch = new OnModeSwitchCallback();
         public Mode SeledtedMode { get => _modes == null || _modes.Length == 0 ? null : _modes[_currentModeIndex]; }
 
+        public void OnEquip(GameObject user)
+        {
+            for (int i = 0; i < _modes.Length; i++) _modes[i].OnWeaponEquip(user);
+        }
+
         public void BeginUse()
         {
             _modes[_currentModeIndex].BeginUse();

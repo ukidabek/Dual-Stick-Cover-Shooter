@@ -43,7 +43,18 @@ namespace Weapons
         [SerializeField] private WeaponLogicModule _onBeginUse = new WeaponLogicModule();
         [SerializeField] private WeaponLogicModule _onUse = new WeaponLogicModule();
         [SerializeField] private WeaponLogicModule _onEndUse = new WeaponLogicModule();
+        private IWeaponEquipAction[] weaponEquipActions = null;
 
+        private void Awake()
+        {
+            weaponEquipActions = this.gameObject.GetComponentsInChildren<IWeaponEquipAction>();
+        }
+
+        public void OnWeaponEquip(GameObject user)
+        {
+            for (int i = 0; i < weaponEquipActions.Length; i++)
+                weaponEquipActions[i].Perform(user);
+        }
 
         public void BeginUse()
         {

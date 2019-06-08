@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Weapons;
 
-public class SpawnProjectile : WeaponAction
+public class SpawnProjectileWeaponAction : WeaponAction
 {
     [SerializeField] private Transform _spawnPoint = null;
     [SerializeField] private GameObject _projectile = null;

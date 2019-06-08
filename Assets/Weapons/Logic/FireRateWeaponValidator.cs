@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Weapons;
 
-public class FireRate : WeaponValidator
+public class FireRateWeaponValidator : WeaponValidator
 {
     [SerializeField] private float _rate = 1f;
     [SerializeField] private float _counter = 0f;

@@ -64,8 +64,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3871318468149047866}
   - component: {fileID: 7649832996416224638}
-  - component: {fileID: 2183976083844351100}
-  - component: {fileID: 8369862450035729146}
+  - component: {fileID: 64618282600930542}
+  - component: {fileID: 8678677865558741872}
+  - component: {fileID: 7055479773663499873}
   m_Layer: 0
   m_Name: Single
   m_TagString: Untagged
@@ -106,13 +107,14 @@ MonoBehaviour:
     _weaponActions: []
   _onUse:
     _weaponValidators:
-    - {fileID: 2183976083844351100}
+    - {fileID: 64618282600930542}
     _weaponActions:
-    - {fileID: 8369862450035729146}
+    - {fileID: 8678677865558741872}
+    - {fileID: 7055479773663499873}
   _onEndUse:
     _weaponValidators: []
     _weaponActions: []
---- !u!114 &2183976083844351100
+--- !u!114 &64618282600930542
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,12 +123,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 6959750530519766051}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bba0139566598f4bbe66fd153a4c5bd, type: 3}
+  m_Script: {fileID: 11500000, guid: a02853c6d487d4c4ba5079464d9e714f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _rate: 1
   _counter: 0
---- !u!114 &8369862450035729146
+--- !u!114 &8678677865558741872
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -135,12 +137,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 6959750530519766051}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a10cc8a5aa8f2d4f9790f1f4d4fe408, type: 3}
+  m_Script: {fileID: 11500000, guid: e5fa34a27e5f559469c4a5dea809e5d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _spawnPoint: {fileID: 5329369002268963107}
   _projectile: {fileID: 4290131084412126715, guid: 298c9c7f2f1dd3c498526bc44a8c876e,
     type: 3}
+--- !u!114 &7055479773663499873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6959750530519766051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aac33ccd8c9474f42b11ca76617cf34c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _parametrToSet: 0
+  _parametrName: Shoot
+  _boolValue: 0
 --- !u!1 &8052096512728874162
 GameObject:
   m_ObjectHideFlags: 0
@@ -151,8 +168,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2017503390689830994}
   - component: {fileID: 2182395936625322717}
-  - component: {fileID: 5094504618637198409}
-  - component: {fileID: 2415357049409608863}
+  - component: {fileID: 7062707338348654276}
+  - component: {fileID: 3236567407041571447}
+  - component: {fileID: 586396992823754136}
+  - component: {fileID: 8614556964640064740}
   m_Layer: 0
   m_Name: Auto
   m_TagString: Untagged
@@ -193,13 +212,15 @@ MonoBehaviour:
     _weaponActions: []
   _onUse:
     _weaponValidators:
-    - {fileID: 5094504618637198409}
+    - {fileID: 7062707338348654276}
     _weaponActions:
-    - {fileID: 2415357049409608863}
+    - {fileID: 3236567407041571447}
+    - {fileID: 586396992823754136}
   _onEndUse:
     _weaponValidators: []
-    _weaponActions: []
---- !u!114 &5094504618637198409
+    _weaponActions:
+    - {fileID: 8614556964640064740}
+--- !u!114 &7062707338348654276
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -208,12 +229,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 8052096512728874162}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bba0139566598f4bbe66fd153a4c5bd, type: 3}
+  m_Script: {fileID: 11500000, guid: a02853c6d487d4c4ba5079464d9e714f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _rate: 0.1
   _counter: 0
---- !u!114 &2415357049409608863
+--- !u!114 &3236567407041571447
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -222,9 +243,39 @@ MonoBehaviour:
   m_GameObject: {fileID: 8052096512728874162}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a10cc8a5aa8f2d4f9790f1f4d4fe408, type: 3}
+  m_Script: {fileID: 11500000, guid: e5fa34a27e5f559469c4a5dea809e5d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _spawnPoint: {fileID: 5329369002268963107}
   _projectile: {fileID: 4290131084412126715, guid: 298c9c7f2f1dd3c498526bc44a8c876e,
     type: 3}
+--- !u!114 &586396992823754136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8052096512728874162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aac33ccd8c9474f42b11ca76617cf34c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _parametrToSet: 1
+  _parametrName: ShootAuto
+  _boolValue: 1
+--- !u!114 &8614556964640064740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8052096512728874162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aac33ccd8c9474f42b11ca76617cf34c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _parametrToSet: 1
+  _parametrName: ShootAuto
+  _boolValue: 0

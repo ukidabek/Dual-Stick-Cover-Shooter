@@ -13,8 +13,19 @@ public class AimAnimationController : BaseMechanic, IMove
 
     [Space]
     [SerializeField] private string _aimParametraName = "Aim";
+    private int _aimParametraHash = 0;
     [SerializeField] private string _verticalParametraName = "Vertical";
+    private int _verticalParametraHash = 0;
     [SerializeField] private string _horizontalParametraName = "Horizontal";
+    private int _horizontalParametraHash = 0;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        _aimParametraHash = Animator.StringToHash(_aimParametraName);
+        _verticalParametraHash = Animator.StringToHash(_verticalParametraName);
+        _horizontalParametraHash = Animator.StringToHash(_horizontalParametraName);
+    }
 
     private void OnEnable()
     {
