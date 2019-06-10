@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 6521079100880872810}
   - component: {fileID: 5452866490496807571}
   - component: {fileID: 4731311756213556755}
+  - component: {fileID: 3591188648065200281}
   m_Layer: 0
   m_Name: Single
   m_TagString: Untagged
@@ -134,6 +135,25 @@ MonoBehaviour:
   _parametrToSet: 0
   _parametrName: Fire
   _boolValue: 0
+--- !u!114 &3591188648065200281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2337730503585683234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00a8421596c41b94daef408774268ba4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  overrides:
+  - animationName: WeaponIdle
+    animationClip: {fileID: 7400000, guid: a06b02ed0431b1c4c8cb9a027a90ca68, type: 2}
+  - animationName: WeaponAim
+    animationClip: {fileID: 7400000, guid: 3700e117d4c69cf4ab82cf290bd196cf, type: 2}
+  - animationName: WeaponFire
+    animationClip: {fileID: 7400000, guid: 482c0403a93c0754c8bff620c62c536a, type: 2}
 --- !u!1 &5641264414700735900
 GameObject:
   m_ObjectHideFlags: 0

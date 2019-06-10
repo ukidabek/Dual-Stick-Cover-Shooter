@@ -15,10 +15,11 @@ namespace Weapons
 
         public OnModeSwitchCallback OnModeSwitch = new OnModeSwitchCallback();
         public Mode SeledtedMode { get => _modes == null || _modes.Length == 0 ? null : _modes[_currentModeIndex]; }
+        private GameObject _user = null;
 
         public void OnEquip(GameObject user)
         {
-            for (int i = 0; i < _modes.Length; i++) _modes[i].OnWeaponEquip(user);
+            _modes[_currentModeIndex].OnWeaponEquip(_user = user);
         }
 
         public void BeginUse()
@@ -40,6 +41,7 @@ namespace Weapons
         {
             if (++_currentModeIndex > _modes.Length - 1)
                 _currentModeIndex = 0;
+            OnEquip(_user);
             OnModeSwitch.Invoke(SeledtedMode);
         }
 
@@ -47,6 +49,7 @@ namespace Weapons
         {
             if (--_currentModeIndex < 0)
                 _currentModeIndex = _modes.Length - 1;
+            OnEquip(_user);
             OnModeSwitch.Invoke(SeledtedMode);
         }
     }
