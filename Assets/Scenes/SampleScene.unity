@@ -2369,13 +2369,51 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7515745694384004537, guid: bca2b930005ecff4491ea15b5e606ddd,
+    - target: {fileID: 1428770217947165331, guid: bca2b930005ecff4491ea15b5e606ddd,
         type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.332
-      objectReference: {fileID: 0}
+      propertyPath: _weaponCholder
+      value: 
+      objectReference: {fileID: 1254943373583174459}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bca2b930005ecff4491ea15b5e606ddd, type: 3}
+--- !u!114 &1254943373583174458 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1428770217947165331, guid: bca2b930005ecff4491ea15b5e606ddd,
+    type: 3}
+  m_PrefabInstance: {fileID: 1254943373583174457}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254943373583174460}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf22884f0be891044bdcfaebcbcfe858, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1254943373583174459 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3103157229193265330, guid: bca2b930005ecff4491ea15b5e606ddd,
+    type: 3}
+  m_PrefabInstance: {fileID: 1254943373583174457}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1254943373583174460 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4371695974130494114, guid: bca2b930005ecff4491ea15b5e606ddd,
+    type: 3}
+  m_PrefabInstance: {fileID: 1254943373583174457}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1254943373583174461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254943373583174460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bfb309946977ca4fada70813753e86a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _weaponController: {fileID: 1254943373583174458}
+  _weapon: {fileID: 3289546222320709193, guid: 8662dfb7ad3898b42a12a26c890ebf39, type: 3}
 --- !u!1001 &1271144881071447020
 PrefabInstance:
   m_ObjectHideFlags: 0

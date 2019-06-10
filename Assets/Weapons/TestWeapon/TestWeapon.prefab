@@ -156,7 +156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _parametrToSet: 0
-  _parametrName: Shoot
+  _parametrName: Fire
   _boolValue: 0
 --- !u!1 &8052096512728874162
 GameObject:

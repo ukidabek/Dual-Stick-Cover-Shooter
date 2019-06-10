@@ -7,6 +7,8 @@ namespace Weapons
     public class WeaponController : BaseMechanic, IFire
     {
         [SerializeField] private Weapon _weapon = null;
+        [SerializeField] private Transform _weaponCholder = null;
+
         [SerializeField] private bool _activate = false;
         public bool Activate
         {
@@ -29,10 +31,16 @@ namespace Weapons
             if (!_activate) _weapon?.NextMode();
         }
 
+        public void EquipWeapon(Weapon weapon)
+        {
+            _weapon = weapon;
+            _weapon.transform.SetParent(_weaponCholder.transform, false);
+            _weapon?.OnEquip(transform.root.gameObject);
+        }
+
         protected override void Awake()
         {
             base.Awake();
-            _weapon?.OnEquip(transform.root.gameObject);
         }
 
         private void OnDisable()
