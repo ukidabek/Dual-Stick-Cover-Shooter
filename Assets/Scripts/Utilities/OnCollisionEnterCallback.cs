@@ -12,6 +12,7 @@ public class OnCollisionEnterCallback : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        Debug.Log(collision.gameObject.name, collision.gameObject);
         Callback.Invoke(collision);
     }
 }
