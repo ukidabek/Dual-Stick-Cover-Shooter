@@ -42,8 +42,9 @@ GameObject:
   - component: {fileID: 1861778224097718705}
   - component: {fileID: 6521079100880872810}
   - component: {fileID: 5452866490496807571}
-  - component: {fileID: 4731311756213556755}
   - component: {fileID: 3591188648065200281}
+  - component: {fileID: 1959447409702113497}
+  - component: {fileID: 4347304788263096083}
   m_Layer: 0
   m_Name: Single
   m_TagString: Untagged
@@ -61,7 +62,9 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 5425670115285318904}
+  - {fileID: 6463510148876445543}
   m_Father: {fileID: 5641264414700735901}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -85,9 +88,11 @@ MonoBehaviour:
   _onUse:
     _weaponValidators:
     - {fileID: 6521079100880872810}
+    - {fileID: 1959447409702113497}
     _weaponActions:
+    - {fileID: 4347304788263096083}
     - {fileID: 5452866490496807571}
-    - {fileID: 4731311756213556755}
+    - {fileID: 75502388195589211}
   _onEndUse:
     _weaponValidators: []
     _weaponActions: []
@@ -120,21 +125,6 @@ MonoBehaviour:
   _spawnPoint: {fileID: 49774254503430660}
   _projectile: {fileID: 4290131084412126715, guid: 298c9c7f2f1dd3c498526bc44a8c876e,
     type: 3}
---- !u!114 &4731311756213556755
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2337730503585683234}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aac33ccd8c9474f42b11ca76617cf34c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _parametrToSet: 0
-  _parametrName: Fire
-  _boolValue: 0
 --- !u!114 &3591188648065200281
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,11 +139,114 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   overrides:
   - animationName: WeaponIdle
-    animationClip: {fileID: 7400000, guid: 00c375d8907bd5242810e00e534e6228, type: 2}
+    animationClip: {fileID: 7400000, guid: b4e36c3315ac2dd4991193fe9056dbf1, type: 2}
   - animationName: WeaponAim
-    animationClip: {fileID: 7400000, guid: 1bfc91f9e8ee2aa4297b0e95d582b3d3, type: 2}
+    animationClip: {fileID: 7400000, guid: 90fe758e4608e8c4b8f012e6dc335d88, type: 2}
   - animationName: WeaponFire
-    animationClip: {fileID: 7400000, guid: 085d71a1a57edc149a3f0db9132158e3, type: 2}
+    animationClip: {fileID: 7400000, guid: 064405af0a234b644afe4950dc6e2af3, type: 2}
+  - animationName: WeaponReload
+    animationClip: {fileID: 7400000, guid: 81a99235265c5264994cefcc68d32ef6, type: 2}
+--- !u!114 &1959447409702113497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2337730503585683234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ace15226d2adfb14e99424a811cc9979, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _timeToWait: 2
+  _counter: 0
+--- !u!114 &4347304788263096083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2337730503585683234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4a53f48371b9834b9b0cb7ae54e2752, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxSize: 7
+  _counter: 0
+  OnEmptyCallback:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 258037647290878513}
+        m_MethodName: SetTrigger
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1959447409702113497}
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!1 &2749292151230112068
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6463510148876445543}
+  - component: {fileID: 258037647290878513}
+  m_Layer: 0
+  m_Name: Reload
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6463510148876445543
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2749292151230112068}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5614542966447224774}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &258037647290878513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2749292151230112068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aac33ccd8c9474f42b11ca76617cf34c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _parametrToSet: 0
+  _parametrName: Reload
+  _boolValue: 0
 --- !u!1 &5641264414700735900
 GameObject:
   m_ObjectHideFlags: 0
@@ -365,3 +458,49 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!1 &9186227360108405718
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5425670115285318904}
+  - component: {fileID: 75502388195589211}
+  m_Layer: 0
+  m_Name: Fire
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5425670115285318904
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9186227360108405718}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5614542966447224774}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &75502388195589211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9186227360108405718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aac33ccd8c9474f42b11ca76617cf34c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _parametrToSet: 0
+  _parametrName: Fire
+  _boolValue: 0
