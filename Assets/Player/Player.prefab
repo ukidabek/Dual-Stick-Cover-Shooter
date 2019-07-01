@@ -195,8 +195,8 @@ MonoBehaviour:
   _weaponController: {fileID: 1428770217947165331}
   _selectedWeaponIndex: 0
   weaponsPrefabs:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 810401633811262101, guid: 0291d6401a6f2fe4394bcb1d1f761d51, type: 3}
+  - {fileID: 3289546222320709193, guid: 8662dfb7ad3898b42a12a26c890ebf39, type: 3}
 --- !u!1 &713783986
 GameObject:
   m_ObjectHideFlags: 0
