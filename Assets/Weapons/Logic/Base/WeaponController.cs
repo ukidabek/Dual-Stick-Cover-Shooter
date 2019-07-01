@@ -31,11 +31,16 @@ namespace Weapons
             if (!_activate) _weapon?.NextMode();
         }
 
-        public void EquipWeapon(Weapon weapon)
+        public void Equip(Weapon weapon)
         {
-            _weapon = weapon;
-            _weapon.transform.SetParent(_weaponCholder.transform, false);
-            _weapon?.OnEquip(transform.root.gameObject);
+            if (_weapon != null) _weapon.gameObject.SetActive(false);
+            if (weapon != null)
+            {
+                _weapon = weapon;
+                if (!_weapon.gameObject.activeSelf) _weapon.gameObject.SetActive(true);
+                _weapon.transform.SetParent(_weaponCholder.transform, false);
+                _weapon.OnEquip(transform.root.gameObject);
+            }
         }
 
         protected override void Awake()
