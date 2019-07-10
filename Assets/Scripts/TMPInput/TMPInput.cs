@@ -21,9 +21,10 @@ public class TMPInput : MonoBehaviour
 
         [SerializeField] private bool _reactOnNegative = false;
 
-        public Trigger(string anim)
+        public Trigger(string anim, bool reactOnNegative = false)
         {
             _anim = anim;
+            _reactOnNegative = reactOnNegative;
         }
 
         public void Validate()
@@ -81,6 +82,9 @@ public class TMPInput : MonoBehaviour
     [SerializeField] private Trigger _previus = new Trigger("Fire2");
     [SerializeField] private Trigger _next = new Trigger("Fire1");
 
+    [SerializeField] private Trigger _previusWeapon = new Trigger("Vertical T-Pad");
+    [SerializeField] private Trigger _nextWeapon = new Trigger("Vertical T-Pad", true);
+
     public Vector3InputCallback triggersCallback = new Vector3InputCallback();
     [SerializeField] private Vector3 _triggersInput = Vector3.zero;
 
@@ -100,6 +104,8 @@ public class TMPInput : MonoBehaviour
         _previus.Validate();
         _next.Validate();
         _use.Validate();
+        _previusWeapon.Validate();
+        _nextWeapon.Validate();
 
         movementCallback.Invoke(_movementInput);
         lookCallback.Invoke(_lookInput);

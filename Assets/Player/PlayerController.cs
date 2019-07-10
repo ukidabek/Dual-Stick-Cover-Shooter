@@ -29,7 +29,10 @@ namespace Player
     {
         private static List<PlayerController> players = new List<PlayerController>();
         public static ReadOnlyCollection<PlayerController> Players = null;
+
         public static event Action PlayerListUpdated = null;
+        public static event Action<PlayerController> PlayerAdded = null;
+        public static event Action<PlayerController> PlayerRemoved = null;
 
         private IMove[] _movementHandlers = null;
         private IAim[] _aimHandlers = null;
@@ -39,14 +42,13 @@ namespace Player
 
         private string _defaultName = string.Empty;
         [SerializeField] private int _playerID = 0;
+        public int PlayerID { get => _playerID; }
 
         private void OnEnable()
         {
             if (Players == null) Players = new ReadOnlyCollection<PlayerController>(players);
-            players.Add(this);
-            _playerID = players.Count;
+            Add();
             transform.root.name = string.Format("{0} {1}", _defaultName, players.Count.ToString());
-            PlayerListUpdated?.Invoke();
         }
 
         private void Awake()
@@ -98,14 +100,29 @@ namespace Player
 #endif
         }
 
-        private void OnDisable()
+        private void Add()
+        {
+            players.Add(this);
+            _playerID = players.Count;
+            PlayerAdded?.Invoke(this);
+            PlayerListUpdated?.Invoke();
+        }
+
+        private void Remove()
         {
             players.Remove(this);
+            PlayerRemoved?.Invoke(this);
+            PlayerListUpdated?.Invoke();
+        }
+
+        private void OnDisable()
+        {
+            Remove();
         }
 
         private void OnDestroy()
         {
-            players.Remove(this);
+            Remove();
         }
     }
 }
