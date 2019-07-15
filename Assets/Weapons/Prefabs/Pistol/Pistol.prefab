@@ -201,6 +201,11 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  OnMagazineCounterChangeCallback:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OnMagazinecounterChangeEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!1 &2749292151230112068
 GameObject:
   m_ObjectHideFlags: 0
