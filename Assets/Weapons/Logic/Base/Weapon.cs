@@ -9,7 +9,6 @@ namespace Weapons
 
     public partial class Weapon : MonoBehaviour
     {
-
         [SerializeField] private int _currentModeIndex = 0;
         [SerializeField] private Mode[] _modes = null;
 

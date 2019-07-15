@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using Weapons;
 
@@ -10,6 +11,10 @@ public class CharacterWeaponEquipment : MonoBehaviour, IWeaponEquipment
     [SerializeField] private int _selectedWeaponIndex = 0;
     [SerializeField] private List<Weapon> weaponsPrefabs = new List<Weapon>();
     private List<Weapon> weapons = new List<Weapon>();
+
+    public event Action<object> OnEquipCallback = null;
+
+    public object CurrentWeapon { get { return weapons[_selectedWeaponIndex]; } }
 
     private void Start()
     {
@@ -23,14 +28,16 @@ public class CharacterWeaponEquipment : MonoBehaviour, IWeaponEquipment
         Equip(weapons[_selectedWeaponIndex]);
     }
 
-    public void Add(object equipmentPiece)
-    {
-    }
+    public void Add(object equipmentPiece) { }
 
     public void Equip(object equipmentPiece)
     {
         if (equipmentPiece != null && equipmentPiece is Weapon)
-            _weaponController.Equip(equipmentPiece as Weapon);
+        {
+            Weapon weapon = equipmentPiece as Weapon;
+            _weaponController.Equip(weapon);
+            OnEquipCallback?.Invoke(weapon);
+        }
     }
 
     public void Next()
@@ -46,17 +53,12 @@ public class CharacterWeaponEquipment : MonoBehaviour, IWeaponEquipment
         Equip(weapons[_selectedWeaponIndex]);
     }
 
-    public void Remowe(object equipmentPiece)
-    {
-    }
+    public void Remove(object equipmentPiece) { }
 
     public void Select(int index)
     {
         Equip(weapons[_selectedWeaponIndex = index]);
     }
 
-    private void OnValidate()
-    {
-        
-    }
+    private void OnValidate() { }
 }

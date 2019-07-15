@@ -44,15 +44,11 @@ namespace Player
         [SerializeField] private int _playerID = 0;
         public int PlayerID { get => _playerID; }
 
-        private void OnEnable()
-        {
-            if (Players == null) Players = new ReadOnlyCollection<PlayerController>(players);
-            Add();
-            transform.root.name = string.Format("{0} {1}", _defaultName, players.Count.ToString());
-        }
+        private void OnEnable() { }
 
         private void Awake()
         {
+            if (Players == null) Players = new ReadOnlyCollection<PlayerController>(players);
             _defaultName = transform.root.name;
             var gameObject = transform.root;
             _movementHandlers = gameObject.GetComponentsInChildren<IMove>();
@@ -60,6 +56,12 @@ namespace Player
             _aimToggles = gameObject.GetComponentsInChildren<IAimToggle>();
             _fires = gameObject.GetComponentsInChildren<IFire>();
             _uses = gameObject.GetComponentsInChildren<IUse>();
+        }
+
+        private void Start()
+        {
+            Add();
+            transform.root.name = string.Format("{0} {1}", _defaultName, players.Count.ToString());
         }
 
         public void Move(Vector3 input)
