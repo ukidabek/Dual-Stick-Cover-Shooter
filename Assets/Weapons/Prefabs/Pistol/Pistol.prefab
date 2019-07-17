@@ -160,6 +160,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _timeToWait: 2
   _counter: 0
+  UnityEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &4347304788263096083
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -122,7 +122,9 @@ GameObject:
   - component: {fileID: 2997131776681585267}
   - component: {fileID: 6288213956987460336}
   - component: {fileID: 2305320223915827897}
+  - component: {fileID: 5178479876099099288}
   - component: {fileID: 7385481173459589722}
+  - component: {fileID: 8498379332755606}
   m_Layer: 0
   m_Name: Single
   m_TagString: Untagged
@@ -167,6 +169,7 @@ MonoBehaviour:
     _weaponValidators:
     - {fileID: 5343072288047007512}
     - {fileID: 2305320223915827897}
+    - {fileID: 5178479876099099288}
     _weaponActions:
     - {fileID: 7385481173459589722}
     - {fileID: 2997131776681585267}
@@ -238,6 +241,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _timeToWait: 2
   _counter: 0
+  UnityEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8498379332755606}
+        m_MethodName: OnEmpty
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &5178479876099099288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 796448073305024954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13211f33691d9b349967f9ef428dda05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _magazine: {fileID: 7385481173459589722}
 --- !u!114 &7385481173459589722
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -284,6 +316,22 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: OnMagazinecounterChangeEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
+--- !u!114 &8498379332755606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 796448073305024954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e634fb069dfc0014e83f7c033fd4dbdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _magazine: {fileID: 7385481173459589722}
+  _counter: 0
+  _stock: 200
+  _subscribeToEnents: 0
 --- !u!1 &1382026585149315933
 GameObject:
   m_ObjectHideFlags: 0

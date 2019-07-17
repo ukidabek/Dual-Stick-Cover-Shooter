@@ -30,17 +30,16 @@ public class MagazineAction : WeaponAction, IMagazine
 
     public override bool Perform()
     {
-        if (--_counter == 0)
+        OnMagazineCounterChangeCallback.Invoke(--_counter);
+        if (_counter == 0)
         {
-            Reload();
             OnEmptyCallback.Invoke();
             return false;
         }
-        OnMagazineCounterChangeCallback.Invoke(_counter);
         return true;
     }
 
-    private void Reload()
+    public void Reload()
     {
         _counter = _maxSize;
         OnMagazineCounterChangeCallback.Invoke(_counter);

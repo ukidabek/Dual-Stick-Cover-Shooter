@@ -1,12 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using Weapons;
 
 public class WaitForSecondsWeaponValidator : WeaponValidator
 {
     [SerializeField] private float _timeToWait = 1f;
     [SerializeField] private float _counter = 0;
+
+    [Space]
+    public UnityEvent UnityEvent = new UnityEvent();
 
     private void Awake()
     {
@@ -26,6 +30,10 @@ public class WaitForSecondsWeaponValidator : WeaponValidator
     private void Update()
     {
         _counter -= Time.deltaTime;
-        if (_counter <= 0) enabled = false;
+        if (_counter <= 0)
+        {
+            enabled = false;
+            UnityEvent.Invoke();
+        }
     }
 }

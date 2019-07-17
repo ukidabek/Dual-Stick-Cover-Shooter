@@ -1,7 +1,4 @@
 ﻿using Player;
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Weapons;
@@ -14,6 +11,7 @@ public class WeaponPanelController : MonoBehaviour
     [SerializeField] private Text _magazine = null;
 
     private IMagazine clip;
+    private IAmmunitionStock stock;
 
     private void Awake()
     {
@@ -39,6 +37,7 @@ public class WeaponPanelController : MonoBehaviour
 
         _weaponName.text = weapon.gameObject.name;
         clip = weapon.GetComponentInChildren<IMagazine>();
+        stock = weapon.GetComponentInChildren<IAmmunitionStock>();
 
         if (clip != null)
         {
@@ -47,10 +46,24 @@ public class WeaponPanelController : MonoBehaviour
         }
         else
             _clip.text = "-";
+
+        if (stock != null)
+        {
+            UpdateStock(stock.Counter);
+            stock.OnStackChange += UpdateStock;
+        }
+        else
+            _magazine.text = "-";
+
     }
 
     public void UpdateClip(int count)
     {
         _clip.text = count.ToString();
+    }
+
+    public void UpdateStock(int count)
+    {
+        _magazine.text = count.ToString();
     }
 }
