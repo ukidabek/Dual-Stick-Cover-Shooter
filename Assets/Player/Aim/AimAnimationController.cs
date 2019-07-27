@@ -6,7 +6,9 @@ namespace Player.Aim
 {
     public class AimAnimationController : BaseMechanic, IMove
     {
+        [Tooltip("Transfomr that will be used to calculate inverse transform direction. If null Animator transfomr will be used.")]
         [SerializeField] private Transform _transform = null;
+        [Tooltip("Animator that contains aim and movement animations.")]
         [SerializeField] private Animator _animator = null;
         [SerializeField] private Vector3 _input = Vector3.zero;
         public Vector3 MoveInput { get => _input; set => _input = value; }
@@ -36,7 +38,7 @@ namespace Player.Aim
 
         private void Update()
         {
-            _localizedInput = _transform.InverseTransformDirection(_input).normalized;
+            _localizedInput = (_transform == null ? _animator.transform : _transform).InverseTransformDirection(_input).normalized;
             _animator.SetFloat(_horizontalParametraName, _localizedInput.x);
             _animator.SetFloat(_verticalParametraName, _localizedInput.z);
         }

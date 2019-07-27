@@ -13,7 +13,7 @@ namespace Mechanic.Managment
 
         [SerializeField, HideInInspector] private string _defaultBehavior = string.Empty;
 
-        [SerializeField] private List<BehaviourDefinition> _behaviours = new List<BehaviourDefinition>();
+        [SerializeField, HideInInspector] private List<BehaviourDefinition> _behaviours = new List<BehaviourDefinition>();
 
         private void Awake()
         {

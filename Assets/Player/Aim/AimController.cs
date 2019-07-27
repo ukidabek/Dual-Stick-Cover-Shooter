@@ -6,6 +6,7 @@ namespace Player.Aim
 {
     public class AimController : BaseMechanic, IAim
     {
+        [Tooltip("Transform to ratate when aiming.")]
         [SerializeField] private Transform _transform = null;
         [SerializeField] private Vector3 _input = Vector3.zero;
         public Vector3 MoveInput { get => _input; set => _input = value; }

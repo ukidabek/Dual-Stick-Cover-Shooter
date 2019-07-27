@@ -41,13 +41,6 @@ namespace Mechanic.Managment
                 index = 0;
         }
 
-        public void AddBehaviour(string name)
-        {
-            GameObject newBehaviour = new GameObject(name, typeof(BehaviourDefinition));
-            newBehaviour.transform.SetParent(behaviourManager.transform);
-            _behaviours.Add(newBehaviour.GetComponent<BehaviourDefinition>());
-        }
-
         public override void OnInspectorGUI()
         {
             base.OnInspectorGUI();
@@ -70,15 +63,31 @@ namespace Mechanic.Managment
 
             EditorGUILayout.BeginHorizontal();
             {
-                GUILayout.Label("Name: ");
+                GUILayout.Label("Name: ", GUILayout.Width(40));
                 newBehaviorName = GUILayout.TextField(newBehaviorName);
-                if (GUILayout.Button("Add", GUILayout.Height(15)) && !string.IsNullOrEmpty(newBehaviorName))
+                if (GUILayout.Button("Add", GUILayout.Height(15), GUILayout.Width(35)) && !string.IsNullOrEmpty(newBehaviorName))
                 {
-                    AddBehaviour(newBehaviorName);
+                    GameObject newBehaviour = new GameObject(newBehaviorName, typeof(BehaviourDefinition));
+                    newBehaviour.transform.SetParent(behaviourManager.transform);
+                    _behaviours.Add(newBehaviour.GetComponent<BehaviourDefinition>());
                     newBehaviorName = string.Empty;
+                    GetBehaviorNames();
                 }
             }
             EditorGUILayout.EndHorizontal();
+            if (GUILayout.Button("Scan"))
+            {
+                var behaviors = behaviourManager.gameObject.GetComponentsInChildren<BehaviourDefinition>();
+                foreach (var behavior in behaviors)
+                    if (!_behaviours.Contains(behavior))
+                    {
+                        _behaviours.Add(behavior);
+                        Debug.LogFormat("Behaviour named {0} added to behaviours list.", behavior.gameObject.name);
+                    }
+                    else
+                        Debug.LogFormat("Behaviour named {0} is already added to behaviours list.", behavior.gameObject.name);
+            }
+
             GUILayout.Space(10);
 
             for (int i = 0; i < _behaviours.Count; i++)
@@ -100,6 +109,7 @@ namespace Mechanic.Managment
                     {
                         DestroyImmediate(_behaviours[i].gameObject);
                         _behaviours.RemoveAt(i--);
+                        GetBehaviorNames();
                     }
                     GUI.color = old;
                 }
