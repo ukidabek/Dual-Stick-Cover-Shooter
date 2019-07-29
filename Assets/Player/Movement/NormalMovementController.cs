@@ -16,6 +16,11 @@ namespace Player.Movement
         [SerializeField] private RotationSnap rotationSnap = new RotationSnap();
         private Quaternion _targetRotation = Quaternion.identity;
 
+        public void SetSpeed(float speed)
+        {
+            _speed = speed;
+        }
+
         private void FixedUpdate()
         {
             if (_input.magnitude > 0)
@@ -34,5 +39,6 @@ namespace Player.Movement
             Gizmos.color = Color.red;
             Gizmos.DrawRay(_rigidbody.position, _rigidbody.transform.forward * .5f);
         }
+
     }
 }
