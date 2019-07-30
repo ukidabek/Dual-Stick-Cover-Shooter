@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class OnTriggerEnterHandler : OnTrigger
+public class OnTriggerEnterCallback : OnTriggerCallback
 {
     private void OnTriggerEnter(Collider other)
     {

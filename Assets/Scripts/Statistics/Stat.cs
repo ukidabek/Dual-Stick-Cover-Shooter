@@ -1,19 +1,19 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using UnityEngine;
 
 namespace Statistics
 {
-    [Serializable]
-    public class Stat : IStat
+    [Serializable] public class Stat : IStat
     {
         [SerializeField] private string _name = string.Empty;
         public string Name => _name;
 
         [SerializeField] private float baseValue = 1f;
         private bool isDirty = true; 
-        [SerializeField] private float value = float.MinValue; 
+        private float value = float.MinValue; 
         public float Value
         {
             get
@@ -28,12 +28,14 @@ namespace Statistics
         public OnStatRecalculated OnStatRecalculatedCallback => _onStatRecalculatedCallback;
 
         private readonly List<StatModifier> statModifiers = new List<StatModifier>();
+        public readonly ReadOnlyCollection<StatModifier> StatModifiers = null;
 
         public Stat() : this(1) { }
 
         public Stat(float baseValue)
         {
             Value = this.baseValue = baseValue;
+            StatModifiers = new ReadOnlyCollection<StatModifier>(statModifiers);
         }
 
         public static implicit operator float(Stat stat)

@@ -1,12 +1,7 @@
-﻿using System;
-using UnityEngine;
-using UnityEngine.Events;
+﻿using UnityEngine;
 
-[Serializable] public class OnColliderCallback : UnityEvent<Collider> { }
-[Serializable] public class OnGameObjectCallback : UnityEvent<GameObject> { }
-
-public abstract class OnTrigger : MonoBehaviour
+public abstract class OnTriggerCallback : MonoBehaviour
 {
-    public OnColliderCallback OnColliderCallback = new OnColliderCallback();
-    public OnGameObjectCallback OnGameObjectCallback = new OnGameObjectCallback();
+    public OnCollider OnColliderCallback = new OnCollider();
+    public OnGameObject OnGameObjectCallback = new OnGameObject();
 }

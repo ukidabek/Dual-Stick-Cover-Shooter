@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class OnTriggerExitCallback : OnTrigger
+public class OnTriggerExitCallback : OnTriggerCallback
 {
     private void OnTriggerExit(Collider other)
     {

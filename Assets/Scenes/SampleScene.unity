@@ -120,110 +120,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &1019321
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1019322}
-  - component: {fileID: 1019323}
-  - component: {fileID: 1019324}
-  m_Layer: 8
-  m_Name: CharacterStats
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1019322
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1019321}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 719276042}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1019323
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1019321}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb54b6942e33e2d48bc815034727e9e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stat:
-    _name: Speed
-    baseValue: 0.95
-    value: 1
-    _onStatRecalculatedCallback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1838483583}
-          m_MethodName: SetSpeed
-          m_Mode: 0
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 1019324}
-          m_MethodName: OverrideStat
-          m_Mode: 0
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: Statistics.OnStatRecalculated, Assembly-CSharp, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
---- !u!114 &1019324
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1019321}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eddf9ce9fd472bc4a9ec887c27da1f5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  modifier: 0.5
-  OnStatRecalculated:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1078812713}
-        m_MethodName: SetSpeed
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: Statistics.OnStatRecalculated, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
 --- !u!114 &6578094 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1223994003960381089, guid: 25b9fbd44d1c1684db08308b20d2349d,
@@ -1724,18 +1620,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1054186562}
   m_CullTransparentMesh: 0
---- !u!114 &1078812713 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1254943372189570877, guid: bca2b930005ecff4491ea15b5e606ddd,
-    type: 3}
-  m_PrefabInstance: {fileID: 1254943373583174457}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b12f8a0836516c4bb07ec4e1e7f34fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1107446882
 GameObject:
   m_ObjectHideFlags: 0
@@ -2595,18 +2479,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1786167315}
   m_CullTransparentMesh: 0
---- !u!114 &1838483583 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1254943373173144508, guid: bca2b930005ecff4491ea15b5e606ddd,
-    type: 3}
-  m_PrefabInstance: {fileID: 1254943373583174457}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b12f8a0836516c4bb07ec4e1e7f34fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1869206938
 GameObject:
   m_ObjectHideFlags: 0
@@ -3050,8 +2922,7 @@ MonoBehaviour:
   OnColliderCallback:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: OnColliderCallback, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
+    m_TypeName: OnCollider, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   OnGameObjectCallback:
     m_PersistentCalls:
       m_Calls:
@@ -3066,8 +2937,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: OnGameObjectCallback, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
+    m_TypeName: OnGameObject, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!114 &2109873263
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3077,14 +2947,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 2109873260}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6cb210ea87ced9f4ea1579a8ab8ee616, type: 3}
+  m_Script: {fileID: 11500000, guid: 877a9ddd78de6ff4eaa4d453abcaa739, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   OnColliderCallback:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: OnColliderCallback, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
+    m_TypeName: OnCollider, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   OnGameObjectCallback:
     m_PersistentCalls:
       m_Calls:
@@ -3099,8 +2968,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: OnGameObjectCallback, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
+    m_TypeName: OnGameObject, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!65 &2109873264
 BoxCollider:
   m_ObjectHideFlags: 0

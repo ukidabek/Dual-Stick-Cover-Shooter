@@ -1,5 +1,108 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1019321
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1019322}
+  - component: {fileID: 1019323}
+  - component: {fileID: 1019324}
+  m_Layer: 8
+  m_Name: CharacterStats
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1019322
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1019321}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1254943372370487610}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1019323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1019321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb54b6942e33e2d48bc815034727e9e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stat:
+    _name: Speed
+    baseValue: 1
+    _onStatRecalculatedCallback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1254943373173144508}
+          m_MethodName: SetSpeed
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1019324}
+          m_MethodName: OverrideStat
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: Statistics.OnStatRecalculated, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+--- !u!114 &1019324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1019321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eddf9ce9fd472bc4a9ec887c27da1f5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modifier: 0.5
+  OnStatRecalculated:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1254943372189570877}
+        m_MethodName: SetSpeed
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: Statistics.OnStatRecalculated, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!1 &10966329
 GameObject:
   m_ObjectHideFlags: 0
@@ -361,6 +464,67 @@ MonoBehaviour:
   _analogInputStatusRecivers:
   - {fileID: 788510769}
   - {fileID: 713783988}
+--- !u!1 &1503080621
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1503080622}
+  - component: {fileID: 1503080624}
+  - component: {fileID: 1503080623}
+  m_Layer: 8
+  m_Name: InteractionManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1503080622
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1503080621}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1254943372370487610}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &1503080624
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1503080621}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1503080623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1503080621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abab23e27975a9845959ea926454568c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sphereCollider: {fileID: 1503080624}
+  _interaction: {fileID: 0}
+  _useAngle: 0
+  _interactionShowAngle: 60
 --- !u!1 &2098330755
 GameObject:
   m_ObjectHideFlags: 0
@@ -624,9 +788,7 @@ GameObject:
   - component: {fileID: 1254943372370487610}
   - component: {fileID: 1254943372370487612}
   - component: {fileID: 1501103585846617320}
-  - component: {fileID: 723176197}
   - component: {fileID: 3228682967498072176}
-  - component: {fileID: 723176198}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -651,6 +813,8 @@ Transform:
   - {fileID: 518287489}
   - {fileID: 980091247}
   - {fileID: 520870869}
+  - {fileID: 1019322}
+  - {fileID: 1503080622}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -683,22 +847,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerID: 0
---- !u!114 &723176197
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1254943372370487611}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: abab23e27975a9845959ea926454568c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _sphereCollider: {fileID: 723176198}
-  _interaction: {fileID: 0}
-  _useAngle: 0
-  _interactionShowAngle: 60
 --- !u!136 &3228682967498072176
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -713,19 +861,6 @@ CapsuleCollider:
   m_Height: 0.4
   m_Direction: 1
   m_Center: {x: 0, y: 0.2, z: 0}
---- !u!135 &723176198
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1254943372370487611}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1254943372600697466
 GameObject:
   m_ObjectHideFlags: 0
@@ -1733,6 +1868,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57372fea6b2c82f48aaa5a4218b7d5f2, type: 3}
+--- !u!95 &4595810596747507379 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4014122600777341569, guid: 57372fea6b2c82f48aaa5a4218b7d5f2,
+    type: 3}
+  m_PrefabInstance: {fileID: 608723032691649586}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5388267031339846452 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4806578915174442758, guid: 57372fea6b2c82f48aaa5a4218b7d5f2,
@@ -1742,12 +1883,6 @@ Transform:
 --- !u!4 &4730324544288206437 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5320971365232345687, guid: 57372fea6b2c82f48aaa5a4218b7d5f2,
-    type: 3}
-  m_PrefabInstance: {fileID: 608723032691649586}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &4595810596747507379 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 4014122600777341569, guid: 57372fea6b2c82f48aaa5a4218b7d5f2,
     type: 3}
   m_PrefabInstance: {fileID: 608723032691649586}
   m_PrefabAsset: {fileID: 0}

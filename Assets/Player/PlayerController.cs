@@ -49,8 +49,10 @@ namespace Player
         private void Awake()
         {
             if (Players == null) Players = new ReadOnlyCollection<PlayerController>(players);
+
             _defaultName = transform.root.name;
             var gameObject = transform.root;
+
             _movementHandlers = gameObject.GetComponentsInChildren<IMove>();
             _aimHandlers = gameObject.GetComponentsInChildren<IAim>();
             _aimToggles = gameObject.GetComponentsInChildren<IAimToggle>();
