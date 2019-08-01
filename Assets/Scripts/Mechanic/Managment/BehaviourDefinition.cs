@@ -25,7 +25,7 @@ namespace Mechanic.Managment
             }
         }
 
-        [SerializeField] private List<BaseMechanic> baseMechanics = new List<BaseMechanic>();
+        [SerializeField, HideInInspector] private List<BaseMechanic> baseMechanics = new List<BaseMechanic>();
 
         private void Awake()
         {

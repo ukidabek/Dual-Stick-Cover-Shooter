@@ -34,6 +34,7 @@ namespace Player.Movement
 
         private void OnDrawGizmos()
         {
+            if (_rigidbody == null) return;
             Gizmos.color = Color.green;
             Gizmos.DrawRay(_rigidbody.position, _input * .75f);
             Gizmos.color = Color.red;

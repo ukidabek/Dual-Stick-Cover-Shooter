@@ -18,7 +18,7 @@ namespace Statistics
         {
             get
             {
-                if (isDirty) { CalculateValue(); }
+                if (isDirty) CalculateValue();
                 return value;
             }
             private set { this.value = value; }

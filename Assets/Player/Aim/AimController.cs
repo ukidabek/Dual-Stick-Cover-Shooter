@@ -21,6 +21,7 @@ namespace Player.Aim
 
         private void OnDrawGizmos()
         {
+            if (_transform == null) return;
             Gizmos.color = Color.blue;
             Gizmos.DrawRay(_transform.position, _transform.forward * .25f);
         }
