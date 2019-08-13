@@ -4,7 +4,7 @@ using Player;
 
 namespace Player.Movement
 {
-    public class NormalMovementAnimationController : BaseMechanic, IMove
+    public class NormalMovementAnimationController : BaseMechanic
     {
         [SerializeField] private Animator _animator = null;
         [SerializeField] private string _parametraName = "Vertical";

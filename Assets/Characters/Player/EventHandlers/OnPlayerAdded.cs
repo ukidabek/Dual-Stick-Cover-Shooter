@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace Player
+namespace Characters.Player
 {
     public class OnPlayerAdded : OnPlayerEventHadler
     {

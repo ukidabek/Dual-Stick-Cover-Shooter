@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Weapons.Animations
 {
-    [RequireComponent(typeof(Animator)), DisallowMultipleComponent]
+    [DisallowMultipleComponent]
     public class WeaponUserAnimator : MonoBehaviour
     {
         private Queue<Override> overrides = new Queue<Override>();
@@ -18,8 +18,19 @@ namespace Weapons.Animations
 
         private void Awake()
         {
-            AnimatorOverrideController = new AnimatorOverrideController(_animator.runtimeAnimatorController);
-            _animator.runtimeAnimatorController = AnimatorOverrideController;
+            InitializeAnimator();
+        }
+
+        private void InitializeAnimator(Animator animator = null)
+        {
+            if (animator != null && animator != _animator)
+                _animator = animator;
+
+            if (_animator != null)
+            {
+                AnimatorOverrideController = new AnimatorOverrideController(_animator.runtimeAnimatorController);
+                _animator.runtimeAnimatorController = AnimatorOverrideController;
+            }
         }
 
         public void OverrideAnimation(Override @override)
@@ -30,7 +41,7 @@ namespace Weapons.Animations
 
         public void ResetAnimationOverrides()
         {
-            while(overrides.Count > 0)
+            while (overrides.Count > 0)
             {
                 var @override = overrides.Dequeue();
                 AnimatorOverrideController[@override.AnimationName] = @override.AnimationClip;
@@ -39,7 +50,7 @@ namespace Weapons.Animations
 
         private void Reset()
         {
-            _animator = gameObject.GetComponent<Animator>();    
+            _animator = gameObject.GetComponent<Animator>();
         }
     }
 }

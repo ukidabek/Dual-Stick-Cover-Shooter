@@ -1,5 +1,5 @@
-﻿using Commands;
-using Player;
+﻿using Characters.Player;
+using Commands;
 using System;
 
 public class ButtonsCommand : Command

@@ -1,6 +1,4 @@
-﻿using Player;
-using System.Collections;
-using System.Collections.Generic;
+﻿using Characters.Player;
 using UnityEngine;
 
 public class TransformToFollow : MonoBehaviour, ICameraTargetPositionProvider

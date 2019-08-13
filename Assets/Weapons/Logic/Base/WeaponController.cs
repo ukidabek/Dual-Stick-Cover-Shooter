@@ -4,31 +4,31 @@ using UnityEngine;
 
 namespace Weapons
 {
-    public class WeaponController : BaseMechanic, IFire
+    public class WeaponController : BaseMechanic
     {
         [SerializeField] private Weapon _weapon = null;
         [SerializeField] private WeaponCholder _weaponCholder = null;
 
-        [SerializeField] private bool _activate = false;
-        public bool Activate
+        [SerializeField] private bool _fire = false;
+        public bool Fire
         {
-            get => _activate;
+            get => _fire;
             set
             {
-                if (!_activate && owner.Enabled) _weapon?.BeginUse();
-                if (_activate && owner.Enabled) _weapon?.EndUse();
-                _activate = value;
+                if (!_fire && owner.Enabled) _weapon?.BeginUse();
+                if (_fire && owner.Enabled) _weapon?.EndUse();
+                _fire = value;
             }
         }
 
         public void GoToPreviusMode()
         {
-            if (!_activate) _weapon?.PreviusMode();
+            if (!_fire) _weapon?.PreviusMode();
         }
 
         public void GoToNextMode()
         {
-            if (!_activate) _weapon?.NextMode();
+            if (!_fire) _weapon?.NextMode();
         }
 
         public void Equip(Weapon weapon)
@@ -43,21 +43,15 @@ namespace Weapons
             }
         }
 
-        protected override void Awake()
-        {
-            base.Awake();
-            _weaponCholder = transform.root.gameObject.GetComponentInChildren<WeaponCholder>();
-        }
-
         private void OnDisable()
         {
-            if (_activate)
-                _activate = false;
+            if (_fire)
+                _fire = false;
         }
 
         public void Update()
         {
-            if (_weapon != null && _activate)
+            if (_weapon != null && _fire)
                 _weapon?.Use();
         }
     }

@@ -2827,6 +2827,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ddd2cbc5bea9ba449f904397750e049, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2035790341 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1428770217947165331, guid: bca2b930005ecff4491ea15b5e606ddd,
+    type: 3}
+  m_PrefabInstance: {fileID: 1254943373583174457}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf22884f0be891044bdcfaebcbcfe858, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2098804048
 GameObject:
   m_ObjectHideFlags: 0
@@ -3150,6 +3162,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2117428330, guid: bca2b930005ecff4491ea15b5e606ddd, type: 3}
+      propertyPath: dependencyInjections.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2117428330, guid: bca2b930005ecff4491ea15b5e606ddd, type: 3}
+      propertyPath: dependencyInjections.Array.data[6].fieldName
+      value: _weaponCholder
+      objectReference: {fileID: 0}
+    - target: {fileID: 2117428330, guid: bca2b930005ecff4491ea15b5e606ddd, type: 3}
+      propertyPath: dependencyInjections.Array.data[6].object
+      value: 
+      objectReference: {fileID: 2035790341}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bca2b930005ecff4491ea15b5e606ddd, type: 3}
 --- !u!1001 &1271144881071447020

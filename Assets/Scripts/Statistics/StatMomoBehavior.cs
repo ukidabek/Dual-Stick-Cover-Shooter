@@ -15,8 +15,6 @@ namespace Statistics
 
         public string Name => stat.Name;
 
-        public event Action<float> OnStatChanged;
-
         private void Awake()
         {
             stat.OnStatRecalculatedCallback.Invoke(stat.Value);

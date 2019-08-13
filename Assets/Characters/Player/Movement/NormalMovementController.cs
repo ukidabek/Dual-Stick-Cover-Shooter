@@ -4,7 +4,7 @@ using Player;
 
 namespace Player.Movement
 {
-    public class NormalMovementController : BaseMechanic, IMove
+    public class NormalMovementController : BaseMechanic
     {
         [SerializeField] private Vector3 _input = Vector3.zero;
         public Vector3 MoveInput { get => _input; set => _input = value; }

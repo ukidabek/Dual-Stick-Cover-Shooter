@@ -3,61 +3,39 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using UnityEngine;
+using UnityEngine.Events;
 
-namespace Player
+namespace Characters.Player
 {
-    public interface IMove
-    {
-        Vector3 MoveInput { get; set; }
-    }
-    public interface IAim
-    {
-        Vector3 MoveInput { get; set; }
-    }
-
-    public interface IAimToggle
-    {
-        bool Activate { get; set; }
-    }
-
-    public interface IFire
-    {
-        bool Activate { get; set; }
-    }
-
     public class PlayerController : MonoBehaviour
     {
         private static List<PlayerController> players = new List<PlayerController>();
         public static ReadOnlyCollection<PlayerController> Players = null;
 
+        [SerializeField] private int _playerID = 0;
+        public int PlayerID { get => _playerID; }
+
         public static event Action PlayerListUpdated = null;
         public static event Action<PlayerController> PlayerAdded = null;
         public static event Action<PlayerController> PlayerRemoved = null;
 
-        private IMove[] _movementHandlers = null;
-        private IAim[] _aimHandlers = null;
-        private IAimToggle[] _aimToggles = null;
-        private IFire[] _fires = null;
-        private IUse[] _uses = null;
+        [Serializable] public class InputUpdateEvent : UnityEvent<Vector3> { }
+        [Serializable] public class InputToggleUpdateEvent : UnityEvent<bool> { }
+
+        [Space]
+        public InputUpdateEvent UpdateMovementInput = new InputUpdateEvent();
+        public InputUpdateEvent UpdateLookInput = new InputUpdateEvent();
+        public InputToggleUpdateEvent UpdateAimToggle = new InputToggleUpdateEvent();
+        public InputToggleUpdateEvent UpdateFireToggle = new InputToggleUpdateEvent();
+        public UnityEvent UpdateUse = new UnityEvent();
 
         private string _defaultName = string.Empty;
-        [SerializeField] private int _playerID = 0;
-        public int PlayerID { get => _playerID; }
 
         private void OnEnable() { }
 
         private void Awake()
         {
             if (Players == null) Players = new ReadOnlyCollection<PlayerController>(players);
-
-            _defaultName = transform.root.name;
-            var gameObject = transform.root;
-
-            _movementHandlers = gameObject.GetComponentsInChildren<IMove>();
-            _aimHandlers = gameObject.GetComponentsInChildren<IAim>();
-            _aimToggles = gameObject.GetComponentsInChildren<IAimToggle>();
-            _fires = gameObject.GetComponentsInChildren<IFire>();
-            _uses = gameObject.GetComponentsInChildren<IUse>();
         }
 
         private void Start()
@@ -68,32 +46,27 @@ namespace Player
 
         public void Move(Vector3 input)
         {
-            for (int i = 0; i < _movementHandlers.Length; i++)
-                _movementHandlers[i].MoveInput = input;
+            UpdateMovementInput.Invoke(input);
         }
 
         public void Aim(Vector3 input)
         {
-            for (int i = 0; i < _aimHandlers.Length; i++)
-                _aimHandlers[i].MoveInput = input;
+            UpdateLookInput.Invoke(input);
         }
 
         public void Aim(bool activate)
         {
-            for (int i = 0; i < _aimToggles.Length; i++)
-                _aimToggles[i].Activate = activate;
+            UpdateAimToggle.Invoke(activate);
         }
 
         public void Fire(bool activate)
         {
-            for (int i = 0; i < _fires.Length; i++)
-                _fires[i].Activate = activate;
+            UpdateFireToggle.Invoke(activate);
         }
 
         public void Use()
         {
-            for (int i = 0; i < _uses.Length; i++)
-                _uses[i].Use();
+            UpdateUse.Invoke();
         }
 
         private void OnDrawGizmos()

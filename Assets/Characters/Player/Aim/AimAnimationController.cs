@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Player.Aim
 {
-    public class AimAnimationController : BaseMechanic, IMove
+    public class AimAnimationController : BaseMechanic
     {
         [Tooltip("Transfomr that will be used to calculate inverse transform direction. If null Animator transfomr will be used.")]
         [SerializeField] private Transform _transform = null;

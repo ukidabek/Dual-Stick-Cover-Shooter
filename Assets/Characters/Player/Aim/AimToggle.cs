@@ -7,7 +7,7 @@ using UnityEngine;
 namespace Player.Aim
 {
     [DisallowMultipleComponent]
-    public class AimToggle : BehaviourToggle, IAimToggle
+    public class AimToggle : BehaviourToggle
     {
         public bool Activate { get => this.IsOn; set => IsOn = value; }
     }
