@@ -1,34 +1,23 @@
-﻿using Mechanic.BaseClasses;
+﻿using System;
+using Mechanic.BaseClasses;
 using Player;
 using UnityEngine;
 
 namespace Weapons
 {
-    public class WeaponController : BaseMechanic
+    public class WeaponController : MonoBehaviour
     {
         [SerializeField] private Weapon _weapon = null;
         [SerializeField] private WeaponCholder _weaponCholder = null;
 
-        [SerializeField] private bool _fire = false;
-        public bool Fire
-        {
-            get => _fire;
-            set
-            {
-                if (!_fire && owner.Enabled) _weapon?.BeginUse();
-                if (_fire && owner.Enabled) _weapon?.EndUse();
-                _fire = value;
-            }
-        }
-
         public void GoToPreviusMode()
         {
-            if (!_fire) _weapon?.PreviusMode();
+            _weapon?.PreviusMode();
         }
 
         public void GoToNextMode()
         {
-            if (!_fire) _weapon?.NextMode();
+            _weapon?.NextMode();
         }
 
         public void Equip(Weapon weapon)
@@ -43,16 +32,20 @@ namespace Weapons
             }
         }
 
-        private void OnDisable()
+
+        internal void BeginUse()
         {
-            if (_fire)
-                _fire = false;
+            _weapon?.BeginUse();
         }
 
-        public void Update()
+        internal void EndUse()
         {
-            if (_weapon != null && _fire)
-                _weapon?.Use();
+            _weapon?.EndUse();
+        }
+
+        internal void Use()
+        {
+            _weapon?.Use();
         }
     }
 }

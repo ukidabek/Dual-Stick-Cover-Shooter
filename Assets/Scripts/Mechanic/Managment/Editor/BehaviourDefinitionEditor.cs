@@ -30,22 +30,27 @@ namespace Mechanic.Managment
         public override void OnInspectorGUI()
         {
             base.OnInspectorGUI();
-            showList = EditorGUILayout.Foldout(showList,serializedObject.FindProperty("baseMechanics").displayName);
-            if(showList)
+            showList = EditorGUILayout.Foldout(showList, serializedObject.FindProperty("baseMechanics").displayName);
+            if (showList)
             {
                 EditorGUI.indentLevel = 1;
                 for (int i = 0; i < baseMechanics.Count; i++)
                 {
-                    EditorGUILayout.BeginHorizontal();
+                    if (baseMechanics[i] != null)
                     {
-                        baseMechanics[i] = EditorGUILayout.ObjectField(baseMechanics[i], baseMechanics[i].GetType(), true) as BaseMechanic;
-                        if (GUILayout.Button("Remove", GUILayout.Width(60)))
+                        EditorGUILayout.BeginHorizontal();
                         {
-                            DestroyImmediate(baseMechanics[i]);
-                            baseMechanics.RemoveAt(i--);
+                            baseMechanics[i] = EditorGUILayout.ObjectField(baseMechanics[i], baseMechanics[i].GetType(), true) as BaseMechanic;
+                            if (GUILayout.Button("Remove", GUILayout.Width(60)))
+                            {
+                                DestroyImmediate(baseMechanics[i]);
+                                baseMechanics.RemoveAt(i--);
+                            }
                         }
+                        EditorGUILayout.EndHorizontal();
                     }
-                    EditorGUILayout.EndHorizontal();
+                    else
+                        baseMechanics.RemoveAt(i--);
                 }
             }
             if (GUILayout.Button("Add Mechanic")) contextMenu.ShowAsContext();

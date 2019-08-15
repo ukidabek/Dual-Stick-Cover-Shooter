@@ -39,7 +39,7 @@ namespace Characters
                 }
                 else if (property != null)
                 {
-                    component = GetComponent(source, field.FieldType, lookInChildrens);
+                    component = GetComponent(source, property.PropertyType, lookInChildrens);
                     property.SetValue(@object, component);
                 }
             }

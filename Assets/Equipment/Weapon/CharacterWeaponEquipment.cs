@@ -25,6 +25,13 @@ public class CharacterWeaponEquipment : MonoBehaviour, IWeaponEquipment
             weapons.Add(currentWeapon);
         }
 
+        StartCoroutine(EquipCoroutine());
+    }
+
+    // Tmp
+    private System.Collections.IEnumerator EquipCoroutine()
+    {
+        yield return new WaitForEndOfFrame();
         Equip(weapons[_selectedWeaponIndex]);
     }
 

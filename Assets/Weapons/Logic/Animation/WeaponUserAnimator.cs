@@ -12,11 +12,11 @@ namespace Weapons.Animations
         private Queue<Override> overrides = new Queue<Override>();
 
         [SerializeField] private Animator _animator = null;
-        public Animator Animator { get => _animator; }
+        public Animator Animator { get => _animator; set => InitializeAnimator(value); }
 
         public AnimatorOverrideController AnimatorOverrideController { get; private set; }
 
-        private void Awake()
+        private void Start()
         {
             InitializeAnimator();
         }
@@ -30,6 +30,7 @@ namespace Weapons.Animations
             {
                 AnimatorOverrideController = new AnimatorOverrideController(_animator.runtimeAnimatorController);
                 _animator.runtimeAnimatorController = AnimatorOverrideController;
+                _animator.Rebind();
             }
         }
 

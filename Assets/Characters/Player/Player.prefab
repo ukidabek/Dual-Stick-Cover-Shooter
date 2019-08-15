@@ -861,6 +861,7 @@ Transform:
   - {fileID: 3899952893865685507}
   - {fileID: 1019322}
   - {fileID: 1503080622}
+  - {fileID: 7054926343360368585}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -940,8 +941,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: Player.PlayerController+InputUpdateEvent, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
+    m_TypeName: Characters.Player.PlayerController+InputUpdateEvent, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   UpdateLookInput:
     m_PersistentCalls:
       m_Calls:
@@ -967,8 +968,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: Player.PlayerController+InputUpdateEvent, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
+    m_TypeName: Characters.Player.PlayerController+InputUpdateEvent, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   UpdateAimToggle:
     m_PersistentCalls:
       m_Calls:
@@ -983,12 +984,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: Player.PlayerController+InputToggleUpdateEvent, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
+    m_TypeName: Characters.Player.PlayerController+InputToggleUpdateEvent, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   UpdateFireToggle:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1428770217947165331}
+      - m_Target: {fileID: 7004314759746211392}
         m_MethodName: set_Fire
         m_Mode: 0
         m_Arguments:
@@ -999,8 +1000,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: Player.PlayerController+InputToggleUpdateEvent, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
+    m_TypeName: Characters.Player.PlayerController+InputToggleUpdateEvent, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   UpdateUse:
     m_PersistentCalls:
       m_Calls:
@@ -1060,7 +1061,7 @@ MonoBehaviour:
   - fieldName: _animator
     object: {fileID: 1254943372060196397}
     lookInChildrens: 0
-  - fieldName: _animator
+  - fieldName: Animator
     object: {fileID: 1863904142}
     lookInChildrens: 0
   - fieldName: _weaponCholder
@@ -1344,7 +1345,7 @@ Transform:
   - {fileID: 1254943372600697469}
   - {fileID: 1254943372060196394}
   - {fileID: 4105406937099033701}
-  - {fileID: 7054926343360368585}
+  - {fileID: 5232912338365402914}
   m_Father: {fileID: 1254943372689291022}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1366,7 +1367,7 @@ MonoBehaviour:
   - {fileID: 1254943372600697468}
   - {fileID: 1254943372060196397}
   - {fileID: 5973241879249968574}
-  - {fileID: 1428770217947165331}
+  - {fileID: 7004314759746211392}
 --- !u!1 &1254943373820759294
 GameObject:
   m_ObjectHideFlags: 0
@@ -1631,13 +1632,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4371695974130494114}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7515745694384004537}
-  m_Father: {fileID: 1254943373792317886}
-  m_RootOrder: 4
+  m_Father: {fileID: 1254943372370487610}
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1428770217947165331
 MonoBehaviour:
@@ -1653,7 +1654,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _weapon: {fileID: 0}
   _weaponCholder: {fileID: 0}
-  _fire: 0
 --- !u!114 &1863904142
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1958,6 +1958,51 @@ Transform:
   m_Father: {fileID: 1254943372370487610}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8362927314922998756
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5232912338365402914}
+  - component: {fileID: 7004314759746211392}
+  m_Layer: 0
+  m_Name: WeaponInvoker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5232912338365402914
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8362927314922998756}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1254943373792317886}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7004314759746211392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8362927314922998756}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17827ce46af02444bb172ce047647b3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _weaponController: {fileID: 1428770217947165331}
+  _fire: 0
 --- !u!1 &8428218471953092612
 GameObject:
   m_ObjectHideFlags: 0
@@ -2059,12 +2104,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57372fea6b2c82f48aaa5a4218b7d5f2, type: 3}
---- !u!1 &3337804644324070987 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2747439848049277561, guid: 57372fea6b2c82f48aaa5a4218b7d5f2,
-    type: 3}
-  m_PrefabInstance: {fileID: 608723032691649586}
-  m_PrefabAsset: {fileID: 0}
 --- !u!95 &4595810596747507379 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 4014122600777341569, guid: 57372fea6b2c82f48aaa5a4218b7d5f2,
@@ -2074,6 +2113,12 @@ Animator:
 --- !u!4 &5388267031339846452 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4806578915174442758, guid: 57372fea6b2c82f48aaa5a4218b7d5f2,
+    type: 3}
+  m_PrefabInstance: {fileID: 608723032691649586}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3337804644324070987 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2747439848049277561, guid: 57372fea6b2c82f48aaa5a4218b7d5f2,
     type: 3}
   m_PrefabInstance: {fileID: 608723032691649586}
   m_PrefabAsset: {fileID: 0}

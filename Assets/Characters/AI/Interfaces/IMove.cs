@@ -5,5 +5,5 @@ using UnityEngine;
 public interface IMove 
 {
     bool OnPosition { get; }
-    void Move(Vector3 position);
+    void MoveToPosition(Vector3 position);
 }

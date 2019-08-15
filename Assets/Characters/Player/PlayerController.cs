@@ -7,7 +7,7 @@ using UnityEngine.Events;
 
 namespace Characters.Player
 {
-    public class PlayerController : MonoBehaviour
+    public class PlayerController : CharacterController
     {
         private static List<PlayerController> players = new List<PlayerController>();
         public static ReadOnlyCollection<PlayerController> Players = null;
@@ -33,14 +33,14 @@ namespace Characters.Player
 
         private void OnEnable() { }
 
-        private void Awake()
+        protected override void Awake()
         {
             if (Players == null) Players = new ReadOnlyCollection<PlayerController>(players);
         }
 
-        private void Start()
+        protected override void Start()
         {
-            Add();
+            Add(this);
             transform.root.name = string.Format("{0} {1}", _defaultName, players.Count.ToString());
         }
 
@@ -77,29 +77,21 @@ namespace Characters.Player
 #endif
         }
 
-        private void Add()
+        protected override void Add(CharacterController character)
         {
-            players.Add(this);
+            players.Add(character as PlayerController);
             _playerID = players.Count;
-            PlayerAdded?.Invoke(this);
+            PlayerAdded?.Invoke(character as PlayerController);
             PlayerListUpdated?.Invoke();
+            base.Add(character);
         }
 
-        private void Remove()
+        protected override void Remove(CharacterController character)
         {
-            players.Remove(this);
-            PlayerRemoved?.Invoke(this);
+            players.Remove(character as PlayerController);
+            PlayerRemoved?.Invoke(character as PlayerController);
             PlayerListUpdated?.Invoke();
-        }
-
-        private void OnDisable()
-        {
-            Remove();
-        }
-
-        private void OnDestroy()
-        {
-            Remove();
+            base.Remove(character);
         }
     }
 }
