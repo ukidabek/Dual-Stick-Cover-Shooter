@@ -3338,11 +3338,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8238247383785185494, guid: 2105a762be310b9468de648e7c1a52de,
-        type: 3}
-      propertyPath: statusTiggers.Array.size
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2105a762be310b9468de648e7c1a52de, type: 3}
 --- !u!1001 &4397236748138500679

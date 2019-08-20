@@ -3,13 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Eyesight : Sensor, ITargetProvider
+public class Eyesight : Sensor
 {
     [SerializeField] private float rande = 3f;
     private List<Characters.Player.PlayerController> Players = new List<Characters.Player.PlayerController>();
-
-    public event Action<GameObject> OnTargetDetected;
-    public event Action<GameObject> OnTargetLost;
 
     protected override bool Scan()
     {
@@ -20,11 +17,11 @@ public class Eyesight : Sensor, ITargetProvider
             {
                 if (Vector3.Distance(item.transform.position, transform.position) <= rande)
                 {
-                    OnTargetDetected?.Invoke(item.gameObject);
+                    TargetDetected(item.gameObject);
                     Players.Add(item);
                 }
                 else
-                    OnTargetLost?.Invoke(item.gameObject);
+                    TargetLost(item.gameObject);
             }
         }
 

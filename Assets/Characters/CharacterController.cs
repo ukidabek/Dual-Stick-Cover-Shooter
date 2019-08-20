@@ -1,16 +1,53 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Reflection;
 using UnityEngine;
+
 
 public class CharacterController : MonoBehaviour
 {
     private static List<CharacterController> characters = new List<CharacterController>();
     public static ReadOnlyCollection<CharacterController> Characters = null;
 
+    public IMove Move { get; private set; }
+    public ILook Look { get; private set; }
+    public IAttack Attack { get; private set; }
+    public IAim Aim { get; private set; }
+
+    protected void InitializeInterfaces()
+    {
+        Transform gameObject = transform.root;
+        List<PropertyInfo> properties = new List<PropertyInfo>();
+        Type type = GetType(), monoBehaviourType = typeof(MonoBehaviour);
+
+        while (type != monoBehaviourType)
+        {
+            properties.AddRange(type.GetProperties(BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Instance));
+            type = type.BaseType;
+        }
+
+        foreach (var item in properties)
+        {
+            if (item.PropertyType.IsArray)
+            {
+                Type elementType = item.PropertyType.GetElementType();
+                Component[] list = gameObject.GetComponentsInChildren(elementType);
+                Array array = Array.CreateInstance(elementType, list.Length);
+                for (int i = 0; i < list.Length; i++)
+                    array.SetValue(list[i], i);
+                item.SetValue(this, array);
+            }
+            else
+                item.SetValue(this, gameObject.GetComponentInChildren(item.PropertyType));
+        }
+    }
+
     protected virtual void Awake()
     {
         if (characters == null) Characters = new ReadOnlyCollection<CharacterController>(characters);
+        InitializeInterfaces();
     }
 
     protected virtual void Start()

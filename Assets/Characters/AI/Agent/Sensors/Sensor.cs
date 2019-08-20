@@ -3,11 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Sensor : MonoBehaviour
+public abstract class Sensor : MonoBehaviour, ISensor
 {
     [SerializeField] private float interval = 0;
 
     public bool Active { get; protected set; }
+
+    public event Action<GameObject> OnTargetDetected;
+    public event Action<GameObject> OnTargetLost;
 
     protected virtual void Awake()
     {
@@ -24,4 +27,14 @@ public abstract class Sensor : MonoBehaviour
     }
 
     protected abstract bool Scan();
+
+    protected void TargetLost(GameObject gameObject)
+    {
+        OnTargetDetected?.Invoke(gameObject);
+    }
+
+    protected void TargetDetected(GameObject gameObject)
+    {
+        OnTargetLost?.Invoke(gameObject);
+    }
 }

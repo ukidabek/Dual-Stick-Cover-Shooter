@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TargetLostAiState : TargetHandlingAiState
+public class TargetLostAiState : BaseAIState
 {
     [SerializeField] private StateActionHandler actionHandler = null;
 
@@ -13,7 +13,7 @@ public class TargetLostAiState : TargetHandlingAiState
 
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
     {
-        if (targets.Count == 0)
+        if (Targets.Count == 0)
             actionHandler.Invoke(animator, animatorStateInfo, layerIndex);
     }
 }

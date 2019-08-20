@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IncreasingAlertAIState : TargetHandlingAiState
+public class IncreasingAlertAIState : BaseAIState
 {
     [SerializeField] private float air = 1f;
     [SerializeField, Range(0f, 1f)] private float alert = 0;
@@ -19,7 +19,7 @@ public class IncreasingAlertAIState : TargetHandlingAiState
     {
         if (alert >= 1f) return;
 
-        if (targets.Count > 0)
+        if (Targets.Count > 0)
             alert += air * Time.deltaTime;
         else
             alert -= air * Time.deltaTime;

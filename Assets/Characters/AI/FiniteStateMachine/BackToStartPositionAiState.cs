@@ -7,7 +7,7 @@ public class BackToStartPositionAiState : BaseAIState
     private Vector3 startPosition = Vector3.zero;
     [SerializeField] private StateActionHandler actionHandler = new StateActionHandler();
 
-    public override void Initialize(Agent agent)
+    public override void Initialize(AIAgent agent)
     {
         startPosition = agent.transform.position;
         actionHandler.Reset();
