@@ -2,10 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Interactions
+public interface IUse
 {
-    public interface IUse
-    {
-        void Use();
-    }
+    void Activate();
 }

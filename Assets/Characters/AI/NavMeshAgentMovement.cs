@@ -9,7 +9,7 @@ public class NavMeshAgentMovement : MonoBehaviour, IMove
     [SerializeField] private NavMeshAgent navMeshAgent = null;
     public bool OnPosition => navMeshAgent.remainingDistance < .1f;
 
-    public void MoveToPosition(Vector3 position)
+    public void Set(Vector3 position)
     {
         navMeshAgent.SetDestination(position);
     }

@@ -21,7 +21,7 @@ public class BackToStartPositionAiState : BaseAIState
 
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
     {
-        agent.Move.MoveToPosition(startPosition);
+        agent.Move.Set(startPosition);
         if (agent.Move.OnPosition)
             actionHandler.Invoke(animator, animatorStateInfo, layerIndex);
     }

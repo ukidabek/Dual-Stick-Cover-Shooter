@@ -13,8 +13,9 @@ public class CharacterController : MonoBehaviour
 
     public IMove Move { get; private set; }
     public ILook Look { get; private set; }
-    public IAttack Attack { get; private set; }
+    public IWeapon Weapon { get; private set; }
     public IAim Aim { get; private set; }
+    public IUse Use { get; private set; }
 
     protected void InitializeInterfaces()
     {
@@ -24,7 +25,11 @@ public class CharacterController : MonoBehaviour
 
         while (type != monoBehaviourType)
         {
-            properties.AddRange(type.GetProperties(BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Instance));
+            PropertyInfo[] propertyInfos = type.GetProperties(BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+            foreach (PropertyInfo item in propertyInfos)
+                if (item.PropertyType.IsInterface)
+                    properties.Add(item);
+
             type = type.BaseType;
         }
 

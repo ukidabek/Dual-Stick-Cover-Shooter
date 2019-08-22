@@ -35,6 +35,7 @@ namespace Characters.Player
 
         protected override void Awake()
         {
+            base.Awake();
             if (Players == null) Players = new ReadOnlyCollection<PlayerController>(players);
         }
 
@@ -44,30 +45,30 @@ namespace Characters.Player
             transform.root.name = string.Format("{0} {1}", _defaultName, players.Count.ToString());
         }
 
-        public void Move(Vector3 input)
-        {
-            UpdateMovementInput.Invoke(input);
-        }
+        //public void Move(Vector3 input)
+        //{
+        //    UpdateMovementInput.Invoke(input);
+        //}
 
-        public void Aim(Vector3 input)
-        {
-            UpdateLookInput.Invoke(input);
-        }
+        //public void Aim(Vector3 input)
+        //{
+        //    UpdateLookInput.Invoke(input);
+        //}
 
-        public void Aim(bool activate)
-        {
-            UpdateAimToggle.Invoke(activate);
-        }
+        //public void Aim(bool activate)
+        //{
+        //    UpdateAimToggle.Invoke(activate);
+        //}
 
-        public void Fire(bool activate)
-        {
-            UpdateFireToggle.Invoke(activate);
-        }
+        //public void Fire(bool activate)
+        //{
+        //    UpdateFireToggle.Invoke(activate);
+        //}
 
-        public void Use()
-        {
-            UpdateUse.Invoke();
-        }
+        //public void Use()
+        //{
+        //    UpdateUse.Invoke();
+        //}
 
         private void OnDrawGizmos()
         {

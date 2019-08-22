@@ -1,9 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public interface IMove 
+﻿public interface IMove : ISet
 {
     bool OnPosition { get; }
-    void MoveToPosition(Vector3 input);
 }

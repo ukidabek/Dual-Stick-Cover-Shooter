@@ -1,1 +1,7 @@
-﻿public interface IAttack : IActivate { }
+﻿public interface IWeapon : IActivate
+{
+    void Next();
+    void Previous();
+    void NextMode();
+    void PreviousMode();
+}

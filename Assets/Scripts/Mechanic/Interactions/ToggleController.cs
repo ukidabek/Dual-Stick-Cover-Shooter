@@ -4,21 +4,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-[Serializable] public class ToggleStatusCallback : UnityEvent<bool> { }
-
-public class ToggleController : MonoBehaviour
+namespace Interactions
 {
-    [SerializeField] private bool _status;
+    [Serializable] public class ToggleStatusCallback : UnityEvent<bool> { }
 
-    public ToggleStatusCallback ToggleStatus = new ToggleStatusCallback();
-
-    private void Awake()
+    public class ToggleController : MonoBehaviour
     {
-        ToggleStatus.Invoke(_status);
-    }
+        [SerializeField] private bool _status;
 
-    public void Toggle()
-    {
-        ToggleStatus.Invoke(_status = !_status);
+        public ToggleStatusCallback ToggleStatus = new ToggleStatusCallback();
+
+        private void Awake()
+        {
+            ToggleStatus.Invoke(_status);
+        }
+
+        public void Toggle()
+        {
+            ToggleStatus.Invoke(_status = !_status);
+        }
     }
 }

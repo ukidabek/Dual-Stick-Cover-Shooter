@@ -3,26 +3,29 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-[CustomEditor(typeof(OnTrggerInteractionUser))]
-public class OnTrggerInteractionUserEditor : Editor
+namespace Interactions
 {
-    private SerializedProperty _useAngleProperty = null;
-    private SerializedProperty _interactionShowAngleProperty = null;
-
-    private void OnEnable()
+    [CustomEditor(typeof(OnTrggerInteractionUser))]
+    public class OnTrggerInteractionUserEditor : Editor
     {
-        _useAngleProperty = serializedObject.FindProperty("_useAngle");
-        _interactionShowAngleProperty = serializedObject.FindProperty("_interactionShowAngle");
-    }
+        private SerializedProperty _useAngleProperty = null;
+        private SerializedProperty _interactionShowAngleProperty = null;
 
-    public override void OnInspectorGUI()
-    {
-        base.OnInspectorGUI();
-        if(_useAngleProperty.boolValue)
-            _interactionShowAngleProperty.floatValue = EditorGUILayout.Slider(
-                _interactionShowAngleProperty.displayName, 
-                _interactionShowAngleProperty.floatValue, 
-                0f, 
-                360f);
+        private void OnEnable()
+        {
+            _useAngleProperty = serializedObject.FindProperty("_useAngle");
+            _interactionShowAngleProperty = serializedObject.FindProperty("_interactionShowAngle");
+        }
+
+        public override void OnInspectorGUI()
+        {
+            base.OnInspectorGUI();
+            if (_useAngleProperty.boolValue)
+                _interactionShowAngleProperty.floatValue = EditorGUILayout.Slider(
+                    _interactionShowAngleProperty.displayName,
+                    _interactionShowAngleProperty.floatValue,
+                    0f,
+                    360f);
+        }
     }
 }

@@ -28,9 +28,14 @@ namespace Weapons.Animations
 
             if (_animator != null)
             {
-                AnimatorOverrideController = new AnimatorOverrideController(_animator.runtimeAnimatorController);
-                _animator.runtimeAnimatorController = AnimatorOverrideController;
-                _animator.Rebind();
+                if(_animator.runtimeAnimatorController is AnimatorOverrideController)
+                    AnimatorOverrideController = _animator.runtimeAnimatorController as AnimatorOverrideController;
+                else
+                {
+                    AnimatorOverrideController = new AnimatorOverrideController(_animator.runtimeAnimatorController);
+                    _animator.runtimeAnimatorController = AnimatorOverrideController;
+                    _animator.Rebind();
+                }
             }
         }
 
