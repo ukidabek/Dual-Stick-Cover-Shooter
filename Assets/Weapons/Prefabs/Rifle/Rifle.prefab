@@ -220,13 +220,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   overrides:
   - animationName: WeaponIdle
-    animationClip: {fileID: 7400000, guid: e681a88718acf694f8ff55faff2f013f, type: 2}
+    animationClip: {fileID: 7400000, guid: b9a9fc42ef7b04c40a2e9229a9040596, type: 2}
   - animationName: WeaponAim
-    animationClip: {fileID: 7400000, guid: dc90bac2a01ff204a90c8dc2740f93a8, type: 2}
+    animationClip: {fileID: 7400000, guid: 6af434d65c400224dbb9a7e34f5a0c42, type: 2}
   - animationName: WeaponFire
-    animationClip: {fileID: 7400000, guid: 01e230837a68d1c4fb28d2ba7db6502d, type: 2}
+    animationClip: {fileID: 7400000, guid: ab1392dc4d955534286cb1260c16cf5d, type: 2}
   - animationName: WeaponReload
-    animationClip: {fileID: 7400000, guid: cdc0d65b2f609794db28e411b0c81236, type: 2}
+    animationClip: {fileID: 7400000, guid: 4f93c3f14f52ea14a8bafba971e7b511, type: 2}
 --- !u!114 &2305320223915827897
 MonoBehaviour:
   m_ObjectHideFlags: 0
