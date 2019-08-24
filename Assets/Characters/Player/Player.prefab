@@ -9,8 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1019322}
-  - component: {fileID: 1019323}
-  - component: {fileID: 1019324}
   m_Layer: 8
   m_Name: CharacterStats
   m_TagString: Untagged
@@ -28,81 +26,13 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 5822110762577725609}
+  - {fileID: 4000414055448079952}
+  - {fileID: 6984015682979135795}
   m_Father: {fileID: 1254943372370487610}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1019323
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1019321}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb54b6942e33e2d48bc815034727e9e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stat:
-    _name: Speed
-    baseValue: 1
-    _onStatRecalculatedCallback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1254943373173144508}
-          m_MethodName: SetSpeed
-          m_Mode: 0
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 1019324}
-          m_MethodName: OverrideStat
-          m_Mode: 0
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: Statistics.OnStatRecalculated, Assembly-CSharp, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
---- !u!114 &1019324
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1019321}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eddf9ce9fd472bc4a9ec887c27da1f5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  modifier: 0.5
-  OnStatRecalculated:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1254943372189570877}
-        m_MethodName: SetSpeed
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: Statistics.OnStatRecalculated, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
 --- !u!1 &520870868
 GameObject:
   m_ObjectHideFlags: 0
@@ -537,6 +467,66 @@ MonoBehaviour:
   _behaviourManager: {fileID: 1254943372689291009}
   _isOn: 0
   _behaviourToToggle: ShootingAndAiming
+--- !u!1 &939197440547532647
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6984015682979135795}
+  - component: {fileID: 3395555554505598184}
+  m_Layer: 8
+  m_Name: 'CurrentHealth is : 0/100,00'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6984015682979135795
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 939197440547532647}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1019322}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3395555554505598184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 939197440547532647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d49a8567290be4d49825cce218ca3369, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _name: CurrentHealth
+  MaxStatValue: {fileID: 1442683674006323957}
+  onStatEmptyCallback:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onStatFullCallback:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onStatUpdateCallback:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Statistics.OnStatUpdate, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!1 &1254943372060196395
 GameObject:
   m_ObjectHideFlags: 0
@@ -646,6 +636,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1254943372370487610}
   - component: {fileID: 1254943372370487612}
+  - component: {fileID: 2882278331688990108}
   - component: {fileID: 3228682967498072176}
   - component: {fileID: 1501103585846617320}
   - component: {fileID: 2117428330}
@@ -695,6 +686,34 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &2882278331688990108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254943372370487611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49a5ee0cde04d7547b7c6c8afd02cace, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnDealDamage:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3395555554505598184}
+        m_MethodName: UpdateValue
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: Weapons.OnDealDamage, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!136 &3228682967498072176
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -883,9 +902,6 @@ MonoBehaviour:
     lookInChildrens: 1
   - fieldName: _animator
     object: {fileID: 1254943372929812638}
-    lookInChildrens: 0
-  - fieldName: _weaponCholder
-    object: {fileID: 1428770217947165331}
     lookInChildrens: 0
 --- !u!1 &1254943372600697466
 GameObject:
@@ -1281,6 +1297,56 @@ MonoBehaviour:
   weaponsPrefabs:
   - {fileID: 810401633811262101, guid: 0291d6401a6f2fe4394bcb1d1f761d51, type: 3}
   - {fileID: 3289546222320709193, guid: 8662dfb7ad3898b42a12a26c890ebf39, type: 3}
+--- !u!1 &2963150658890380758
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4000414055448079952}
+  - component: {fileID: 1442683674006323957}
+  m_Layer: 8
+  m_Name: 'Health is : 100'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4000414055448079952
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2963150658890380758}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1019322}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1442683674006323957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2963150658890380758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f88f3be3e5b7a5f41a6abe1c4e66eefc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _name: Health
+  baseValue: 100
+  _onStatRecalculatedCallback:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Statistics.OnStatUpdate, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!1 &3400519564942605793
 GameObject:
   m_ObjectHideFlags: 0
@@ -1539,6 +1605,108 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _weaponController: {fileID: 1428770217947165331}
   _fire: 0
+--- !u!1 &8979440256505746534
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5822110762577725609}
+  - component: {fileID: 6790005814310999340}
+  - component: {fileID: 3338673695290540265}
+  m_Layer: 8
+  m_Name: Speed
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5822110762577725609
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8979440256505746534}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1019322}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6790005814310999340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8979440256505746534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f88f3be3e5b7a5f41a6abe1c4e66eefc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _name: Speed
+  baseValue: 1
+  _onStatRecalculatedCallback:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: OverrideStat
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1254943373173144508}
+        m_MethodName: SetSpeed
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: Statistics.OnStatUpdate, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+--- !u!114 &3338673695290540265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8979440256505746534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eddf9ce9fd472bc4a9ec887c27da1f5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modifier: 0.5
+  OnStatRecalculated:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1254943372189570877}
+        m_MethodName: SetSpeed
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: Statistics.OnStatUpdate, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!1001 &608723032691649586
 PrefabInstance:
   m_ObjectHideFlags: 0

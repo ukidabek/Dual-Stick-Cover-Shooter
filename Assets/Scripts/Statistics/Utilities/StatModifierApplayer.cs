@@ -10,11 +10,11 @@ namespace Statistics
         [SerializeField] private float value = 1f;
         [SerializeField] private StatModifier.ModifierMode mode = StatModifier.ModifierMode.Percent;
 
-        private IStat GetStat(GameObject gameObject)
+        private IModifiableStat GetStat(GameObject gameObject)
         {
-            var status = gameObject.GetComponentsInChildren<IStat>();
+            var status = gameObject.GetComponentsInChildren<IModifiableStat>();
             foreach (var item in status)
-                if(item.Name == statName)
+                if (item.Name == statName)
                     return item;
             return null;
         }
@@ -26,7 +26,7 @@ namespace Statistics
 
         public void RemoveForm(GameObject gameObject)
         {
-            GetStat(gameObject)?.RemoveAllModifierFrom(this);
+           GetStat(gameObject)?.RemoveAllModifierFrom(this);
         }
     }
 }

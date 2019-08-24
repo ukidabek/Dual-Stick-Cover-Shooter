@@ -6,7 +6,8 @@ using UnityEngine;
 
 namespace Statistics
 {
-    [Serializable] public class Stat : IStat
+    [DisallowMultipleComponent]
+    public class Stat : MonoBehaviour, IStat, IModifiableStat
     {
         [SerializeField] private string _name = string.Empty;
         public string Name => _name;
@@ -24,18 +25,17 @@ namespace Statistics
             private set { this.value = value; }
         }
 
-        [SerializeField] private OnStatRecalculated _onStatRecalculatedCallback = new OnStatRecalculated();
-        public OnStatRecalculated OnStatRecalculatedCallback => _onStatRecalculatedCallback;
+        [SerializeField] private OnStatUpdate _onStatRecalculatedCallback = new OnStatUpdate();
+        public OnStatUpdate OnStatRecalculatedCallback => _onStatRecalculatedCallback;
 
         private readonly List<StatModifier> statModifiers = new List<StatModifier>();
         public readonly ReadOnlyCollection<StatModifier> StatModifiers = null;
 
-        public Stat() : this(1) { }
-
-        public Stat(float baseValue)
+        private void Awake()
         {
-            Value = this.baseValue = baseValue;
-            StatModifiers = new ReadOnlyCollection<StatModifier>(statModifiers);
+#if UNITY_EDITOR
+            gameObject.name = string.Format("{0} is : {1}", _name, Value);
+#endif
         }
 
         public static implicit operator float(Stat stat)
@@ -73,6 +73,9 @@ namespace Statistics
             Value *= (1 + stack);
             Value = (float)Math.Round(Value, 4);
             OnStatRecalculatedCallback.Invoke(this);
+#if UNITY_EDITOR
+            gameObject.name = string.Format("{0} is : {1}", _name, Value);
+#endif
         }
 
         public void RemoveModifier(StatModifier modifier)
@@ -89,6 +92,11 @@ namespace Statistics
                 if (statModifiers[i].Source == source)
                     statModifiers.RemoveAt(i);
             CalculateValue();
+        }
+
+        private void OnValidate()
+        {
+            gameObject.name = _name;
         }
     }
 }

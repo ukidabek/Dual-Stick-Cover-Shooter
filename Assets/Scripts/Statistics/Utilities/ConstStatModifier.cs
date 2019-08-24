@@ -8,7 +8,7 @@ namespace Statistics
     {
         [SerializeField, Range(0f, 5f)] float modifier = 1f;
 
-        public OnStatRecalculated OnStatRecalculated = new OnStatRecalculated();
+        public OnStatUpdate OnStatRecalculated = new OnStatUpdate();
 
         public void OverrideStat(float stat)
         {

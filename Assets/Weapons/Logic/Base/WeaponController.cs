@@ -32,18 +32,17 @@ namespace Weapons
             }
         }
 
-
-        internal void BeginUse()
+        public void BeginUse()
         {
             _weapon?.BeginUse();
         }
 
-        internal void EndUse()
+        public void EndUse()
         {
             _weapon?.EndUse();
         }
 
-        internal void Use()
+        public void Use()
         {
             _weapon?.Use();
         }

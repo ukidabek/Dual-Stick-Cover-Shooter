@@ -29,7 +29,6 @@ namespace Statistics
             Source = source;
         }
 
-
         public int CompareTo(StatModifier other)
         {
             if (Order < other.Order)
