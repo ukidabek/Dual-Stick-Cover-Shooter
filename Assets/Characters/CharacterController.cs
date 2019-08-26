@@ -5,6 +5,11 @@ using System.Collections.ObjectModel;
 using System.Reflection;
 using UnityEngine;
 
+public interface ICombat
+{
+    bool HasWeapon { get; }
+    float Range { get; }
+}
 
 public class CharacterController : MonoBehaviour
 {
@@ -16,6 +21,8 @@ public class CharacterController : MonoBehaviour
     public IWeapon Weapon { get; private set; }
     public IAim Aim { get; private set; }
     public IUse Use { get; private set; }
+    public ITargetProvider TargetProvider { get; private set; }
+    public ICombat Combat { get; private set; } 
 
     protected void InitializeInterfaces()
     {

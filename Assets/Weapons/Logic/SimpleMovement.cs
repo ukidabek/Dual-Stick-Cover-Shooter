@@ -6,6 +6,7 @@ using UnityEngine;
 public class SimpleMovement : MonoBehaviour
 {
     [SerializeField] private float _speed = 5f;
+    public float Speed { get => _speed; set => _speed = value; }
 
     private void OnEnable()
     {

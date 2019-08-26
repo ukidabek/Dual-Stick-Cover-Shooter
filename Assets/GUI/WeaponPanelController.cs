@@ -20,9 +20,9 @@ public class WeaponPanelController : MonoBehaviour
 
     public void OnPlayerAdded(PlayerController playerController)
     {
-        var cheq = playerController.GetComponentInChildren<CharacterEquipment>();
-        cheq.WeaponEquipment.OnEquipCallback += OnWeaponEquped;
-        OnWeaponEquped(cheq.WeaponEquipment.CurrentWeapon);
+        var characterEquipment = playerController.GetComponentInChildren<CharacterEquipment>();
+        characterEquipment.WeaponEquipment.OnEquipCallback += OnWeaponEquped;
+        OnWeaponEquped(characterEquipment.WeaponEquipment.CurrentWeapon);
     }
 
     private void OnWeaponEquped(object obj)
@@ -33,16 +33,19 @@ public class WeaponPanelController : MonoBehaviour
 
     private void SetUpForWeapon(Weapon weapon)
     {
-        if (clip != null) clip.OnCounterChange -= UpdateClip;
+        if (clip != null) clip.OnChange -= UpdateClip;
 
         _weaponName.text = weapon.gameObject.name;
+        if (clip != null) clip.OnChange -= UpdateClip;
         clip = weapon.GetComponentInChildren<IMagazine>();
+
+        if (stock != null) stock.OnChange -= UpdateClip;
         stock = weapon.GetComponentInChildren<IAmmunitionStock>();
 
         if (clip != null)
         {
             UpdateClip(clip.Counter);
-            clip.OnCounterChange += UpdateClip;
+            clip.OnChange += UpdateClip;
         }
         else
             _clip.text = "-";
@@ -50,11 +53,10 @@ public class WeaponPanelController : MonoBehaviour
         if (stock != null)
         {
             UpdateStock(stock.Counter);
-            stock.OnStackChange += UpdateStock;
+            stock.OnChange += UpdateStock;
         }
         else
             _magazine.text = "-";
-
     }
 
     public void UpdateClip(int count)

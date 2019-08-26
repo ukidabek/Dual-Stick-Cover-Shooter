@@ -6,6 +6,6 @@ namespace Weapons
 {
     public interface IWeaponEquipAction
     {
-        void Perform(GameObject gameObject);
+        void Equip(GameObject gameObject);
     }
 }

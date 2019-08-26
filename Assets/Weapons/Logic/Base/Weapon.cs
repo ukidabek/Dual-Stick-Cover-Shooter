@@ -14,7 +14,18 @@ namespace Weapons
 
         public OnModeSwitchCallback OnModeSwitch = new OnModeSwitchCallback();
         public Mode SeledtedMode { get => _modes == null || _modes.Length == 0 ? null : _modes[_currentModeIndex]; }
+
         private GameObject _user = null;
+
+        [SerializeField] private Statistics statistics = new Statistics();
+        public Statistics Statistics { get => statistics; }
+
+        private void Awake()
+        {
+            IStatGetter[] statGetters = gameObject.GetComponentsInChildren<IStatGetter>();
+            foreach (IStatGetter item in statGetters)
+                item.Set(statistics);
+        }
 
         public void OnEquip(GameObject user)
         {
@@ -23,17 +34,17 @@ namespace Weapons
 
         public void BeginUse()
         {
-            _modes[_currentModeIndex].BeginUse();
+            _modes[_currentModeIndex].BeginUse(_user);
         }
 
         public void Use()
         {
-            _modes[_currentModeIndex].Use();
+            _modes[_currentModeIndex].Use(_user);
         }
 
         public void EndUse()
         {
-            _modes[_currentModeIndex].EndUse();
+            _modes[_currentModeIndex].EndUse(_user);
         }
 
         public void NextMode()

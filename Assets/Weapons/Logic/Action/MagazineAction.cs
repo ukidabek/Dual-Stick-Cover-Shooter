@@ -19,16 +19,16 @@ public class MagazineAction : WeaponAction, IMagazine
     public OnMagazinecounterChangeEvent OnMagazineCounterChangeCallback = new OnMagazinecounterChangeEvent();
 
     public event Action OnEmpty;
-    public event Action<int> OnCounterChange;
+    public event Action<int> OnChange;
 
     private void Awake()
     {
         _counter = _maxSize;
         OnEmptyCallback.AddListener(() => OnEmpty?.Invoke());
-        OnMagazineCounterChangeCallback.AddListener((int counter) => OnCounterChange?.Invoke(counter));
+        OnMagazineCounterChangeCallback.AddListener((int counter) => OnChange?.Invoke(counter));
     }
 
-    public override bool Perform()
+    public override bool Perform(GameObject user)
     {
         OnMagazineCounterChangeCallback.Invoke(--_counter);
         if (_counter == 0)

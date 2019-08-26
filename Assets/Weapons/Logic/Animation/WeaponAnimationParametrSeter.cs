@@ -28,12 +28,12 @@ namespace Weapons.Animations
             _parametrHash = Animator.StringToHash(_parametrName);
         }
 
-        public void Perform(GameObject gameObject)
+        public void Equip(GameObject gameObject)
         {
             _userAnimator = gameObject.GetComponentInChildren<WeaponUserAnimator>();
         }
 
-        public override bool Perform()
+        public override bool Perform(GameObject user)
         {
             switch (_parametrToSet)
             {

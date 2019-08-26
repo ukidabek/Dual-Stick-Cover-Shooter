@@ -8,6 +8,8 @@ namespace Weapons
     public class WeaponController : MonoBehaviour
     {
         [SerializeField] private Weapon _weapon = null;
+        public Weapon Weapon { get => _weapon; }
+        
         [SerializeField] private WeaponCholder _weaponCholder = null;
 
         public void GoToPreviusMode()

@@ -8,8 +8,6 @@ public class AIAgent : CharacterController
 {
     [SerializeField] private Animator animator = null;
 
-    public ITargetProvider TargetProvider { get; private set; }
-
     protected override void Awake()
     {
         base.Awake();

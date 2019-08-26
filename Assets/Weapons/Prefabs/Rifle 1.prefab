@@ -343,7 +343,7 @@ GameObject:
   - component: {fileID: 7690486590941872382}
   - component: {fileID: 810401633811262101}
   m_Layer: 0
-  m_Name: Rifle
+  m_Name: Rifle 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -388,7 +388,7 @@ MonoBehaviour:
       PublicKeyToken=null
   statistics:
     _damage: 10
-    _range: 30
+    _range: 5
 --- !u!1 &1834190941542693463
 GameObject:
   m_ObjectHideFlags: 0
@@ -840,7 +840,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2022785018409374337
 Transform:
   m_ObjectHideFlags: 0

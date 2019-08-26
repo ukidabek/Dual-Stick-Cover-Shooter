@@ -2,15 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TargetLostAiState : BaseAIState
+public class TargetLostValidator : AgentStatusValidator
 {
-    [SerializeField] private StateActionHandler actionHandler = null;
-
-    public override void OnStateEnter(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
-    {
-        actionHandler.Reset();
-    }
-
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
     {
         if (Targets.Count == 0)

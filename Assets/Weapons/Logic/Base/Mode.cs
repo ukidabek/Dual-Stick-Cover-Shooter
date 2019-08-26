@@ -24,7 +24,7 @@ namespace Weapons
 
             private bool _canBeUsed = true;
 
-            public void Perform()
+            public void Perform(GameObject user)
             {
                 _canBeUsed = true;
                 foreach (var item in _weaponValidators)
@@ -38,7 +38,7 @@ namespace Weapons
                     foreach (var item in _weaponActions)
                         try
                         {
-                            item.Perform();
+                            item.Perform(user);
                         }
                         catch(Exception e)
                         {
@@ -60,22 +60,22 @@ namespace Weapons
         public void OnWeaponEquip(GameObject user)
         {
             for (int i = 0; i < weaponEquipActions.Length; i++)
-                weaponEquipActions[i].Perform(user);
+                weaponEquipActions[i].Equip(user);
         }
 
-        public void BeginUse()
+        public void BeginUse(GameObject user)
         {
-            _onBeginUse.Perform();
+            _onBeginUse.Perform(user);
         }
 
-        public void Use()
+        public void Use(GameObject user)
         {
-            _onUse.Perform();
+            _onUse.Perform(user);
         }
 
-        public void EndUse()
+        public void EndUse(GameObject user)
         {
-            _onEndUse.Perform();
+            _onEndUse.Perform(user);
         }
 
         private void OnValidate()

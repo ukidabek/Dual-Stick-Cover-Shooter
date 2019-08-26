@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using UnityEngine;
 
+
 public abstract class BaseAIState : StateMachineBehaviour
 {
     protected GameObject GameObject { get => agent.gameObject; }

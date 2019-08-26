@@ -9,7 +9,7 @@ namespace Weapons.Animations
     {
         [SerializeField] private Override[] overrides = new Override[0];
 
-        public void Perform(GameObject gameObject)
+        public void Equip(GameObject gameObject)
         {
             WeaponUserAnimator _userAnimator = gameObject.GetComponentInChildren<WeaponUserAnimator>();
             if (_userAnimator != null && _userAnimator.AnimatorOverrideController != null)

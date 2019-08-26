@@ -123,7 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spawnPoint: {fileID: 49774254503430660}
-  _projectile: {fileID: 4290131084412126715, guid: 298c9c7f2f1dd3c498526bc44a8c876e,
+  _projectile: {fileID: 3346515312491538992, guid: 298c9c7f2f1dd3c498526bc44a8c876e,
     type: 3}
 --- !u!114 &3591188648065200281
 MonoBehaviour:
@@ -343,6 +343,9 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: Weapons.OnModeSwitchCallback, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
+  statistics:
+    _damage: 10
+    _range: 30
 --- !u!1 &5641264415577812369
 GameObject:
   m_ObjectHideFlags: 0
