@@ -1,21 +1,24 @@
 ﻿using UnityEngine;
 
-public class WaitForSecondsAiState : WaitForAiState
+namespace AI
 {
-    [SerializeField] private float _time = 1f;
-    [SerializeField] private float _counter = 0;
-
-    public override void OnStateEnter(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
+    public class WaitForSecondsAiState : WaitForAiState
     {
-        _counter = _time;
-        base.OnStateEnter(animator, animatorStateInfo, layerIndex);
-    }
+        [SerializeField] private float _time = 1f;
+        [SerializeField] private float _counter = 0;
 
-    public override bool Condition => _counter <= 0f;
+        public override void OnStateEnter(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
+        {
+            _counter = _time;
+            base.OnStateEnter(animator, animatorStateInfo, layerIndex);
+        }
 
-    public override void OnStateUpdate(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
-    {
-        _counter -= Time.deltaTime;
-        base.OnStateUpdate(animator, animatorStateInfo, layerIndex);
+        public override bool Condition => _counter <= 0f;
+
+        public override void OnStateUpdate(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
+        {
+            _counter -= Time.deltaTime;
+            base.OnStateUpdate(animator, animatorStateInfo, layerIndex);
+        }
     }
 }

@@ -17,4 +17,9 @@ public class MoveInputMiddleman : BaseVector3InputMiddleman, IMove
     {
         Notify(input);
     }
+
+    public void Stop()
+    {
+        Notify(Vector3.zero);
+    }
 }

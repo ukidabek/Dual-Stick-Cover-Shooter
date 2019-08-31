@@ -14,6 +14,11 @@ public class NavMeshAgentMovement : MonoBehaviour, IMove
         navMeshAgent.SetDestination(position);
     }
 
+    public void Stop()
+    {
+        navMeshAgent.SetDestination(transform.position);
+    }
+
     private void Reset()
     {
         navMeshAgent = gameObject.GetComponent<NavMeshAgent>();

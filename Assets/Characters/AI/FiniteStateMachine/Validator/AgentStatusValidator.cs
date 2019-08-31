@@ -1,12 +1,15 @@
-﻿using UnityEngine;
+﻿using AI.Actions;
+using UnityEngine;
 
-public abstract class AgentStatusValidator : BaseAIState
+namespace AI
 {
-    [SerializeField] protected StateActionHandler actionHandler = null;
-
-    public override void OnStateEnter(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
+    public abstract class AgentStatusValidator : BaseAIState
     {
-        actionHandler.Reset();
-    }
+        [SerializeField] protected StateActionHandler actionHandler = null;
 
+        public override void OnStateEnter(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
+        {
+            actionHandler.Reset();
+        }
+    }
 }

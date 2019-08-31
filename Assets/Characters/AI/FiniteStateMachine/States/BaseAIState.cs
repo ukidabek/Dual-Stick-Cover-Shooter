@@ -1,19 +1,19 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using UnityEngine;
 
-
-public abstract class BaseAIState : StateMachineBehaviour
+namespace AI
 {
-    protected GameObject GameObject { get => agent.gameObject; }
-    protected Transform Transform { get => agent.transform; }
-    protected AIAgent agent = null;
-
-    protected ReadOnlyCollection<GameObject> Targets { get => agent.TargetProvider.Targets; }
-
-    public virtual void Initialize(AIAgent agent)
+    public abstract class BaseAIState : StateMachineBehaviour
     {
-        this.agent = agent;
+        protected GameObject GameObject { get => agent.gameObject; }
+        protected Transform Transform { get => agent.transform; }
+        protected AIAgent agent = null;
+
+        protected ReadOnlyCollection<GameObject> Targets { get => agent.TargetProvider.Targets; }
+
+        public virtual void Initialize(AIAgent agent)
+        {
+            this.agent = agent;
+        }
     }
 }

@@ -218,6 +218,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 639113084498395963}
+  - component: {fileID: 1316920682701187071}
   - component: {fileID: 283014200397206565}
   - component: {fileID: 283014200397206564}
   - component: {fileID: 8058063210139345283}
@@ -247,6 +248,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1316920682701187071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 283014200397206563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49a3dd98ba794944889a699b4b926275, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterId: 0
+  agent: {fileID: 1380175186694009747}
 --- !u!195 &283014200397206565
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -479,6 +494,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 810401633811262101, guid: fcdac13e028886745a29a0eca6a6b8e4,
+        type: 3}
+      propertyPath: statistics._range
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5343072288047007512, guid: fcdac13e028886745a29a0eca6a6b8e4,
+        type: 3}
+      propertyPath: _rate
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fcdac13e028886745a29a0eca6a6b8e4, type: 3}

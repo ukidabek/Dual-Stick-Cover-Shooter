@@ -1,23 +1,28 @@
 ﻿using System;
 using UnityEngine;
 
-[Serializable]
-public class StateActionHandler
+namespace AI.Actions
 {
-    [SerializeField] private bool _lock = true;
-    private bool locked = false;
-    [SerializeField] private AiStateAction[] aiStateActions = null;
-
-    public void Invoke(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
+    [Serializable]
+    public class StateActionHandler
     {
-        if (locked) return;
-        foreach (var item in aiStateActions)
-            item.Perform(animator, animatorStateInfo, layerIndex);
-        if (_lock) locked = true;
-    }
+        [SerializeField] private bool _lock = true;
+        private bool locked = false;
+        [SerializeField] private AIStateAction[] Actions = null;
 
-    public void Reset()
-    {
-        locked = false;
+        public void Invoke(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
+        {
+            if (locked) return;
+
+            foreach (var item in Actions)
+                item.Perform(animator, animatorStateInfo, layerIndex);
+
+            if (_lock) locked = true;
+        }
+
+        public void Reset()
+        {
+            locked = false;
+        }
     }
 }

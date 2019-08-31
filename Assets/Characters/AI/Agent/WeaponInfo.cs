@@ -8,12 +8,18 @@ public class WeaponInfo : MonoBehaviour, ICombat
 {
     [SerializeField] private WeaponController weaponController = null;
 
-    public bool HasWeapon => throw new System.NotImplementedException();
+    public bool HasWeapon => weaponController.Weapon != null;
 
-    public float Range => weaponController.Weapon != null ? weaponController.Weapon.Statistics.Range : 5;
+    public float Range => HasWeapon ? weaponController.Weapon.Statistics.Range : 5;
+
+    public void Attack()
+    {
+        if (HasWeapon)
+            weaponController.Use();
+    }
 
     private void Reset()
     {
-        weaponController = GetComponent<WeaponController>();
+        
     }
 }

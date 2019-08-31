@@ -1,7 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using AI;
+using System.Collections;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class WanderAiState : BaseAIState
 {
@@ -23,7 +22,6 @@ public class WanderAiState : BaseAIState
         {
             Vector2 vector = Random.insideUnitCircle * wanderRange;
             Vector3 destination = startPosition + new Vector3(vector.x, startPosition.y, vector.y);
-            Debug.Log(destination);
             agent.Move.Set(destination);
             yield return new WaitForSeconds(interval);
         }
