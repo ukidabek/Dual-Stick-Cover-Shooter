@@ -14,7 +14,7 @@ namespace Utilities
             ObjectDeactivated?.Invoke(gameObject);
         }
     }
-
+     
     public class Pool<T> where T : Component
     {
         [SerializeField] private T prefab = null;
