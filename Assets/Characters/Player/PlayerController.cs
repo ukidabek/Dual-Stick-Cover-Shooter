@@ -29,8 +29,6 @@ namespace Characters.Player
         public InputToggleUpdateEvent UpdateFireToggle = new InputToggleUpdateEvent();
         public UnityEvent UpdateUse = new UnityEvent();
 
-        private string _defaultName = string.Empty;
-
         private void OnEnable() { }
 
         protected override void Awake()
@@ -42,7 +40,7 @@ namespace Characters.Player
         protected override void Start()
         {
             Add(this);
-            transform.root.name = string.Format("{0} {1}", _defaultName, players.Count.ToString());
+            transform.root.name = string.Format("{0} {1}", transform.root.name, players.Count.ToString());
         }
 
         private void OnDrawGizmos()

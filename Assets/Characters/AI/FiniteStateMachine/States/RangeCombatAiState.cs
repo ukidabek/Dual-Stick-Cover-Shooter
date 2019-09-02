@@ -1,9 +1,7 @@
 ﻿using AI;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class CombatAiState : BaseAIState
+public class RangeCombatAiState : BaseAIState
 {
     [SerializeField] private float targetingSpeed = 5f;
     [SerializeField] private float attackAngle = 40;

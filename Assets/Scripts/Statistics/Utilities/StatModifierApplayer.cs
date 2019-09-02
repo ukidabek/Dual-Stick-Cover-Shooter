@@ -21,12 +21,29 @@ namespace Statistics
 
         public void ApplayTo(GameObject gameObject)
         {
-            GetStat(gameObject)?.AddModifier(new StatModifier(value, mode, this));
+            IModifiableStat modifiableStat = GetStat(gameObject);
+            if (modifiableStat != null)
+            {
+#if UNITY_EDITOR
+                string logColor = value == 0 ? "#ffff00ff" : value > 0 ? "#008000ff" : "#a52a2aff";
+                Debug.LogFormat("<color={2}>{0} stat modyfier of value {3} applayed for {1}</color>.", statName, gameObject.name, logColor, value);
+#endif
+                modifiableStat.AddModifier(new StatModifier(value, mode, this));
+            }
         }
 
         public void RemoveForm(GameObject gameObject)
         {
-           GetStat(gameObject)?.RemoveAllModifierFrom(this);
+            IModifiableStat modifiableStat = GetStat(gameObject);
+            if (modifiableStat != null)
+            {
+#if UNITY_EDITOR
+                string logColor = value == 0 ? "#ffff00ff" : value < 0 ? "#008000ff" : "#a52a2aff";
+                Debug.LogFormat("<color={2}>{0} stat modyfier of value {3} removed for {1}</color>.", statName, gameObject.name, logColor, value);
+#endif
+                modifiableStat.RemoveAllModifierFrom(this);
+            }
+
         }
     }
 }

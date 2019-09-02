@@ -14,7 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actionHandler:
     _lock: 1
-    aiStateActions: []
     Actions:
     - taskType:
         _typeFullName: AI.Actions.SetAnimatorTriggerTask
@@ -117,7 +116,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actionHandler:
     _lock: 1
-    aiStateActions: []
     Actions:
     - taskType:
         _typeFullName: AI.Actions.SetAnimatorTriggerTask
@@ -253,7 +251,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actionHandler:
     _lock: 1
-    aiStateActions: []
     Actions:
     - taskType:
         _typeFullName: AI.Actions.SetAnimatorTriggerTask
@@ -284,7 +281,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actionHandler:
     _lock: 1
-    aiStateActions: []
     Actions:
     - taskType:
         _typeFullName: AI.Actions.SetAnimatorTriggerTask
@@ -357,7 +353,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: New Animator Controller
+  m_Name: MeleeEnemyAI
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: Chasing
@@ -544,7 +540,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actionHandler:
     _lock: 1
-    aiStateActions: []
     Actions:
     - taskType:
         _typeFullName: AI.Actions.SetAnimatorTriggerTask
@@ -561,6 +556,18 @@ MonoBehaviour:
         StringValue: Idle
   _time: 5
   _counter: 0
+--- !u!114 &6658329026194932529
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a3892bdf8bf5154994530f8cd26e441, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1101 &7260234423898541683
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -586,20 +593,6 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
---- !u!114 &7845642625043358532
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c6aa5d5167064143bb8541634a6e14b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetingSpeed: 5
-  attackAngle: 40
 --- !u!1102 &8242190086107496586
 AnimatorState:
   serializedVersion: 5
@@ -643,7 +636,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actionHandler:
     _lock: 1
-    aiStateActions: []
     Actions:
     - taskType:
         _typeFullName: AI.Actions.SetAnimatorTriggerTask
@@ -686,7 +678,7 @@ AnimatorState:
   - {fileID: 7260234423898541683}
   m_StateMachineBehaviours:
   - {fileID: 8829510717218228762}
-  - {fileID: 7845642625043358532}
+  - {fileID: 6658329026194932529}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -715,7 +707,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actionHandler:
     _lock: 1
-    aiStateActions: []
     Actions:
     - taskType:
         _typeFullName: AI.Actions.SetAnimatorTriggerTask

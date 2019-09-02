@@ -1,9 +1,20 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace Utilities
 {
+    public class OnDeactivateNotifier : MonoBehaviour
+    {
+        public event Action<GameObject> ObjectDeactivated = null;
+
+        private void OnDisable()
+        {
+            ObjectDeactivated?.Invoke(gameObject);
+        }
+    }
+
     public class Pool<T> where T : Component
     {
         [SerializeField] private T prefab = null;
@@ -12,11 +23,13 @@ namespace Utilities
 
         private List<T> List = new List<T>();
 
-        public Pool(T prefab, Transform parrent, int initialCount = 5, int maxCount = -1)
+        public Pool(T prefab, Transform parrent = null, int initialCount = 5)
         {
             this.prefab = prefab;
             this.parrent = parrent;
-            this.maxCount = maxCount;
+
+            if (parrent == null)
+                this.parrent = new GameObject(string.Format("Pool of {0}", prefab.name)).transform;
 
             for (int i = 0; i < initialCount; i++)
                 CreateNewInstance();
@@ -27,7 +40,15 @@ namespace Utilities
             T instance = GameObject.Instantiate(prefab, parrent, false);
             instance.gameObject.SetActive(false);
             List.Add(instance);
+            OnDeactivateNotifier deactivateNotifier = instance.gameObject.AddComponent<OnDeactivateNotifier>();
+            deactivateNotifier.ObjectDeactivated += OnObjectDeactivated;
             return instance;
+        }
+
+        private void OnObjectDeactivated(GameObject gameObject)
+        {
+            if (parrent != gameObject.transform.parent)
+                gameObject.transform.SetParent(parrent);
         }
 
         public T Get()

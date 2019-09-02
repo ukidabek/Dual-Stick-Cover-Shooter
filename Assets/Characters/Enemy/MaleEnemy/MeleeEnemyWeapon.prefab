@@ -189,7 +189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a02853c6d487d4c4ba5079464d9e714f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rate: 0.1
+  _rate: 0.5
   _counter: 0
 --- !u!114 &2997131776681585267
 MonoBehaviour:
@@ -343,9 +343,9 @@ GameObject:
   - component: {fileID: 7690486590941872382}
   - component: {fileID: 810401633811262101}
   m_Layer: 0
-  m_Name: Rifle 1
+  m_Name: MeleeEnemyWeapon
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -387,8 +387,8 @@ MonoBehaviour:
     m_TypeName: Weapons.OnModeSwitchCallback, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   statistics:
-    _damage: 10
-    _range: 5
+    _damage: 5
+    _range: 0.25
 --- !u!1 &1834190941542693463
 GameObject:
   m_ObjectHideFlags: 0
