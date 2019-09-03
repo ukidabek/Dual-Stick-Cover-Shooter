@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5505415474864555251}
   - component: {fileID: 5505415474864555248}
   - component: {fileID: 5505415474864555149}
+  - component: {fileID: 563552553}
   m_Layer: 9
   m_Name: Lamp
   m_TagString: Untagged
@@ -47,6 +48,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 176067bf7668150459dc2df9011109c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isInteractionShown: 0
+  _active: 1
   OnUseCallback:
     m_PersistentCalls:
       m_Calls:
@@ -61,17 +64,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: OnUseerActionCallback, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
+    m_TypeName: Interactions.OnUseerActionCallback, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   OnLeaveCallback:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: OnUseerActionCallback, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
+    m_TypeName: Interactions.OnUseerActionCallback, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   OnInteractionStatusChange:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: OnInteractionStatusChange, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+    m_TypeName: Interactions.OnStatusChange, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   OnInteractionShow:
     m_PersistentCalls:
@@ -105,7 +108,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  _isInteractionShown: 0
 --- !u!114 &5505415474864555248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,8 +135,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: ToggleStatusCallback, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
+    m_TypeName: Interactions.ToggleStatusCallback, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  InvertedToggleStatus:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Interactions.ToggleStatusCallback, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!65 &5505415474864555149
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -148,6 +155,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.25, y: 0.25, z: 0.25}
   m_Center: {x: 0, y: 0.125, z: 0}
+--- !u!208 &563552553
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5505415474864555249}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.125, y: 0.125, z: 0.125}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0.125, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &5505415475347800424
 GameObject:
   m_ObjectHideFlags: 0
@@ -250,7 +273,6 @@ GameObject:
   - component: {fileID: 5505415475590111965}
   - component: {fileID: 5505415475590111966}
   - component: {fileID: 5505415475590111967}
-  - component: {fileID: 1979069769}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -306,6 +328,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -318,19 +341,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &1979069769
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5505415475590111938}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8997858404413339565
 GameObject:
   m_ObjectHideFlags: 0
@@ -397,6 +407,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0

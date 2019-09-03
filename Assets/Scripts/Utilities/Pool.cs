@@ -14,7 +14,7 @@ namespace Utilities
             ObjectDeactivated?.Invoke(gameObject);
         }
     }
-     
+
     public class Pool<T> where T : Component
     {
         [SerializeField] private T prefab = null;
@@ -22,6 +22,7 @@ namespace Utilities
         [SerializeField] private int maxCount = -1;
 
         private List<T> List = new List<T>();
+        private bool destroyParrent = false;
 
         public Pool(T prefab, Transform parrent = null, int initialCount = 5)
         {
@@ -29,7 +30,10 @@ namespace Utilities
             this.parrent = parrent;
 
             if (parrent == null)
+            {
+                destroyParrent = true;
                 this.parrent = new GameObject(string.Format("Pool of {0}", prefab.name)).transform;
+            }
 
             for (int i = 0; i < initialCount; i++)
                 CreateNewInstance();
@@ -43,6 +47,16 @@ namespace Utilities
             OnDeactivateNotifier deactivateNotifier = instance.gameObject.AddComponent<OnDeactivateNotifier>();
             deactivateNotifier.ObjectDeactivated += OnObjectDeactivated;
             return instance;
+        }
+
+        public void Clear()
+        {
+            foreach (var item in List)
+                if (item != null) GameObject.Destroy(item.gameObject);
+
+            List.Clear();
+
+            if (destroyParrent) GameObject.Destroy(parrent);
         }
 
         private void OnObjectDeactivated(GameObject gameObject)
