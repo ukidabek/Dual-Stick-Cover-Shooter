@@ -38,10 +38,30 @@ namespace Interactions.General
 
         public void SetOpenStatus(bool status)
         {
-            if(!isLocked)
+            if (!isLocked)
             {
+#if UNITY_EDITOR
+                string colorString = string.Empty, statusString = string.Empty;
+                if (status)
+                {
+                    colorString = "008000ff";
+                    statusString = "open";
+                }
+                else
+                {
+                    colorString = "a52a2aff";
+                    statusString = "close";
+                }
+                Debug.LogFormat("Doors are <color=#{1}>{0}</color>.", statusString, colorString);
+#endif
                 SetStatus(ref isOpen, status, OnOpenStatusChange, OnOpen, OnClose);
             }
+#if UNITY_EDITOR
+            else
+            {
+                Debug.Log("Doors are <color=#a52a2aff>locked!</color>");
+            }
+#endif
         }
 
         public void SetLockStatus(bool status)
