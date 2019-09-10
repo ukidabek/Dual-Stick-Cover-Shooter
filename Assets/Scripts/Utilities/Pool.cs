@@ -17,26 +17,51 @@ namespace Utilities
 
     public class Pool<T> where T : Component
     {
+        private class PoolData
+        {
+            public IList List = null;
+            public Transform Parrent = null;
+
+            public PoolData(IList list, Transform parrent)
+            {
+                List = list;
+                Parrent = parrent;
+            }
+        }
+
+        private static Dictionary<GameObject, PoolData> DictionaryOfLists = new Dictionary<GameObject, PoolData>();
+
         [SerializeField] private T prefab = null;
         [SerializeField] private Transform parrent = null;
         [SerializeField] private int maxCount = -1;
 
         private List<T> List = new List<T>();
-        private bool destroyParrent = false;
 
         public Pool(T prefab, Transform parrent = null, int initialCount = 5)
         {
             this.prefab = prefab;
             this.parrent = parrent;
 
-            if (parrent == null)
+            if (DictionaryOfLists.ContainsKey(prefab.gameObject))
             {
-                destroyParrent = true;
-                this.parrent = new GameObject(string.Format("Pool of {0}", prefab.name)).transform;
+                PoolData poolData = DictionaryOfLists[prefab.gameObject];
+                List = poolData.List as List<T>;
+                this.parrent = poolData.Parrent;
+            }
+            else
+            {
+                if (parrent == null)
+                {
+                    this.parrent = new GameObject(string.Format("Pool of {0}", prefab.name)).transform;
+                    GameObject.DontDestroyOnLoad(this.parrent);
+                }
+                List = new List<T>();
+                DictionaryOfLists.Add(prefab.gameObject, new PoolData(List, this.parrent));
             }
 
-            for (int i = 0; i < initialCount; i++)
-                CreateNewInstance();
+            if (List.Count < initialCount)
+                for (int i = 0; i < initialCount; i++)
+                    CreateNewInstance();
         }
 
         private T CreateNewInstance()
@@ -55,8 +80,6 @@ namespace Utilities
                 if (item != null) GameObject.Destroy(item.gameObject);
 
             List.Clear();
-
-            if (destroyParrent) GameObject.Destroy(parrent);
         }
 
         private void OnObjectDeactivated(GameObject gameObject)

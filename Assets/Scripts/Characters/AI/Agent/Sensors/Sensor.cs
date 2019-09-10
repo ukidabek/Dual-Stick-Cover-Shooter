@@ -12,9 +12,17 @@ public abstract class Sensor : MonoBehaviour, ISensor
     public event Action<GameObject> OnTargetDetected;
     public event Action<GameObject> OnTargetLost;
 
-    protected virtual void Awake()
+    private Coroutine coroutine = null;
+
+    protected virtual void Awake() { }
+
+    private void OnEnable()
     {
-        StartCoroutine(Scaning());
+        coroutine = StartCoroutine(Scaning());
+    }
+    private void OnDisable()
+    {
+        if (coroutine != null) StopCoroutine(coroutine);
     }
 
     protected virtual IEnumerator Scaning()

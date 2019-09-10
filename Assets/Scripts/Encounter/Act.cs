@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using Utilities;
 
 namespace Encounter
 {
@@ -9,13 +11,33 @@ namespace Encounter
         public UnityEvent OnStart = new UnityEvent();
         public UnityEvent OnEnd = new UnityEvent();
 
-        [SerializeField] private GameObject[] actActor = null;
-
-        private List<GameObject> instances = new List<GameObject>();
+        [SerializeField] private NonPlayableCharacterController[] actActor = null;
+        private Pool<NonPlayableCharacterController>[] actorsPool = null;
+        private List<ActorLifeCycleObserver> instances = new List<ActorLifeCycleObserver>();
 
         private void Awake()
         {
-            enabled = false;
+            actorsPool = new Pool<NonPlayableCharacterController>[actActor.Length];
+            for (int i = 0; i < actActor.Length; i++)
+                actorsPool[i] = new Pool<NonPlayableCharacterController>(actActor[i], null, 2);
+        }
+
+        private IEnumerator ActStatyCoroutine(Vector3 basePosition, float range)
+        {
+            yield return new WaitForEndOfFrame();
+            foreach (var item in actorsPool)
+            {
+                Vector3 point = Random.insideUnitCircle * range;
+                point.y = basePosition.y;
+                Vector3 newPosition = point + basePosition;
+
+                NonPlayableCharacterController instance = item.Get();
+                instance.transform.position = newPosition;
+                instance.gameObject.SetActive(true);
+                ActorLifeCycleObserver observer = AddOrGet(instance.gameObject);
+                observer.OnDisabledCallback += OnDisabledCallback;
+                instances.Add(observer);
+            }
         }
 
         public void Play(Vector3 basePosition, float range)
@@ -23,27 +45,18 @@ namespace Encounter
 #if UNITY_EDITOR
             Debug.LogFormat("<color=#008000ff>{0}</color> form {1} started!", gameObject.name, transform.parent.name);
 #endif
-            enabled = true;
-            foreach (var item in actActor)
-            {
-                Vector3 point = Random.insideUnitCircle * range;
-                point.y = basePosition.y;
-                Vector3 newPosition = point + basePosition;
 
-                //  Tmp ---- To be replaced by pool mechanics
-                GameObject instance = Instantiate(item, newPosition, Quaternion.identity);
-                AddOrGet(instance).OnDisabledCallback += OnDisabledCallback;
-                instances.Add(instance);
-
-            }
-
+            instances.Clear();
+            // Waits until the end of the frame to avoid errors with activating / deactivating an GameObject in the same frame.
+            StartCoroutine(ActStatyCoroutine(basePosition, range));
             OnStart.Invoke();
         }
 
         private void OnDisabledCallback(GameObject gameObject)
         {
-            AddOrGet(gameObject).OnDisabledCallback -= OnDisabledCallback;
-            instances.Remove(gameObject);
+            ActorLifeCycleObserver observer = AddOrGet(gameObject);
+            observer.OnDisabledCallback -= OnDisabledCallback;
+            instances.Remove(observer);
             if (instances.Count == 0)
                 Stop();
         }

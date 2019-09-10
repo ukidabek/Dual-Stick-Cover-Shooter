@@ -1671,7 +1671,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &994537867
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2224,8 +2224,8 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   actActor:
-  - {fileID: 1138368813784269564, guid: 5c0dce713b13b13428186272bde0eae2, type: 3}
-  - {fileID: 1138368813784269564, guid: 5c0dce713b13b13428186272bde0eae2, type: 3}
+  - {fileID: 2190895596345979168, guid: 5c0dce713b13b13428186272bde0eae2, type: 3}
+  - {fileID: 2190895596345979168, guid: 5c0dce713b13b13428186272bde0eae2, type: 3}
 --- !u!4 &1200544334
 Transform:
   m_ObjectHideFlags: 0
@@ -9075,8 +9075,8 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   actActor:
-  - {fileID: 1138368813784269564, guid: 5c0dce713b13b13428186272bde0eae2, type: 3}
-  - {fileID: 1138368813784269564, guid: 5c0dce713b13b13428186272bde0eae2, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!4 &1819102890
 Transform:
   m_ObjectHideFlags: 0
@@ -9175,8 +9175,8 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   actActor:
-  - {fileID: 1138368813784269564, guid: 5c0dce713b13b13428186272bde0eae2, type: 3}
-  - {fileID: 1138368813784269564, guid: 5c0dce713b13b13428186272bde0eae2, type: 3}
+  - {fileID: 2190895596345979168, guid: 5c0dce713b13b13428186272bde0eae2, type: 3}
+  - {fileID: 2190895596345979168, guid: 5c0dce713b13b13428186272bde0eae2, type: 3}
 --- !u!4 &1867249124
 Transform:
   m_ObjectHideFlags: 0

@@ -28,10 +28,14 @@ namespace Statistics
 
         private void Awake()
         {
-            Value = MaxStatValue != null ? MaxValue : float.NaN;
 #if UNITY_EDITOR
             gameObject.name = string.Format("{0} is : {1}/{2}", _name, Value, MaxStatValue != null ? MaxValue.ToString("0.00") : "-/-");
 #endif
+        }
+
+        private void OnEnable()
+        {
+            Value = MaxStatValue != null ? MaxValue : float.NaN;
         }
 
         private void OnValidate()

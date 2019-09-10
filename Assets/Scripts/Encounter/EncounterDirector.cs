@@ -33,6 +33,11 @@ namespace Encounter
                 acts[++index].Play(transform.position, range);
         }
 
+        private IEnumerator GoToNextCoroutine()
+        {
+            yield return new WaitForEndOfFrame();
+        }
+
         public void Play()
         {
             OnStart.Invoke();

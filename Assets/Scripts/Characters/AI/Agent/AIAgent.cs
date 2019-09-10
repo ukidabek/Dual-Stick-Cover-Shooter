@@ -14,8 +14,11 @@ namespace AI
 #if UNITY_EDITOR
             ValidateTransitions();
 #endif
-            BaseAIState[] baseAIStates = animator.GetBehaviours<BaseAIState>();
-            foreach (var item in baseAIStates)
+        }
+
+        private void OnEnable()
+        {
+            foreach (var item in animator.GetBehaviours<BaseAIState>())
                 item.Initialize(this);
         }
 
@@ -32,7 +35,7 @@ namespace AI
                         if (transition.duration > 0)
                         {
                             transition.duration = 0f;
-                            Debug.LogAssertionFormat("Transition {0} at state {1} in animator controller {2} has duration time greater than 0!",
+                            Debug.LogErrorFormat("Transition {0} at state {1} in animator controller {2} has duration time greater than 0!",
                                 transform.name, childState.state.name, animator.runtimeAnimatorController.name);
                         }
                     }
