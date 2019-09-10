@@ -519,11 +519,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2438666450978563644, guid: 4734d940928993348a6ddf685105510f,
-        type: 3}
-      propertyPath: m_Name
-      value: 'Health is : 100'
-      objectReference: {fileID: 0}
     - target: {fileID: 2870961392946804482, guid: 4734d940928993348a6ddf685105510f,
         type: 3}
       propertyPath: onStatEmptyCallback.m_PersistentCalls.m_Calls.Array.size
@@ -553,6 +548,11 @@ PrefabInstance:
         type: 3}
       propertyPath: onStatEmptyCallback.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2438666450978563644, guid: 4734d940928993348a6ddf685105510f,
+        type: 3}
+      propertyPath: m_Name
+      value: 'Health is : 100'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4734d940928993348a6ddf685105510f, type: 3}

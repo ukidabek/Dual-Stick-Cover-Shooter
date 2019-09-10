@@ -20,9 +20,7 @@ namespace Encounter
         private void Awake()
         {
             foreach (var item in acts)
-            {
-                item.OnPlayed += GoToNext;
-            }
+                item.OnEnd.AddListener(GoToNext);
         }
 
         private void GoToNext()
@@ -32,13 +30,19 @@ namespace Encounter
                 OnEnd.Invoke();
             }
             else
-                acts[index++].Play(transform.position, range);
+                acts[++index].Play(transform.position, range);
         }
 
         public void Play()
         {
             OnStart.Invoke();
             acts[index = 0].Play(transform.position, range);
+        }
+
+        private void OnValidate()
+        {
+            for (int i = 0; i < acts.Length; i++)
+                acts[i].gameObject.name = string.Format("{0} - {1}", typeof(Act).Name, (i + 1).ToString());
         }
 
         private void OnDrawGizmos()

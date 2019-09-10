@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -12,8 +11,6 @@ namespace Encounter
 
         [SerializeField] private GameObject[] actActor = null;
 
-        //  Tmp
-        public event Action OnPlayed = null;
         private List<GameObject> instances = new List<GameObject>();
 
         private void Awake()
@@ -21,43 +18,49 @@ namespace Encounter
             enabled = false;
         }
 
-        public void Play(Vector3 position, float range)
+        public void Play(Vector3 basePosition, float range)
         {
+#if UNITY_EDITOR
+            Debug.LogFormat("<color=#008000ff>{0}</color> form {1} started!", gameObject.name, transform.parent.name);
+#endif
             enabled = true;
-            //  Tmp
+            foreach (var item in actActor)
             {
-                foreach (var item in actActor)
-                {
-                    Vector3 point = UnityEngine.Random.insideUnitCircle * range;
-                    point.y = position.y;
-                    Vector3 newPosition = point + position;
-                    instances.Add(Instantiate(item, newPosition, Quaternion.identity));
-                }
+                Vector3 point = Random.insideUnitCircle * range;
+                point.y = basePosition.y;
+                Vector3 newPosition = point + basePosition;
+
+                //  Tmp ---- To be replaced by pool mechanics
+                GameObject instance = Instantiate(item, newPosition, Quaternion.identity);
+                AddOrGet(instance).OnDisabledCallback += OnDisabledCallback;
+                instances.Add(instance);
+
             }
+
             OnStart.Invoke();
+        }
+
+        private void OnDisabledCallback(GameObject gameObject)
+        {
+            AddOrGet(gameObject).OnDisabledCallback -= OnDisabledCallback;
+            instances.Remove(gameObject);
+            if (instances.Count == 0)
+                Stop();
         }
 
         public void Stop()
         {
+#if UNITY_EDITOR
+            Debug.LogFormat("<color=#008000ff>{0}</color> form {1} played!", gameObject.name, transform.parent.name);
+#endif
+            enabled = false;
             OnEnd.Invoke();
         }
 
-        private void Update()
+        public ActorLifeCycleObserver AddOrGet(GameObject gameObject)
         {
-            //  Tmp
-            bool end = true;
-            foreach (var item in instances)
-                if (item.activeSelf)
-                {
-                    end = false;
-                    break;
-                }
-
-            if (end)
-            {
-                enabled = false;
-                OnPlayed?.Invoke();
-            }
+            ActorLifeCycleObserver instance = gameObject.GetComponent<ActorLifeCycleObserver>();
+            return instance == null ? gameObject.AddComponent<ActorLifeCycleObserver>() : instance;
         }
     }
 }

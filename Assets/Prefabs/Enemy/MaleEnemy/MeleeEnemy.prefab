@@ -519,16 +519,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 414446600729394317, guid: 4734d940928993348a6ddf685105510f,
-        type: 3}
-      propertyPath: m_Name
-      value: 'CurrentHealth is : 0/30,00'
-      objectReference: {fileID: 0}
-    - target: {fileID: 2438666450978563644, guid: 4734d940928993348a6ddf685105510f,
-        type: 3}
-      propertyPath: m_Name
-      value: 'Health is : 30'
-      objectReference: {fileID: 0}
     - target: {fileID: 2870961392946804482, guid: 4734d940928993348a6ddf685105510f,
         type: 3}
       propertyPath: onStatEmptyCallback.m_PersistentCalls.m_Calls.Array.size
@@ -559,10 +549,20 @@ PrefabInstance:
       propertyPath: onStatEmptyCallback.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 414446600729394317, guid: 4734d940928993348a6ddf685105510f,
+        type: 3}
+      propertyPath: m_Name
+      value: 'CurrentHealth is : 0/30,00'
+      objectReference: {fileID: 0}
     - target: {fileID: 2075502797502697759, guid: 4734d940928993348a6ddf685105510f,
         type: 3}
       propertyPath: baseValue
       value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2438666450978563644, guid: 4734d940928993348a6ddf685105510f,
+        type: 3}
+      propertyPath: m_Name
+      value: 'Health is : 30'
       objectReference: {fileID: 0}
     - target: {fileID: 6265115886840268486, guid: 4734d940928993348a6ddf685105510f,
         type: 3}
