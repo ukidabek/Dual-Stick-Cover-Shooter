@@ -19,14 +19,13 @@ public class SpawnProjectileWeaponAction : WeaponAction, IStatGetter
         pool = new Pool<Projectile>(_projectile, null);
     }
 
-    public override bool Perform(GameObject user)
+    public override void Perform(GameObject user, GameObject target = null)
     {
         var projectile = pool.Get();
         projectile.transform.position = _spawnPoint.transform.position;
         projectile.transform.rotation = _spawnPoint.transform.rotation;
         projectile.Setup(statistics.Damage, statistics.Range);
         projectile.gameObject.SetActive(true);
-        return true;
     }
 
     public void Set(Weapons.Statistics statistics)

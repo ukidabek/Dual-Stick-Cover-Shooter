@@ -4,6 +4,6 @@ namespace Weapons
 {
     public abstract class WeaponAction : MonoBehaviour
     {
-        public abstract bool Perform(GameObject user);
+        public abstract void Perform(GameObject user, GameObject target);
     }
 }

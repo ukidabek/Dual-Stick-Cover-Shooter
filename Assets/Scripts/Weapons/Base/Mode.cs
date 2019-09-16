@@ -22,28 +22,30 @@ namespace Weapons
             [SerializeField] private List<WeaponValidator> _weaponValidators = new List<WeaponValidator>();
             [SerializeField] private List<WeaponAction> _weaponActions = new List<WeaponAction>();
 
-            private bool _canBeUsed = true;
-
-            public void Perform(GameObject user)
+            public void Perform(GameObject user, GameObject target = null)
             {
-                _canBeUsed = true;
+                if (PerformValidationActions())
+                    PerformAction(user, target);
+            }
+
+            private bool PerformValidationActions()
+            {
                 foreach (var item in _weaponValidators)
                     if (!item.Validate())
+                        return false;
+                return true;
+            }
+            private void PerformAction(GameObject user, GameObject target)
+            {
+                foreach (var item in _weaponActions)
+                    try
                     {
-                        _canBeUsed = false;
-                        break;
+                        item.Perform(user, target);
                     }
-
-                if (_canBeUsed)
-                    foreach (var item in _weaponActions)
-                        try
-                        {
-                            item.Perform(user);
-                        }
-                        catch(Exception e)
-                        {
-                            Debug.LogError(string.Format("Object type of {0} throw a exeption type of {1}", item.GetType().Name, e.GetType().Name), item.gameObject);
-                        }
+                    catch (Exception e)
+                    {
+                        Debug.LogError(string.Format("Object type of {0} throw a exeption type of {1}", item.GetType().Name, e.GetType().Name), item.gameObject);
+                    }
             }
         }
 
@@ -68,9 +70,9 @@ namespace Weapons
             _onBeginUse.Perform(user);
         }
 
-        public void Use(GameObject user)
+        public void Use(GameObject user, GameObject target)
         {
-            _onUse.Perform(user);
+            _onUse.Perform(user, target);
         }
 
         public void EndUse(GameObject user)

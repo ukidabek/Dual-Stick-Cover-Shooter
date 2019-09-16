@@ -28,15 +28,11 @@ public class MagazineAction : WeaponAction, IMagazine
         OnMagazineCounterChangeCallback.AddListener((int counter) => OnChange?.Invoke(counter));
     }
 
-    public override bool Perform(GameObject user)
+    public override void Perform(GameObject user, GameObject target)
     {
         OnMagazineCounterChangeCallback.Invoke(--_counter);
         if (_counter == 0)
-        {
             OnEmptyCallback.Invoke();
-            return false;
-        }
-        return true;
     }
 
     public void Reload()

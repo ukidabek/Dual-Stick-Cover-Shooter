@@ -12,14 +12,9 @@ public class WeaponInfo : MonoBehaviour, ICombat
 
     public float Range => HasWeapon ? weaponController.Weapon.Statistics.Range : 5;
 
-    public void Attack()
+    public void Attack(GameObject target = null)
     {
         if (HasWeapon)
-            weaponController.Use();
-    }
-
-    private void Reset()
-    {
-        
+            weaponController.Use(target);
     }
 }

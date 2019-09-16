@@ -594,7 +594,8 @@ PrefabInstance:
       propertyPath: _onStatRecalculatedCallback.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 102916477, guid: 4734d940928993348a6ddf685105510f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4734d940928993348a6ddf685105510f, type: 3}
 --- !u!4 &623779747863998985 stripped
 Transform:

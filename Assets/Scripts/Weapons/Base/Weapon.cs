@@ -37,9 +37,9 @@ namespace Weapons
             _modes[_currentModeIndex].BeginUse(_user);
         }
 
-        public void Use()
+        public void Use(GameObject target = null)
         {
-            _modes[_currentModeIndex].Use(_user);
+            _modes[_currentModeIndex].Use(_user, target);
         }
 
         public void EndUse()

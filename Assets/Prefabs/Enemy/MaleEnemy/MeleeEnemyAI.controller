@@ -568,6 +568,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a3892bdf8bf5154994530f8cd26e441, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetingSpeed: 5
+  attackAngle: 40
 --- !u!1101 &7260234423898541683
 AnimatorStateTransition:
   m_ObjectHideFlags: 1

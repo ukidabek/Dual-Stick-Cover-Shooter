@@ -13,8 +13,8 @@ namespace Statistics
         public string Name => _name;
 
         [SerializeField] private float baseValue = 1f;
-        private bool isDirty = true; 
-        private float value = float.MinValue; 
+        private bool isDirty = true;
+        private float value = float.MinValue;
         public float Value
         {
             get
@@ -48,6 +48,11 @@ namespace Statistics
             statModifiers.Add(modifier);
             statModifiers.Sort();
             CalculateValue();
+
+#if UNITY_EDITOR
+            string log = string.Format("Stat mofydier type of {0} {1} by {2}{3}", modifier.Mode.ToString(), "", modifier.Value, modifier, modifier.Mode == StatModifier.ModifierMode.Percent ? "%" : "");
+            Debug.Log(log, this);
+#endif
         }
 
         private void CalculateValue()
@@ -88,7 +93,7 @@ namespace Statistics
 
         public void RemoveAllModifierFrom(object source)
         {
-            for (int i = statModifiers.Count -1; i >=0 ; i--)
+            for (int i = statModifiers.Count - 1; i >= 0; i--)
                 if (statModifiers[i].Source == source)
                     statModifiers.RemoveAt(i);
             CalculateValue();

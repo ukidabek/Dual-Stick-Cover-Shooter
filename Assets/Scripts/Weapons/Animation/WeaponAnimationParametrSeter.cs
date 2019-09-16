@@ -33,7 +33,7 @@ namespace Weapons.Animations
             _userAnimator = gameObject.GetComponentInChildren<WeaponUserAnimator>();
         }
 
-        public override bool Perform(GameObject user)
+        public override void Perform(GameObject user, GameObject target)
         {
             switch (_parametrToSet)
             {
@@ -44,7 +44,6 @@ namespace Weapons.Animations
                     SetBool();
                     break;
             }
-            return true;
         }
     }
 }

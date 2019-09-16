@@ -44,9 +44,9 @@ namespace Weapons
             _weapon?.EndUse();
         }
 
-        public void Use()
+        public void Use(GameObject target = null)
         {
-            _weapon?.Use();
+            _weapon?.Use(target);
         }
     }
 }
