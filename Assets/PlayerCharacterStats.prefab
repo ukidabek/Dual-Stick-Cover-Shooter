@@ -44,7 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d49a8567290be4d49825cce218ca3369, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _name: CurrentHealth
+  type:
+    _name: CurrentHealth
   MaxStatValue: {fileID: 2075502797502697759}
   onStatEmptyCallback:
     m_PersistentCalls:
@@ -150,7 +151,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f88f3be3e5b7a5f41a6abe1c4e66eefc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _name: Health
+  type:
+    _name: Health
   baseValue: 100
   _onStatRecalculatedCallback:
     m_PersistentCalls:
@@ -169,7 +171,7 @@ GameObject:
   - component: {fileID: 6265115886840268486}
   - component: {fileID: 2782523000692839171}
   m_Layer: 8
-  m_Name: Speed
+  m_Name: 'Speed is : 1'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -201,7 +203,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f88f3be3e5b7a5f41a6abe1c4e66eefc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _name: Speed
+  type:
+    _name: Speed
   baseValue: 1
   _onStatRecalculatedCallback:
     m_PersistentCalls:

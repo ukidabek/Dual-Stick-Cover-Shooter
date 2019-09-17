@@ -559,10 +559,20 @@ PrefabInstance:
       propertyPath: baseValue
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 2075502797502697759, guid: 4734d940928993348a6ddf685105510f,
+        type: 3}
+      propertyPath: type._name
+      value: Speed
+      objectReference: {fileID: 0}
     - target: {fileID: 2438666450978563644, guid: 4734d940928993348a6ddf685105510f,
         type: 3}
       propertyPath: m_Name
-      value: 'Health is : 30'
+      value: 'Speed is : 30'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8382811558404900748, guid: 4734d940928993348a6ddf685105510f,
+        type: 3}
+      propertyPath: m_Name
+      value: 'Speed is : 0,6'
       objectReference: {fileID: 0}
     - target: {fileID: 6265115886840268486, guid: 4734d940928993348a6ddf685105510f,
         type: 3}
@@ -593,6 +603,11 @@ PrefabInstance:
         type: 3}
       propertyPath: _onStatRecalculatedCallback.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6265115886840268486, guid: 4734d940928993348a6ddf685105510f,
+        type: 3}
+      propertyPath: type._name
+      value: Speed
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 102916477, guid: 4734d940928993348a6ddf685105510f, type: 3}

@@ -9,8 +9,8 @@ namespace Statistics
     [DisallowMultipleComponent]
     public class Stat : MonoBehaviour, IStat, IModifiableStat
     {
-        [SerializeField] private string _name = string.Empty;
-        public string Name => _name;
+        [SerializeField] private Type type = new Type();
+        public string Name => type;
 
         [SerializeField] private float baseValue = 1f;
         private bool isDirty = true;
@@ -34,7 +34,7 @@ namespace Statistics
         private void Awake()
         {
 #if UNITY_EDITOR
-            gameObject.name = string.Format("{0} is : {1}", _name, Value);
+            gameObject.name = string.Format("{0} is : {1}", Name, Value);
 #endif
         }
 
@@ -79,7 +79,7 @@ namespace Statistics
             Value = (float)Math.Round(Value, 4);
             OnStatRecalculatedCallback.Invoke(this);
 #if UNITY_EDITOR
-            gameObject.name = string.Format("{0} is : {1}", _name, Value);
+            gameObject.name = string.Format("{0} is : {1}", Name, Value);
 #endif
         }
 
@@ -101,7 +101,7 @@ namespace Statistics
 
         private void OnValidate()
         {
-            gameObject.name = _name;
+            gameObject.name = string.Format("{0} is : {1}", Name, Value);
         }
     }
 }

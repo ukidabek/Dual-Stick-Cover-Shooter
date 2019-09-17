@@ -1,14 +1,10 @@
 ﻿using Statistics;
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LifeBarController : MonoBehaviour
+public class StatBarController : MonoBehaviour
 {
-    //  TMP
-    [SerializeField] private string currentHelthName = "CurrentHealth";
+    [SerializeField] private Type dynamicStatType = new Type();
 
     [Space]
     private IDynamicStat stat = null;
@@ -18,7 +14,7 @@ public class LifeBarController : MonoBehaviour
     {
         IDynamicStat[] stats = characterController.transform.root.GetComponentsInChildren<IDynamicStat>();
         foreach (var item in stats)
-            if (item.Name == currentHelthName)
+            if (item.Name == dynamicStatType)
             {
                 (stat = item).OnStatUpdateCallback.AddListener(OnStatUpdateCallback);
                 break;

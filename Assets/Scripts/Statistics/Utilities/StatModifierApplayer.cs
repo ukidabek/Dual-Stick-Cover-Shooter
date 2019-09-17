@@ -1,12 +1,10 @@
-﻿using System;
-using UnityEngine;
-using UnityEngine.Events;
+﻿using UnityEngine;
 
 namespace Statistics
 {
     public class StatModifierApplayer : MonoBehaviour
     {
-        [SerializeField] private string statName = string.Empty;
+        [SerializeField] private Type statToMofifyType = new Type();
         [SerializeField] private float value = 1f;
         [SerializeField] private StatModifier.ModifierMode mode = StatModifier.ModifierMode.Percent;
 
@@ -14,7 +12,7 @@ namespace Statistics
         {
             var status = gameObject.GetComponentsInChildren<IModifiableStat>();
             foreach (var item in status)
-                if (item.Name == statName)
+                if (item.Name == statToMofifyType)
                     return item;
             return null;
         }
@@ -26,7 +24,7 @@ namespace Statistics
             {
 #if UNITY_EDITOR
                 string logColor = value == 0 ? "#ffff00ff" : value > 0 ? "#008000ff" : "#a52a2aff";
-                Debug.LogFormat("<color={2}>{0} stat modyfier of value {3} applayed for {1}</color>.", statName, gameObject.name, logColor, value);
+                Debug.LogFormat("<color={2}>{0} stat modyfier of value {3} applayed for {1}</color>.", statToMofifyType, gameObject.name, logColor, value);
 #endif
                 modifiableStat.AddModifier(new StatModifier(value, mode, this));
             }
@@ -39,7 +37,7 @@ namespace Statistics
             {
 #if UNITY_EDITOR
                 string logColor = value == 0 ? "#ffff00ff" : value < 0 ? "#008000ff" : "#a52a2aff";
-                Debug.LogFormat("<color={2}>{0} stat modyfier of value {3} removed for {1}</color>.", statName, gameObject.name, logColor, value);
+                Debug.LogFormat("<color={2}>{0} stat modyfier of value {3} removed for {1}</color>.", statToMofifyType, gameObject.name, logColor, value);
 #endif
                 modifiableStat.RemoveAllModifierFrom(this);
             }
