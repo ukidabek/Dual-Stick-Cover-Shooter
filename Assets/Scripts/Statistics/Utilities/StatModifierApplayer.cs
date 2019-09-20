@@ -10,11 +10,8 @@ namespace Statistics
 
         private IModifiableStat GetStat(GameObject gameObject)
         {
-            var status = gameObject.GetComponentsInChildren<IModifiableStat>();
-            foreach (var item in status)
-                if (item.Name == statToMofifyType)
-                    return item;
-            return null;
+            var status = gameObject.GetComponentInChildren<Stats>();
+            return status != null ? status.GetModifiableStat(statToMofifyType) : null;
         }
 
         public void ApplayTo(GameObject gameObject)
