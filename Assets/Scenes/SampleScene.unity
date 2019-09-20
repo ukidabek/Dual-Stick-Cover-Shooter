@@ -1773,24 +1773,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!1 &1304049843 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1019321, guid: bca2b930005ecff4491ea15b5e606ddd,
-    type: 3}
-  m_PrefabInstance: {fileID: 1254943373583174457}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1304049844
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1304049843}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ecb5717d460fb0f439761ac544885a1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1337600301
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1802,11 +1784,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MeleeEnemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 1138368813784269564, guid: 5c0dce713b13b13428186272bde0eae2,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 360198338604914148, guid: 5c0dce713b13b13428186272bde0eae2,
         type: 3}
@@ -1862,16 +1839,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2429451975099386469, guid: 5c0dce713b13b13428186272bde0eae2,
-        type: 3}
-      propertyPath: m_Name
-      value: 'Speed is : 30'
-      objectReference: {fileID: 0}
-    - target: {fileID: 405516899217117396, guid: 5c0dce713b13b13428186272bde0eae2,
-        type: 3}
-      propertyPath: m_Name
-      value: 'CurrentHealth is : 0/30,00'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c0dce713b13b13428186272bde0eae2, type: 3}
