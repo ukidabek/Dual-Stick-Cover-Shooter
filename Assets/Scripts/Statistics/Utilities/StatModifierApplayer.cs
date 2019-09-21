@@ -21,7 +21,7 @@ namespace Statistics
             {
 #if UNITY_EDITOR
                 string logColor = value == 0 ? "#ffff00ff" : value > 0 ? "#008000ff" : "#a52a2aff";
-                Debug.LogFormat("<color={2}>{0} stat modyfier of value {3} applayed for {1}</color>.", statToMofifyType, gameObject.name, logColor, value);
+                Debug.LogFormat("<color={2}>{0} stat modifier of value {3} apply for {1}</color>.", statToMofifyType, gameObject.name, logColor, value);
 #endif
                 modifiableStat.AddModifier(new StatModifier(value, mode, this));
             }
@@ -34,7 +34,7 @@ namespace Statistics
             {
 #if UNITY_EDITOR
                 string logColor = value == 0 ? "#ffff00ff" : value < 0 ? "#008000ff" : "#a52a2aff";
-                Debug.LogFormat("<color={2}>{0} stat modyfier of value {3} removed for {1}</color>.", statToMofifyType, gameObject.name, logColor, value);
+                Debug.LogFormat("<color={2}>{0} stat modifier of value {3} removed for {1}</color>.", statToMofifyType, gameObject.name, logColor, value);
 #endif
                 modifiableStat.RemoveAllModifierFrom(this);
             }

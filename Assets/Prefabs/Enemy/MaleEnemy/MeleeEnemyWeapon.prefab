@@ -247,8 +247,6 @@ MonoBehaviour:
   OnModeSwitch:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: Weapons.OnModeSwitchCallback, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
   statistics:
     _damage: 5
     _range: 0.25

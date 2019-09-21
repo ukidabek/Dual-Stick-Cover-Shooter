@@ -358,8 +358,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: Weapons.OnDealDamage, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
 --- !u!65 &1709013890
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -50,18 +50,12 @@ MonoBehaviour:
   onStatEmptyCallback:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
   onStatFullCallback:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
   onStatUpdateCallback:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: Statistics.OnStatUpdate, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
 --- !u!114 &102916477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -170,8 +164,6 @@ MonoBehaviour:
   _onStatRecalculatedCallback:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: Statistics.OnStatUpdate, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
 --- !u!1 &8382811558404900748
 GameObject:
   m_ObjectHideFlags: 0
@@ -233,8 +225,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: Statistics.OnStatUpdate, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
 --- !u!114 &2782523000692839171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -251,5 +241,3 @@ MonoBehaviour:
   OnStatRecalculated:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: Statistics.OnStatUpdate, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null

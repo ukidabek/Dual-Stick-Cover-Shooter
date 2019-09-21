@@ -44,7 +44,7 @@ namespace Weapons
                     }
                     catch (Exception e)
                     {
-                        Debug.LogError(string.Format("Object type of {0} throw a exeption type of {1}", 
+                        Debug.LogError(string.Format("Object type of {0} throw a exception type of {1}", 
                             item.GetType().Name, e.GetType().Name), item.gameObject);
                     }
             }

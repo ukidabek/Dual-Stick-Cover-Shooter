@@ -255,8 +255,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!114 &5178479876099099288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -309,13 +307,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
   OnMagazineCounterChangeCallback:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: OnMagazinecounterChangeEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
 --- !u!114 &8498379332755606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -384,8 +378,6 @@ MonoBehaviour:
   OnModeSwitch:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: Weapons.OnModeSwitchCallback, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
   statistics:
     _damage: 10
     _range: 30

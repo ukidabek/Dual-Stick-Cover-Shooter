@@ -50,7 +50,7 @@ namespace Statistics
             CalculateValue();
 
 #if UNITY_EDITOR
-            string log = string.Format("Stat mofydier type of {0} modified by {1}{2}", modifier.Mode.ToString(), "", modifier.Value, modifier, modifier.Mode == StatModifier.ModifierMode.Percent ? "%" : "");
+            string log = string.Format("Stat modifier type of {0} modified by {1}{2}", modifier.Mode.ToString(), "", modifier.Value, modifier, modifier.Mode == StatModifier.ModifierMode.Percent ? "%" : "");
             Debug.Log(log, this);
 #endif
         }
