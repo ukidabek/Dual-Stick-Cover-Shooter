@@ -1,13 +1,16 @@
 ﻿using UnityEngine;
 
-public class OnTriggerEnterCallback : OnTriggerCallback
+namespace Utilities
 {
-    private void OnTriggerEnter(Collider other)
-    {
+	public class OnTriggerEnterCallback : OnTriggerCallback
+	{
+		private void OnTriggerEnter(Collider other)
+		{
 #if UNITY_EDITOR
-        Debug.LogFormat("GameObject <color=#008000ff>{0}</color> enter trigger.", other.gameObject.name);
+			Debug.LogFormat("GameObject <color=#008000ff>{0}</color> enter trigger.", other.gameObject.name);
 #endif
-        OnColliderCallback.Invoke(other);
-        OnGameObjectCallback.Invoke(other.gameObject);
-    }
+			OnColliderCallback.Invoke(other);
+			OnGameObjectCallback.Invoke(other.gameObject);
+		}
+	}
 }

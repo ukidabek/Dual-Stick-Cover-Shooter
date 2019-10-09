@@ -1,7 +1,11 @@
 ﻿using UnityEngine;
+using Utilities.Events;
 
-public abstract class OnTriggerCallback : MonoBehaviour
+namespace Utilities
 {
-    public OnCollider OnColliderCallback = new OnCollider();
-    public OnGameObject OnGameObjectCallback = new OnGameObject();
+	public abstract class OnTriggerCallback : MonoBehaviour
+	{
+		public OnCollider OnColliderCallback = new OnCollider();
+		public OnGameObject OnGameObjectCallback = new OnGameObject();
+	}
 }

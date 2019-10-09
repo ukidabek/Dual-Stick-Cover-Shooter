@@ -2,4 +2,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-[Serializable] public class OnGameObject : UnityEvent<GameObject> { }
+namespace Utilities.Events
+{
+	[Serializable] public class OnGameObject : UnityEvent<GameObject> { }
+}

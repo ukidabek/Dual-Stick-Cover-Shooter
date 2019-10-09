@@ -2,4 +2,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-[Serializable] public class OnCollider : UnityEvent<Collider> { }
+namespace Utilities.Events
+{
+	[Serializable] public class OnCollider : UnityEvent<Collider> { }
+}
