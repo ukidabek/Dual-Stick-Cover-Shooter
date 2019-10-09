@@ -33,7 +33,6 @@ namespace Utilities
 
         [SerializeField] private T prefab = null;
         [SerializeField] private Transform parrent = null;
-        [SerializeField] private int maxCount = -1;
 
         private List<T> List = new List<T>();
 

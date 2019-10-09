@@ -8,7 +8,6 @@ namespace AI.Actions
     public class AIStateAction
     {
         [SerializeField] private TypeInfo taskType = null;
-        [SerializeField] private int constructorIndex = 0;
         [SerializeField] private ConstructorParameter[] constructorParameters = null;
 
         private AIStateActionTask task = null;
