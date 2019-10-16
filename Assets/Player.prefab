@@ -1524,6 +1524,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1254943372370487610}
     m_Modifications:
+    - target: {fileID: 632997521405435475, guid: 4734d940928993348a6ddf685105510f,
+        type: 3}
+      propertyPath: m_Name
+      value: PlayerCharacterStats
+      objectReference: {fileID: 0}
     - target: {fileID: 632997521405435472, guid: 4734d940928993348a6ddf685105510f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1579,45 +1584,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 632997521405435475, guid: 4734d940928993348a6ddf685105510f,
-        type: 3}
-      propertyPath: m_Name
-      value: PlayerCharacterStats
-      objectReference: {fileID: 0}
     - target: {fileID: 2438666450978563644, guid: 4734d940928993348a6ddf685105510f,
         type: 3}
       propertyPath: m_Name
       value: 'Health is : 100'
-      objectReference: {fileID: 0}
-    - target: {fileID: 6265115886840268486, guid: 4734d940928993348a6ddf685105510f,
-        type: 3}
-      propertyPath: _onStatRecalculatedCallback.m_PersistentCalls.m_Calls.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6265115886840268486, guid: 4734d940928993348a6ddf685105510f,
-        type: 3}
-      propertyPath: _onStatRecalculatedCallback.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6265115886840268486, guid: 4734d940928993348a6ddf685105510f,
-        type: 3}
-      propertyPath: _onStatRecalculatedCallback.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6265115886840268486, guid: 4734d940928993348a6ddf685105510f,
-        type: 3}
-      propertyPath: _onStatRecalculatedCallback.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 1254943373173144508}
-    - target: {fileID: 6265115886840268486, guid: 4734d940928993348a6ddf685105510f,
-        type: 3}
-      propertyPath: _onStatRecalculatedCallback.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: SetSpeed
-      objectReference: {fileID: 0}
-    - target: {fileID: 6265115886840268486, guid: 4734d940928993348a6ddf685105510f,
-        type: 3}
-      propertyPath: _onStatRecalculatedCallback.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 2782523000692839171, guid: 4734d940928993348a6ddf685105510f,
         type: 3}
@@ -1647,6 +1617,36 @@ PrefabInstance:
     - target: {fileID: 2782523000692839171, guid: 4734d940928993348a6ddf685105510f,
         type: 3}
       propertyPath: OnStatRecalculated.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6265115886840268486, guid: 4734d940928993348a6ddf685105510f,
+        type: 3}
+      propertyPath: _onStatRecalculatedCallback.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6265115886840268486, guid: 4734d940928993348a6ddf685105510f,
+        type: 3}
+      propertyPath: _onStatRecalculatedCallback.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6265115886840268486, guid: 4734d940928993348a6ddf685105510f,
+        type: 3}
+      propertyPath: _onStatRecalculatedCallback.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6265115886840268486, guid: 4734d940928993348a6ddf685105510f,
+        type: 3}
+      propertyPath: _onStatRecalculatedCallback.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1254943373173144508}
+    - target: {fileID: 6265115886840268486, guid: 4734d940928993348a6ddf685105510f,
+        type: 3}
+      propertyPath: _onStatRecalculatedCallback.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetSpeed
+      objectReference: {fileID: 0}
+    - target: {fileID: 6265115886840268486, guid: 4734d940928993348a6ddf685105510f,
+        type: 3}
+      propertyPath: _onStatRecalculatedCallback.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
