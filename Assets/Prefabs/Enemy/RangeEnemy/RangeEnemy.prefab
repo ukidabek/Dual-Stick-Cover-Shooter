@@ -457,11 +457,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 639113084498395963}
     m_Modifications:
-    - target: {fileID: 632997521405435475, guid: 4734d940928993348a6ddf685105510f,
-        type: 3}
-      propertyPath: m_Name
-      value: CharacterStats
-      objectReference: {fileID: 0}
     - target: {fileID: 632997521405435472, guid: 4734d940928993348a6ddf685105510f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -516,6 +511,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 632997521405435475, guid: 4734d940928993348a6ddf685105510f,
+        type: 3}
+      propertyPath: m_Name
+      value: CharacterStats
       objectReference: {fileID: 0}
     - target: {fileID: 2870961392946804482, guid: 4734d940928993348a6ddf685105510f,
         type: 3}
@@ -579,11 +579,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1095647739}
     m_Modifications:
-    - target: {fileID: 1382026585149315933, guid: fcdac13e028886745a29a0eca6a6b8e4,
-        type: 3}
-      propertyPath: m_Name
-      value: RangeEnemyWeapon
-      objectReference: {fileID: 0}
     - target: {fileID: 7690486590941872382, guid: fcdac13e028886745a29a0eca6a6b8e4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -638,6 +633,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1382026585149315933, guid: fcdac13e028886745a29a0eca6a6b8e4,
+        type: 3}
+      propertyPath: m_Name
+      value: RangeEnemyWeapon
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fcdac13e028886745a29a0eca6a6b8e4, type: 3}
