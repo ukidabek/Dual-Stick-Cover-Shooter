@@ -4,3 +4,6 @@
 [submodule "Assets/Scripts/Utilities"]
 	path = Assets/Scripts/Utilities
 	url = https://github.com/ukidabek/Utilities.git
+[submodule "Assets/Scripts/Mechanic"]
+	path = Assets/Scripts/Mechanic
+	url = https://github.com/ukidabek/Mechanic.git
