@@ -15,7 +15,10 @@ public class CameraNormalMovement : BaseMechanic
 
     private ICameraTargetPositionProvider TargetPositionProvider = null;
 
-    protected override void Awake()
+	private Vector3 _targetPosition = Vector3.zero;
+	private float _distance;
+
+	protected override void Awake()
     {
         base.Awake();
         TargetPositionProvider = gameObject.GetComponent<ICameraTargetPositionProvider>();
@@ -23,6 +26,12 @@ public class CameraNormalMovement : BaseMechanic
 
     private void LateUpdate()
     {
-        transform.root.position = Vector3.MoveTowards(transform.root.position, TargetPositionProvider.TargetPosition + _offset, _speed * Time.deltaTime);
+		_targetPosition = TargetPositionProvider.TargetPosition + _offset;
+		_distance = Vector2.Distance(transform.root.position, _targetPosition);
+
+		if (_distance > _offset.magnitude)
+			transform.root.position = _targetPosition;
+
+		transform.root.position = Vector3.MoveTowards(transform.root.position, _targetPosition, _speed * Time.deltaTime);
     }
 }
