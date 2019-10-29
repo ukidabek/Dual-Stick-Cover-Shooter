@@ -1226,6 +1226,11 @@ PrefabInstance:
       propertyPath: OnUseCallback.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 5505415474864555251, guid: 6939131786192a14a810b03499583414,
+        type: 3}
+      propertyPath: _useOnce
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6939131786192a14a810b03499583414, type: 3}
 --- !u!1 &994537866
@@ -1239,12 +1244,12 @@ GameObject:
   - component: {fileID: 994537868}
   - component: {fileID: 994537867}
   m_Layer: 0
-  m_Name: EncounterDirector (1)
+  m_Name: EncounterDirector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &994537867
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8639,8 +8644,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   actActor:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 2190895596345979168, guid: 5c0dce713b13b13428186272bde0eae2, type: 3}
+  - {fileID: 2190895596345979168, guid: 5c0dce713b13b13428186272bde0eae2, type: 3}
 --- !u!4 &1819102890
 Transform:
   m_ObjectHideFlags: 0
