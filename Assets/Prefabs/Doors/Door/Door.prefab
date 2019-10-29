@@ -68,13 +68,9 @@ MonoBehaviour:
   OnOpenStatusChange:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: Interactions.OnStatusChange, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
   OnLockStatusChange:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: Interactions.OnStatusChange, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
   OnLock:
     m_PersistentCalls:
       m_Calls:
@@ -100,8 +96,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
   OnUnlock:
     m_PersistentCalls:
       m_Calls:
@@ -127,8 +121,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
   OnOpen:
     m_PersistentCalls:
       m_Calls:
@@ -143,8 +135,6 @@ MonoBehaviour:
           m_StringArgument: Open
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
   OnClose:
     m_PersistentCalls:
       m_Calls:
@@ -159,8 +149,6 @@ MonoBehaviour:
           m_StringArgument: Close
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!95 &1226539953
 Animator:
   serializedVersion: 3
@@ -206,11 +194,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: OnCollider, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   OnGameObjectCallback:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: OnGameObject, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!114 &1226539951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,11 +223,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: OnCollider, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   OnGameObjectCallback:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: OnGameObject, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!1 &7833397331710519024
 GameObject:
   m_ObjectHideFlags: 0
@@ -392,7 +376,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c22777d6e868e4f2fb421913386b154e, type: 2}
+  - {fileID: 2100000, guid: e6b573ca2a3bf934a8f3050d15d555fe, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
