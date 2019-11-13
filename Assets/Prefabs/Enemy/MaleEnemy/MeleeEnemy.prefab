@@ -457,11 +457,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 360198338604914148}
     m_Modifications:
-    - target: {fileID: 632997521405435475, guid: 4734d940928993348a6ddf685105510f,
-        type: 3}
-      propertyPath: m_Name
-      value: CharacterStats
-      objectReference: {fileID: 0}
     - target: {fileID: 632997521405435472, guid: 4734d940928993348a6ddf685105510f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -517,60 +512,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2870961392946804482, guid: 4734d940928993348a6ddf685105510f,
-        type: 3}
-      propertyPath: onStatEmptyCallback.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2870961392946804482, guid: 4734d940928993348a6ddf685105510f,
-        type: 3}
-      propertyPath: onStatEmptyCallback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1138368813784269564}
-    - target: {fileID: 2870961392946804482, guid: 4734d940928993348a6ddf685105510f,
-        type: 3}
-      propertyPath: onStatEmptyCallback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetActive
-      objectReference: {fileID: 0}
-    - target: {fileID: 2870961392946804482, guid: 4734d940928993348a6ddf685105510f,
-        type: 3}
-      propertyPath: onStatEmptyCallback.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2870961392946804482, guid: 4734d940928993348a6ddf685105510f,
-        type: 3}
-      propertyPath: onStatEmptyCallback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 2870961392946804482, guid: 4734d940928993348a6ddf685105510f,
-        type: 3}
-      propertyPath: onStatEmptyCallback.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 414446600729394317, guid: 4734d940928993348a6ddf685105510f,
+    - target: {fileID: 632997521405435475, guid: 4734d940928993348a6ddf685105510f,
         type: 3}
       propertyPath: m_Name
-      value: 'CurrentHealth is : 0/30,00'
-      objectReference: {fileID: 0}
-    - target: {fileID: 2075502797502697759, guid: 4734d940928993348a6ddf685105510f,
-        type: 3}
-      propertyPath: baseValue
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 2075502797502697759, guid: 4734d940928993348a6ddf685105510f,
-        type: 3}
-      propertyPath: type._name
-      value: Health
+      value: CharacterStats
       objectReference: {fileID: 0}
     - target: {fileID: 2438666450978563644, guid: 4734d940928993348a6ddf685105510f,
         type: 3}
       propertyPath: m_Name
       value: 'Health is : 30'
-      objectReference: {fileID: 0}
-    - target: {fileID: 8382811558404900748, guid: 4734d940928993348a6ddf685105510f,
-        type: 3}
-      propertyPath: m_Name
-      value: 'Speed is : 0,6'
       objectReference: {fileID: 0}
     - target: {fileID: 6265115886840268486, guid: 4734d940928993348a6ddf685105510f,
         type: 3}
@@ -606,6 +556,56 @@ PrefabInstance:
         type: 3}
       propertyPath: type._name
       value: Speed
+      objectReference: {fileID: 0}
+    - target: {fileID: 2870961392946804482, guid: 4734d940928993348a6ddf685105510f,
+        type: 3}
+      propertyPath: onStatEmptyCallback.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2870961392946804482, guid: 4734d940928993348a6ddf685105510f,
+        type: 3}
+      propertyPath: onStatEmptyCallback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1138368813784269564}
+    - target: {fileID: 2870961392946804482, guid: 4734d940928993348a6ddf685105510f,
+        type: 3}
+      propertyPath: onStatEmptyCallback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 2870961392946804482, guid: 4734d940928993348a6ddf685105510f,
+        type: 3}
+      propertyPath: onStatEmptyCallback.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2870961392946804482, guid: 4734d940928993348a6ddf685105510f,
+        type: 3}
+      propertyPath: onStatEmptyCallback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2870961392946804482, guid: 4734d940928993348a6ddf685105510f,
+        type: 3}
+      propertyPath: onStatEmptyCallback.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8382811558404900748, guid: 4734d940928993348a6ddf685105510f,
+        type: 3}
+      propertyPath: m_Name
+      value: 'Speed is : 0,6'
+      objectReference: {fileID: 0}
+    - target: {fileID: 414446600729394317, guid: 4734d940928993348a6ddf685105510f,
+        type: 3}
+      propertyPath: m_Name
+      value: 'CurrentHealth is : 0/30,00'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2075502797502697759, guid: 4734d940928993348a6ddf685105510f,
+        type: 3}
+      propertyPath: baseValue
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2075502797502697759, guid: 4734d940928993348a6ddf685105510f,
+        type: 3}
+      propertyPath: type._name
+      value: Health
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 102916477, guid: 4734d940928993348a6ddf685105510f, type: 3}
