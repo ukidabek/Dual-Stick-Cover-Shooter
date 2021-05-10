@@ -29,7 +29,8 @@ namespace Player.Movement
                 _rigidbody.rotation = rotationSnap.GetRotation(_rigidbody.rotation, _targetRotation);
             }
 
-            _rigidbody.velocity = _rigidbody.transform.forward * Mathf.Abs(transform.InverseTransformDirection(_input).z) * _speed;
+            var gravityVector = Vector3.up * _rigidbody.velocity.y;
+            _rigidbody.velocity = gravityVector + _rigidbody.transform.forward * (Mathf.Abs(transform.InverseTransformDirection(_input).z) * _speed);
         }
 
         private void OnDrawGizmos()
@@ -40,6 +41,5 @@ namespace Player.Movement
             Gizmos.color = Color.red;
             Gizmos.DrawRay(_rigidbody.position, _rigidbody.transform.forward * .5f);
         }
-
     }
 }

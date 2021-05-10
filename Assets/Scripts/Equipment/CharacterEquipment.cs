@@ -1,11 +1,9 @@
-﻿using System.Collections;
-using UnityEngine;
-using Weapons;
+﻿using UnityEngine;
 
 public class CharacterEquipment : MonoBehaviour
 {
     private IWeaponEquipment _weaponEquipment = null;
-    public IWeaponEquipment WeaponEquipment { get => _weaponEquipment; }
+    public IWeaponEquipment WeaponEquipment => _weaponEquipment;
 
     private void Awake()
     {

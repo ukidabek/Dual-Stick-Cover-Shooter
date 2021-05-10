@@ -1,31 +1,29 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using Weapons;
 
-[Serializable] public class OnMagazinecounterChangeEvent : UnityEvent<int> { }
+[Serializable] public class OnMagazineCounterChangeEvent : UnityEvent<int> { }
 
 public class MagazineAction : WeaponAction, IMagazine
 {
     [SerializeField] private int _maxSize = 7;
-    public int MaxSize { get => _maxSize; }
+    public int MaxSize => _maxSize;
 
     [SerializeField] private int _counter = 0;
-    public int Counter { get => _counter; }
+    public int Counter => _counter;
 
     public UnityEvent OnEmptyCallback = new UnityEvent();
-    public OnMagazinecounterChangeEvent OnMagazineCounterChangeCallback = new OnMagazinecounterChangeEvent();
+    public OnMagazineCounterChangeEvent OnMagazineCounterChangeCallback = new OnMagazineCounterChangeEvent();
 
     public event Action OnEmpty;
     public event Action<int> OnChange;
 
     private void Awake()
     {
-        _counter = _maxSize;
         OnEmptyCallback.AddListener(() => OnEmpty?.Invoke());
         OnMagazineCounterChangeCallback.AddListener((int counter) => OnChange?.Invoke(counter));
+        OnMagazineCounterChangeCallback.Invoke(_counter = _maxSize);
     }
 
     public override void Perform(GameObject user, GameObject target)

@@ -1,9 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using Utilities;
+﻿using UnityEngine;
+using Utilities.General;
 using Weapons;
-
 
 public class SpawnProjectileWeaponAction : WeaponAction, IStatGetter
 {
@@ -31,10 +28,5 @@ public class SpawnProjectileWeaponAction : WeaponAction, IStatGetter
     public void Set(Weapons.Statistics statistics)
     {
         this.statistics = statistics;
-    }
-
-    private void OnDestroy()
-    {
-        pool.Clear();
     }
 }

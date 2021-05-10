@@ -1,52 +1,34 @@
-﻿using System;
-using Mechanic.BaseClasses;
-using Player;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Weapons
 {
     public class WeaponController : MonoBehaviour
     {
-        [SerializeField] private Weapon _weapon = null;
-        public Weapon Weapon { get => _weapon; }
-        
-        [SerializeField] private WeaponCholder _weaponCholder = null;
+        [SerializeField] private WeaponValueReference _weapon;
+        // [SerializeField] private Weapon _weapon = null;
+        public Weapon Weapon => _weapon;
 
-        public void GoToPreviusMode()
-        {
-            _weapon?.PreviusMode();
-        }
+        [SerializeField] private WeaponCholder _weaponHolder = null;
 
-        public void GoToNextMode()
-        {
-            _weapon?.NextMode();
-        }
+        public void GoToPreviousMode() => _weapon?.Value?.PreviusMode();
+
+        public void GoToNextMode() => _weapon?.Value?.NextMode();
 
         public void Equip(Weapon weapon)
         {
-            if (_weapon != null) _weapon.gameObject.SetActive(false);
-            if (weapon != null)
-            {
-                _weapon = weapon;
-                if (!_weapon.gameObject.activeSelf) _weapon.gameObject.SetActive(true);
-                _weapon.transform.SetParent(_weaponCholder.transform, false);
-                _weapon.OnEquip(transform.root.gameObject);
-            }
+            if (_weapon != null && _weapon.Value != null) _weapon.Value.gameObject.SetActive(false);
+            if (weapon == null) return;
+
+            _weapon.Value = weapon;
+            if (!_weapon.Value.gameObject.activeSelf) _weapon.Value.gameObject.SetActive(true);
+            _weapon.Value.transform.SetParent(_weaponHolder.transform, false);
+            _weapon.Value.OnEquip(transform.root.gameObject);
         }
 
-        public void BeginUse()
-        {
-            _weapon?.BeginUse();
-        }
+        public void BeginUse() => _weapon?.Value?.BeginUse();
 
-        public void EndUse()
-        {
-            _weapon?.EndUse();
-        }
+        public void EndUse() => _weapon?.Value?.EndUse();
 
-        public void Use(GameObject target = null)
-        {
-            _weapon?.Use(target);
-        }
+        public void Use(GameObject target = null) => _weapon?.Value?.Use(target);
     }
 }

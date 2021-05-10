@@ -1,21 +1,21 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
+
 namespace Statistics
 {
     public class Stats : MonoBehaviour
     {
-        private Dictionary<string, IStat> statsDictionatry = new Dictionary<string, IStat>();
+        private readonly Dictionary<string, IStat> statsDictionary = new Dictionary<string, IStat>();
 
         private void Awake()
         {
             foreach (IStat stat in gameObject.GetComponentsInChildren<IStat>())
-                statsDictionatry.Add(stat.Name, stat);
+                statsDictionary.Add(stat.Name, stat);
         }
 
         public IStat GetStat(string name)
         {
-            if (statsDictionatry.TryGetValue(name, out IStat stat))
+            if (statsDictionary.TryGetValue(name, out IStat stat))
                 return stat;
             else
                 return null;
@@ -24,14 +24,13 @@ namespace Statistics
         public IModifiableStat GetModifiableStat(string name)
         {
             IStat stat = GetStat(name);
-            return (stat != null && stat is IModifiableStat) ? stat as IModifiableStat : null;
+            return stat is IModifiableStat modifiableStat ? modifiableStat : null;
         }
 
         public IDynamicStat GetDynamicStat(string name)
         {
             IStat stat = GetStat(name);
-            return (stat != null && stat is IDynamicStat) ? stat as IDynamicStat : null;
-
+            return stat is IDynamicStat dynamicStat ? dynamicStat : null;
         }
     }
 }

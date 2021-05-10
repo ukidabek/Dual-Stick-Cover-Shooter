@@ -8,20 +8,19 @@ public class AmmunitionStock : MonoBehaviour, IAmmunitionStock
 {
     [SerializeField] private MagazineAction _magazine = null;
     [SerializeField] private int _counter = 0;
-    public int Counter { get => _counter; }
+    public int Counter => _counter;
     [SerializeField] private int _stock = 200;
-    public int MaxSize { get => _stock; }
+    public int MaxSize => _stock;
     [SerializeField] private bool _subscribeToEvents = false;
 
     public event Action OnEmpty;
     public event Action<int> OnChange;
-
-
+    
     private void Awake()
     {
         if (_subscribeToEvents)
             _magazine.OnEmpty += OnEmptyCallback;
-        _counter = _stock;
+        OnChange?.Invoke(_counter = _stock);
     }
 
     public void OnEmptyCallback()

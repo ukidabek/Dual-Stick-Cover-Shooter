@@ -1,13 +1,15 @@
 using UnityEngine;
 using Mechanic.BaseClasses;
 using Player;
+using UnityEngine.Serialization;
 
 namespace Player.Movement
 {
     public class NormalMovementAnimationController : BaseMechanic
     {
         [SerializeField] private Animator _animator = null;
-        [SerializeField] private string _parametraName = "Vertical";
+        [FormerlySerializedAs("_parametraName")] 
+        [SerializeField] private string m_parameterName = "Vertical";
         private int _parametraHash = 0;
         [Space]
         [SerializeField] private Vector3 _input = Vector3.zero;
@@ -16,7 +18,7 @@ namespace Player.Movement
         protected override void Awake()
         {
             base.Awake();
-            _parametraHash = Animator.StringToHash(_parametraName);
+            _parametraHash = Animator.StringToHash(m_parameterName);
         }
 
         private void Update()

@@ -14,13 +14,14 @@ public class CharacterWeaponEquipment : MonoBehaviour, IWeaponEquipment
 
     public event Action<object> OnEquipCallback = null;
 
-    public object CurrentWeapon { get { return weapons[_selectedWeaponIndex]; } }
+    public object CurrentWeapon => weapons[_selectedWeaponIndex];
 
     private void Start()
     {
         foreach (var _weapon in weaponsPrefabs)
         {
             var currentWeapon = Instantiate(_weapon);
+            currentWeapon.transform.position = Vector3.zero;
             currentWeapon.gameObject.SetActive(false);
             weapons.Add(currentWeapon);
         }
@@ -39,9 +40,8 @@ public class CharacterWeaponEquipment : MonoBehaviour, IWeaponEquipment
 
     public void Equip(object equipmentPiece)
     {
-        if (equipmentPiece != null && equipmentPiece is Weapon)
+        if (equipmentPiece != null && equipmentPiece is Weapon weapon)
         {
-            Weapon weapon = equipmentPiece as Weapon;
             _weaponController.Equip(weapon);
             OnEquipCallback?.Invoke(weapon);
         }

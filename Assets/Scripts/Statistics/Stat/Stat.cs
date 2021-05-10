@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using UnityEngine;
@@ -34,7 +33,7 @@ namespace Statistics
         private void Awake()
         {
 #if UNITY_EDITOR
-            gameObject.name = string.Format("{0} is : {1}", Name, Value);
+            gameObject.name = $"{Name} is : {Value}";
 #endif
         }
 
@@ -50,7 +49,8 @@ namespace Statistics
             CalculateValue();
 
 #if UNITY_EDITOR
-            string log = string.Format("Stat modifier type of {0} modified by {1}{2}", modifier.Mode.ToString(), "", modifier.Value, modifier, modifier.Mode == StatModifier.ModifierMode.Percent ? "%" : "");
+            var modyfierType = modifier.Mode == StatModifier.ModifierMode.Percent ? "%" : "";
+            var log = $"Stat modifier type of {modifier.Mode.ToString()} modified by {modifier.Value}{modyfierType}";
             Debug.Log(log, this);
 #endif
         }
@@ -68,7 +68,7 @@ namespace Statistics
                         Value += item.Value;
                         break;
                     case StatModifier.ModifierMode.Percent:
-                        Value *= (1 + item.Value);
+                        Value *= 1 + item.Value;
                         break;
                     case StatModifier.ModifierMode.Stack:
                         stack += item.Value;
@@ -79,7 +79,7 @@ namespace Statistics
             Value = (float)Math.Round(Value, 4);
             OnStatRecalculatedCallback.Invoke(this);
 #if UNITY_EDITOR
-            gameObject.name = string.Format("{0} is : {1}", Name, Value);
+            gameObject.name = $"{Name} is : {Value}";
 #endif
         }
 
@@ -101,7 +101,7 @@ namespace Statistics
 
         private void OnValidate()
         {
-            gameObject.name = string.Format("{0} is : {1}", Name, Value);
+            gameObject.name = $"{Name} is : {Value}";
         }
     }
 }
